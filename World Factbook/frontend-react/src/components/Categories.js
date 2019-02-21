@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-// import Navbar from '../components/Navbar';
+import {Link} from "react-router-dom";
+import '../css/CardStyle.css';
+
 
 class Categories extends Component {
 
@@ -10,34 +12,48 @@ class Categories extends Component {
     render() {
 
         console.log("state in Render : ", this.state);
-        // const styleForLiA = {
-        //     float: "right",
-        //     display: "block",
-        //     color: "#000",
-        //     textAlign: "center",
-        //     padding: "10px 15px",
-        //     textDecoration: "none",
-        // };
-        // const styleForButton = {
-        //     float: 'right',
-        //     height: "50px",
-        //     marginRight: '19%'
-        // };
-        // const styleForApplyFilter = {
-        //     float:'right',
-        //     marginRight : '12px',
-        //     height: '50px'
-        // };
-        // const genreStyle = {float: 'left', marginRight: '25px'};
-        // const MPAAStyle = {
-        //     paddingTop: '10px',
-        //     paddingBottom: '10px',
-        //     marginRight: '10px'
-        // };
 
         return(
             <div>
-                <h1>Hello World</h1>
+                <div className="container small">
+                    <h1>Categories</h1>
+                    <br/>
+                    <div className="card text-white bg-dark mb-3">
+                        <div className="card-body">
+                            <h4 className="card-title">People and Society</h4>
+                            <Link to={`/population`} >
+                                <span>Population</span></Link>
+                            <link />
+                        </div>
+                    </div>
+                    <div className="card text-white bg-dark mb-3">
+                        <div className="card-body">
+                            <h4 className="card-title">Geography</h4>
+                            <Link to={`/area`} >
+                                <span>Area</span></Link>
+                        </div>
+                    </div>
+                    <div className="card text-white bg-dark mb-3">
+                        <div className="card-body">
+                            <h4 className="card-title">Economy</h4>
+                        </div>
+                    </div>
+                    <div className="card text-white bg-dark mb-3">
+                        <div className="card-body">
+                            <h4 className="card-title">Energy</h4>
+                        </div>
+                    </div>
+                    <div className="card text-white bg-dark mb-3">
+                        <div className="card-body">
+                            <h4 className="card-title">Transportation</h4>
+                        </div>
+                    </div>
+                    <div className="card text-white bg-dark mb-3">
+                        <div className="card-body">
+                            <h4 className="card-title">Communications</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
 
