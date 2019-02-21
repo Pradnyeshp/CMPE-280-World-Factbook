@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var read_area_file = require('./read_area_file');
+var countrydetails = require('./country_specific_details');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+/* GET area response page. */
+router.get('/area', read_area_file.getArea);
+
+router.get('/getcountry/:country', countrydetails.getCountryDetails);
 
 module.exports = router;
