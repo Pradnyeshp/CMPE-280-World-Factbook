@@ -1,16 +1,7 @@
 import React, {Component} from 'react';
 // import Navbar from '../components/Navbar';
-import '../css/filter.css';
-import axios from 'axios';
-import Navbar from "./Navbar";
-import {Link} from "react-router-dom";
-import '../App.css';
-import {api} from '../store/actions';
-import Pagination from './Pagination';
-import {DeleteMovieFunc} from '../store/actions';
-import {connect} from 'react-redux';
 
-class Filter extends Component {
+class Categories extends Component {
 
     constructor() {
         super();
