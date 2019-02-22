@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Label, Legend} from 'recharts';
-import Piechart from 'react-minimal-pie-chart';
+import '../css/countrydetails.css';
 
 class CountryDetails extends Component {
     constructor(props) {
@@ -36,76 +36,92 @@ class CountryDetails extends Component {
 
 
     render() {
-        
+ 
         return (
             <div className="CountryDetails"> 
-                <Navbar/>
-                <h1>
-                    {this.state.country}
-                </h1>
+            <Navbar/>
+            <div className="container">
 
-                <h3>
-                    Introduction:
-                </h3>
-                <p>
-                    {this.state.introduction}
-                </p>
-
-                <h3>
-                    Population:
-                </h3>
-                <p>
-                    {this.state.population}
-                </p>
+                <div className="details">
+                    <h1>
+                        {this.state.country}
+                    </h1>
+                </div>
                 
-                <h3>
-                    Climate:
-                </h3>
-                <p>
-                    {this.state.climate}
-                </p>
+                <div className="details">
+                    <h3>
+                        Introduction:
+                    </h3>
+                    <p className="countryDetails">
+                        {this.state.introduction}
+                    </p>
+                </div>
+                
+                <div id="population">
+                    <h3>
+                        Population:
+                    </h3>
+                    <p className="countryDetails">
+                        {this.state.population}
+                    </p>
+                </div>
+                
+                <div id="climate">
+                    <h3>
+                        Climate:
+                    </h3>
+                    <p className="countryDetails">
+                        {this.state.climate}
+                    </p>
 
-                <div>
+                </div>
+
+                <br/>
+                <br/>
+                
+                <div id="graphArea">
                     <h3>
                         Area - (In Sq. Km.)
                     </h3>
-                    <BarChart width={600} height={300} data={this.state.area}
-                                margin={{top: 5, right: 30, left: 100, bottom: 5}}>
+                    <BarChart width={400} height={300} data={this.state.area}
+                                margin={{top: 50, right: 30, left: 20, bottom: 5}}>
                         {/* <CartesianGrid strokeDasharray="3 3"/> */}
                         <XAxis dataKey="type">
-                            <Label value="Geography Type" offset={0} position="bottom" />
+                            {/* <Label value="Geography Type" offset={0} position="bottom" /> */}
                         </XAxis>
                         <YAxis dataKey="area">
-                            <Label value="Area" offset={50} angle={-90} position="outside" />
+                            {/* <Label value="Area" offset={3} angle={-90} position="left"/> */}
                         </YAxis>
                         <Tooltip/>
-                        <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }}/>
+                        <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 1, lineHeight: '20px' }}/>
                         <Bar dataKey="area" fill="#8884d8" />
                     </BarChart>
                 </div>
 
 
-                <div>
+                <div id="graphAgeStructure">
                     <h3>
                         Age Structure
                     </h3>
                     
-                    <BarChart width={800} height={500} data={this.state.age_structure}
+                    <BarChart width={600} height={300} data={this.state.age_structure}
                                 margin={{top: 50, right: 30, left: 20, bottom: 5}}>
                         {/* <CartesianGrid strokeDasharray="3 3"/> */}
                         <XAxis dataKey="range">
-                            <Label value="Age range in the country" offset={0} position="bottom" />
+                            {/* <Label value="Age range in the country" offset={0} position="bottom" /> */}
                         </XAxis>
                         <YAxis dataKey="percentage"> 
-                            <Label value="Percentage of the range" offset={0} angle={-90} position="left" />
+                            {/* <Label value="Percentage of the range" offset={0} angle={-90} position="left" /> */}
                         </YAxis>
                         
                         <Tooltip/>
-                        <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }}/>
+                        <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 1, lineHeight: '20px' }}/>
                         <Bar dataKey="percentage" fill="#8884d8" />
                     </BarChart>
                     
                 </div>
+            </div>
+                
             </div>
         )
     }

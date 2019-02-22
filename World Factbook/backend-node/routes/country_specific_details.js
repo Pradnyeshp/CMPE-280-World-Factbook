@@ -104,21 +104,21 @@ getRequiredFormattedDateFromResponse = (response) => {
         //Adding Age Structure
         let tempAgeStructureArray = [];
         tempString = parseInt(data["People and Society"]["Age structure"]["0-14 years"].text.split('%')[0]);
-        tempAgeStructureArray.push({"range": "0-14 years", "percentage":tempString})
+        tempAgeStructureArray.push({"range": "0-14", "percentage":tempString})
 
         tempString = parseInt(data["People and Society"]["Age structure"]["15-24 years"].text.split('%')[0]);
-        tempAgeStructureArray.push({"range": "15-24 years", "percentage":tempString})
+        tempAgeStructureArray.push({"range": "15-24", "percentage":tempString})
 
         tempString = parseInt(data["People and Society"]["Age structure"]["25-54 years"].text.split('%')[0]);
-        tempAgeStructureArray.push({"range": "25-54 years", "percentage":tempString})
+        tempAgeStructureArray.push({"range": "25-54", "percentage":tempString})
 
 
         tempString = parseInt(data["People and Society"]["Age structure"]["55-64 years"].text.split('%')[0])
-        tempAgeStructureArray.push({"range": "55-64 years", "percentage":tempString})
+        tempAgeStructureArray.push({"range": "55-64", "percentage":tempString})
 
 
         tempString = parseInt(data["People and Society"]["Age structure"]["65 years and over"].text.split('%')[0]);
-        tempAgeStructureArray.push({"range": "65+ years", "percentage":tempString})
+        tempAgeStructureArray.push({"range": "65+", "percentage":tempString})
         finalObject.age_structure = tempAgeStructureArray;
 
         console.log("Final Object",finalObject);

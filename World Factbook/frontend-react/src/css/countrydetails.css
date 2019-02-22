@@ -1,0 +1,56 @@
+p {
+    text-align: justify;
+}
+
+.details {
+    width: auto;
+    height: auto;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+}
+
+#population {
+    width: 30%;
+    float: left;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+    
+}
+
+#climate {
+    width: 68%;
+    float: right;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 10px;
+    padding: 2%;
+}
+
+#graphArea {
+    width: auto;
+    height: auto;
+    float: left;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 10px;
+    padding: 2%;
+    
+}
+
+#graphAgeStructure {
+    width: auto;
+    height: auto;
+    float: right;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 10px;
+    padding: 2%;
+    
+}
