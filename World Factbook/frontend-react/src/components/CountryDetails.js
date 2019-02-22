@@ -3,6 +3,9 @@ import Navbar from './Navbar';
 import axios from 'axios';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Label, Legend} from 'recharts';
 import '../css/countrydetails.css';
+import swal from 'sweetalert';
+
+
 
 class CountryDetails extends Component {
     constructor(props) {
@@ -23,7 +26,11 @@ class CountryDetails extends Component {
         let url = `http://localhost:3001/getcountry/${this.state.country}`;
         axios.get(url)
         .then((response)=>{
-            console.log();
+            if(response.data.message === 'error') {
+                swal(response.data.data, "sorry please search again", "error");
+                this.props.history.push('/');
+            }
+
             this.setState({
                 introduction: response.data.data.introduction,
                 area: response.data.data.area,
