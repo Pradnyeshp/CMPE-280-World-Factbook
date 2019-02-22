@@ -23,7 +23,6 @@ class Area extends Component {
                     areaData : response.data.data
                 })
             })
-
     }
 
     render() {

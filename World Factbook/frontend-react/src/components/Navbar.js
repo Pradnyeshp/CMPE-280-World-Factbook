@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import axios from 'axios';
+import '../css/graphStyle.css';
 
 class Navbar extends Component {
 
@@ -15,6 +16,7 @@ class Navbar extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+
     handleChange = (e) => {
         e.preventDefault();
         this.setState({
@@ -26,16 +28,20 @@ class Navbar extends Component {
     handleSearch = (e) => {
         e.preventDefault();
         console.log("Search Button Clicked");
-        let data = this.state.searchText;
-        console.log(data);
-        let url = '' ;
-        axios.post(url, data)
-            .then( (response) => {
-                console.log(response.data())
-            })
+        // let data = this.state.searchText;
+        // this.props.history.push('http:localhost:3000/getcountry/'+ data);
+        // console.log(data);
+        // let url = 'http:' ;
+        // axios.post(url, data)
+        //     .then( (response) => {
+        //         console.log(response.data())
+        //     })
     };
 
     render() {
+        const styleNavbar = {
+            color : "white"
+        }
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -52,13 +58,13 @@ class Navbar extends Component {
                             </li>
                         </ul>
                         <form className="form-inline my-lg-6 my-lg-6">
-                            <input className="form-control mr-sm-3 bg-dark" type="search"
+                            <input style={styleNavbar} className="form-control mr-sm-3 bg-dark" type="search"
                                    placeholder="Search by Country" name="searchText"
                                    aria-label="Search" onChange={this.handleChange}/>
-                                <button className="btn btn-outline-success my-2 my-sm-0"
-                                        type="submit" onClick={this.handleSearch}>
+                                <Link className="btn btn-outline-success my-2 my-sm-0"
+                                        to={`/getcountry/${this.state.searchText}`} >
                                     Search
-                                </button>
+                                </Link>
                         </form>
                     </div>
                 </nav>

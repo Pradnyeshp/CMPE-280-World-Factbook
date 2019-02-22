@@ -10,10 +10,8 @@ import swal from 'sweetalert';
 class CountryDetails extends Component {
     constructor(props) {
         super(props);
-        let countryName = this.props.match.params.country;
-        countryName = countryName.toUpperCase();
         this.state = {
-            country: countryName,
+            country: this.props.match.params.country.toUpperCase(),
             introduction: '',
             area: [],
             age_structure:[],
@@ -23,23 +21,40 @@ class CountryDetails extends Component {
     }
 
     componentWillMount() {
-        let url = `http://localhost:3001/getcountry/${this.state.country}`;
-        axios.get(url)
-        .then((response)=>{
-            if(response.data.message === 'error') {
-                swal(response.data.data, "sorry please search again", "error");
-                this.props.history.push('/');
-            }
-
-            this.setState({
-                introduction: response.data.data.introduction,
-                area: response.data.data.area,
-                age_structure: response.data.data.age_structure,
-                climate: response.data.data.climate,
-                population: response.data.data.population
-            })
-        })
+        this.loadCountryDetails( this.state.country );
     }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        // if(nextProps.match.params.country !== this.state.country) {
+        //     this.setState({
+        //         country: nextProps.match.params.country
+        //     })
+        // }
+        this.setState({
+            country : nextProps.match.params.country.toUpperCase()
+        });
+        this.loadCountryDetails(nextProps.match.params.country );
+    }
+
+    loadCountryDetails(country) {
+        let url = `http://localhost:3001/getcountry/${country}`;
+        axios.get(url)
+            .then((response)=>{
+                if(response.data.message === 'error') {
+                    swal(response.data.data, "sorry please search again", "error");
+                    this.props.history.push('/');
+                }
+
+                this.setState({
+                    introduction: response.data.data.introduction,
+                    area: response.data.data.area,
+                    age_structure: response.data.data.age_structure,
+                    climate: response.data.data.climate,
+                    population: response.data.data.population
+                })
+            })
+    }
+
 
 
     render() {
