@@ -1,60 +1,39 @@
 import React, {Component} from 'react';
 import Navbar from "./Navbar";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, BarChart, PieChart, Pie } from 'recharts';
-
+import axios from 'axios';
+import '../css/graphStyle.css'
 
 class Area extends Component {
 
     constructor() {
         super();
+
+        this.state = ({
+            areaData : []
+        })
+    }
+
+    componentWillMount() {
+        let url = 'http://localhost:3001/area';
+        axios.get(url)
+            .then(response=>{
+                console.log(response.data.data);
+                this.setState({
+                    areaData : response.data.data
+                })
+            })
+
     }
 
     render() {
 
-        let data = [
-            {
-                "name": "Page A",
-                "uv": 4000,
-                "pv": 2400,
-                "amt": 2400
-            },
-            {
-                "name": "Page B",
-                "uv": 3000,
-                "pv": 1398,
-                "amt": 2210
-            },
-            {
-                "name": "Page C",
-                "uv": 2000,
-                "pv": 9800,
-                "amt": 2290
-            },
-            {
-                "name": "Page D",
-                "uv": 2780,
-                "pv": 3908,
-                "amt": 2000
-            },
-            {
-                "name": "Page E",
-                "uv": 1890,
-                "pv": 4800,
-                "amt": 2181
-            },
-            {
-                "name": "Page F",
-                "uv": 2390,
-                "pv": 3800,
-                "amt": 2500
-            },
-            {
-                "name": "Page G",
-                "uv": 3490,
-                "pv": 4300,
-                "amt": 2100
-            }
-        ]
+        let data = this.state.areaData;
+        let top10 = [];
+
+        for(let i = 0 ; i < 10 ; i++){
+            top10.push(data[i]);
+        }
 
         const data01 = [
             {
@@ -114,37 +93,26 @@ class Area extends Component {
             <div>
                 <Navbar/>
                 <br/>
-                <br/>
                 <div className="container small">
-                    <h1>Area Page</h1>
+                    <h1 className='graph'>Area Page</h1>
                     <br/>
+                    <h3>Top 10 countries by Area</h3>
                     <br/>
+                    <div className='graph'>
+                        <BarChart width={1050} height={350} data={top10}>
+                            <CartesianGrid strokeDasharray="1 1" />
+                            <XAxis dataKey="country" />
+                            <YAxis dataKey="area"/>
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="area" fill="#8884d8" />
+                        </BarChart>
+                    </div>
                     <br/>
-                    <LineChart width={730} height={250} data={data}
-                               margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-                        {/*<Line type="monotone" dataKey="uv" stroke="#82ca9d" />*/}
-                    </LineChart>
-                    <br/>
-                    <BarChart width={730} height={250} data={data}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="pv" fill="#8884d8" />
-                        <Bar dataKey="uv" fill="#82ca9d" />
-                    </BarChart>
-                    <br/>
-                    <PieChart width={730} height={250}>
-                        <Pie data={data01} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" />
-                        <Pie data={data02} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />
-                    </PieChart>
+                    {/*<PieChart width={730} height={250}>*/}
+                        {/*<Pie data={top10} dataKey="area" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" label/>*/}
+                        {/*/!*<Pie data={top10} dataKey="country" nameKey="country" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />*!/*/}
+                    {/*</PieChart>*/}
                 </div>
 
             </div>
