@@ -20,17 +20,17 @@ class Categories extends Component {
                     <br/>
                     <div className="card text-white bg-dark mb-3">
                         <div className="card-body">
-                            <h4 className="card-title">People and Society</h4>
-                            <Link to={`/population`} >
-                                <span>Population</span></Link>
-                            <link />
+                            <h4 className="card-title">Geography</h4>
+                            <Link to={`/area`} >
+                                <span>Area</span></Link>
                         </div>
                     </div>
                     <div className="card text-white bg-dark mb-3">
                         <div className="card-body">
-                            <h4 className="card-title">Geography</h4>
-                            <Link to={`/area`} >
-                                <span>Area</span></Link>
+                            <h4 className="card-title">People and Society</h4>
+                            {/* <Link to={`/population`} >
+                                <span>Population</span></Link>
+                            <link /> */}
                         </div>
                     </div>
                     <div className="card text-white bg-dark mb-3">
