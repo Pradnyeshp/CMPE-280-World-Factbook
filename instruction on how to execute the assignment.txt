@@ -1,0 +1,44 @@
+Step 1:
+Unzip the folder, then you will find frontend-react and backend-node folders.
+
+Step 2 (To run backend node.js server):
+a. Change your directory to the backend-node folder's directory.
+
+b. Run command: npm install nodemon -g
+
+c. Then run command: npm install
+This will install the required packages from package.json for backend-node.
+
+d. Then run command: nodemon start
+This will start the backend node.js server on port 3001.
+
+Step 3 (To run frontend react.js server):
+a. Change directory to the frontend folder's directory.
+
+b. Run command: npm install
+This will install the required packages from package.json for frontend-react.
+
+c. Now run command: npm start
+This will start the server on your localhost at 3000 port.
+You can check the UI on http://localhost:3000.
+
+
+
+Application Navigation help:
+
+1) You can click on "Let's Go" on home page to explore the further functionality.
+
+2) After clicking "Let's Go" you can see the 'Area' under Geography category, click it to see the top ten countries by area.
+
+3) Other categories are under development.
+
+4) Also you can search for a country by giving input to search field in search box and further clicking on search.
+
+5) You will get the country specific insights for it.
+
+6) You can click on "The World Factbook" to go to home page and "Country List" to view list countries. You can click on country links to visit that country.
+
+7) You can register by clicking on "First Time?".
+
+Hope you find it good.
+
