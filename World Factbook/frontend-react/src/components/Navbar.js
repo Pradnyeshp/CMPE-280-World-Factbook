@@ -45,7 +45,7 @@ class Navbar extends Component {
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <Link className="navbar-brand" to="/">The World Factbook</Link>
+                    <Link className="navbar-brand" to="/Homepage">The World Factbook</Link>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">

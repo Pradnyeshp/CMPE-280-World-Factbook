@@ -1,0 +1,189 @@
+/*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+  font-size: 15px;
+}
+*/
+.classs{
+  background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5)), url('../Images/WP2.jpg') no-repeat top center;
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+}
+ 
+.wrapper{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0 20px;
+}
+ 
+.logo img{
+    float: left;
+    width: 110px;
+    height: auto;
+    padding: 1.5%;
+}
+.contact-form{
+  display: flex;
+  max-width: 550px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.8);
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+ 
+.input-fields{
+  display: flex;
+  flex-direction: column;
+  margin-right: 4%;
+}
+ 
+.input-fields,
+.msg{
+  width: 48%;
+}
+ 
+.input-fields .input,
+.msg textarea{
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #c5ecfd;
+  padding: 10px;
+  color: #c5ecfd;
+  width: 100%;
+}
+ 
+.msg textarea{
+  height: 212px;
+}
+ 
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #c5ecfd;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #c5ecfd;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #c5ecfd;
+}
+ 
+.btn1 {
+    background: #364a50;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+ 
+@media screen and (max-width: 600px){
+  .contact-form{
+    flex-direction: column;
+  }
+  .msg textarea{
+    height: 80px;
+  }
+  .input-fields,
+  .msg{
+    width: 100%;
+  }
+}
+
+.btn1{
+    position: absolute;
+    top: 115%;
+    left: 50%;
+	  transform: translate(-50%, -50%);
+    width: 160px;
+    height: 60px;
+  	border: 5px solid #f9c23c;
+  	padding: 15px;
+  	border-radius: 25px;
+  	cursor: pointer;
+    overflow: hidden;
+}
+
+/* Style the p tag */
+.btn1 p{
+   text-transform: uppercase;
+   text-align: center;
+   color: #fff;
+   font-weight: 600;
+   font-size: 15px;
+   margin-left: 40px;
+   margin-bottom: 50%;
+   transition: all 0.5s ease;
+}
+
+/* Style the first icon with class send */
+.send{
+  position: absolute;
+  top:15px;
+  left: 30px;
+  color: #fff;
+  transition: all 0.5s ease;
+}
+
+/* Style the second icon with class send2 */
+.send2{
+  position: absolute;
+  top:80px;
+  left: 30px;
+  color: #696666;
+  transition: all 0.5s ease;
+}
+
+
+/* Hover effects */
+.btn1:hover{
+  background: #f9c23c;
+  transition: all 0.5s ease;
+}
+
+.btn1:hover p{
+  color: #696666;
+  transition: all 0.5s ease;
+  animation: move 1s linear 1s forwards;
+}
+
+.btn1:hover .send{
+  top: -50px;
+  transition: all 0.5s ease;
+}
+
+.btn1:hover .send2{
+  top: 15px;
+  transition: all 0.5s ease;
+  animation: sending 1s linear 1s forwards;
+}
+
+
+/* CSS3 animation keyframes */
+@keyframes sending{
+  0%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translate(40px, -60px);
+  }
+}
+
+@keyframes move{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-18px);
+  }
+}
