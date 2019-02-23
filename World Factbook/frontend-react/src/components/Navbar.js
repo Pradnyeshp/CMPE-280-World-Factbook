@@ -50,11 +50,11 @@ class Navbar extends Component {
                     <div className="logo">
                         <img style={{ width: "50px" , height: "auto" , marginRight: "15px"}} src={globe}/>
                     </div>
-                    <Link className="navbar-brand" to="/Homepage">The World Factbook</Link>
+                    <Link className="navbar-brand" to="/">The World Factbook</Link>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
-                                <Link className="nav-link" to="/">
+                                <Link className="nav-link" to="/homepage">
                                     Home
                                 </Link>
                             </li>

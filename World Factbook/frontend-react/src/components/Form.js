@@ -17,7 +17,7 @@ export default class Form extends Component {
         e.preventDefault();
         swal("Registered Successfully",'','success')
             .then((response)=>{
-                window.location.href = 'http://localhost:3000/';
+                window.location.href = 'http://localhost:3000/Homepage';
             });
 
 
@@ -32,7 +32,7 @@ export default class Form extends Component {
             </div>
         <div class="wrapper">
             <div className='container small'>
-                <h3>Register for the Updates</h3>
+                <h3 className='registerHeader'>Register for the Updates</h3>
                 <br/>
                 <div className="contact-form">
 

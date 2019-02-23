@@ -52,7 +52,7 @@ class Main extends Component {
 
                 <div class="button1">
                     <a href="../Form" class="btn2">First Time ?</a>
-                    <a href="../" class="btn2">Let's Go</a>
+                    <a href="../Homepage" class="btn2">Let's Go</a>
                 </div>
                 </header>
             </div>

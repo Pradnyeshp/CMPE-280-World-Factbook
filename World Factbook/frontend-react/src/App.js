@@ -13,12 +13,12 @@ class App extends Component {
   render() {
     return (
         <Switch>
-            <Route exact path = '/' component = {Home}/>
+            <Route exact path = '/' component = {HomePage}/>
             <Route exact path = '/population' component = {Population}/>
             <Route exact path = '/area' component = {Area}/>
             <Route path = '/getcountry/:country' component = {CountryDetails} />
             <Route path = '/countrylist' component = {CountryList} />
-            <Route exact path = '/Homepage' component = {HomePage} />
+            <Route exact path = '/Homepage' component = {Home} />
             <Route exact path = '/Form' component = {Form} />
         </Switch>
     );

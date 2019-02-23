@@ -42,7 +42,7 @@ class CountryDetails extends Component {
             .then((response)=>{
                 if(response.data.message === 'error') {
                     swal(response.data.data, "sorry please search again", "error");
-                    this.props.history.push('/');
+                    this.props.history.push('/HomePage');
                 }
 
                 this.setState({
