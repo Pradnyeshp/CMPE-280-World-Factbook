@@ -42,10 +42,10 @@ class CountryList extends Component {
                 <Navbar/>
                 <div className="container">
                     <div className="countryblock">
-                        <h1>
+                        <h1 >
                             Country List
                         </h1>
-                        <table>
+                        <table style={{fontSize: "20px"}}>
                             {topTenCountryListToShow}
                         </table>
                     </div>

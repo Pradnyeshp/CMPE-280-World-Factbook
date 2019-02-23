@@ -20,7 +20,7 @@ class Main extends Component {
                             <img src={globe}/>
                         </div>
                         <ul class="menu">
-                            <li class="active"><a href="#"> Home</a></li>
+                            <li class="menu_item"><a href="#"> Home</a></li>
                             <li class="menu_item"><a href="#"> Things to do</a>
                                 <ul class="submenu">
                                     <li class="submenu_item"><a href="#">Country Features </a></li>
@@ -46,16 +46,16 @@ class Main extends Component {
                 <div class="title">
                     <h1>World FactBook</h1>
                 </div>
+                    <br/>
+                    <br/>
+                    <br/>
 
                 <div class="button1">
-                <a href="../Form" class="btn2">First Time ?</a>
-                <a href="../" class="btn2">Let's Go</a>
+                    <a href="../Form" class="btn2">First Time ?</a>
+                    <a href="../" class="btn2">Let's Go</a>
+                </div>
+                </header>
             </div>
-
-    </header>
-
-            </div>
-
             )
     }
 }

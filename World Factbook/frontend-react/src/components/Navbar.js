@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import axios from 'axios';
 import '../css/graphStyle.css';
+import globe from "../Images/globe.png"
+
 
 class Navbar extends Component {
 
@@ -45,6 +47,9 @@ class Navbar extends Component {
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div className="logo">
+                        <img style={{ width: "50px" , height: "auto" , marginRight: "15px"}} src={globe}/>
+                    </div>
                     <Link className="navbar-brand" to="/Homepage">The World Factbook</Link>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
@@ -54,7 +59,7 @@ class Navbar extends Component {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Link</a>
+                                <a className="nav-link" href="/countrylist">List of Countries</a>
                             </li>
                         </ul>
                         <form className="form-inline my-lg-6 my-lg-6">

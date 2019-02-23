@@ -7,6 +7,13 @@
   font-size: 15px;
 }
 */
+
+h3 {
+    text-align: center;
+    color: white;
+    font-size: 35px;
+}
+
 .classs{
   background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5)), url('../Images/WP2.jpg') no-repeat top center;
   background-size: cover;
@@ -44,13 +51,14 @@
   margin-right: 4%;
 }
  
-.input-fields,
-.msg{
-  width: 48%;
+.input-fields {
+    width: 100%;
+    margin: 5%;
 }
  
 .input-fields .input,
 .msg textarea{
+    font-size: 16px;
   margin: 10px 0;
   background: transparent;
   border: 0px;

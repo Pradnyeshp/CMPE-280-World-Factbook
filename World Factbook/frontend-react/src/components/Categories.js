@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import '../css/CardStyle.css';
+import '../css/graphStyle.css'
 
 
 class Categories extends Component {
@@ -16,12 +17,15 @@ class Categories extends Component {
         return(
             <div>
                 <div className="container small">
-                    <h1>Categories</h1>
+                    <div className=''>
+                        <h1>Categories</h1>
+                    </div>
+
                     <br/>
                     <div className="card text-white bg-dark mb-3">
                         <div className="card-body">
                             <h4 className="card-title">Geography</h4>
-                            <Link to={`/area`} >
+                            <Link to={`/area`} style={{fontSize : "18px"}} >
                                 <span>Area</span></Link>
                         </div>
                     </div>

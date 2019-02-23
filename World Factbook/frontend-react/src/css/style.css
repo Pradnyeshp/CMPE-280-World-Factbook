@@ -27,6 +27,7 @@ ul.menu li.menu_item a{
     padding: 8px 20px;
     border: 1px solid transparent;
     transition: 0.6s ease;
+    border-radius: 15px;
 }
 
 ul.menu li.menu_item a:hover{
@@ -35,8 +36,7 @@ ul.menu li.menu_item a:hover{
 }
 
 ul.menu li.active a{
-    background-color: #fff;
-    color: #000; 
+    color: aqua;
 }
 
 .menu{
