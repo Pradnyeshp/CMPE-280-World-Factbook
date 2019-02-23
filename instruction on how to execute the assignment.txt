@@ -9,11 +9,11 @@ b. Run command: npm install nodemon -g
 c. Then run command: npm install
 This will install the required packages from package.json for backend-node.
 
-d. Then run command: nodemon start
+d. Then run command: nodemon start OR npm start
 This will start the backend node.js server on port 3001.
 
 Step 3 (To run frontend react.js server):
-a. Change directory to the frontend folder's directory.
+a. Change directory to the frontend-react folder's directory.
 
 b. Run command: npm install
 This will install the required packages from package.json for frontend-react.
