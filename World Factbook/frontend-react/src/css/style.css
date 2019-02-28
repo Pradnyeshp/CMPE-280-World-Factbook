@@ -84,6 +84,18 @@ ul.menu li.active a{
     transform: translate(-50%,-50%);
 }
 
+.title1{
+    position: absolute;
+    top: 99%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.title1 h1{
+    color: #fff;
+    font-size: 50px; 
+}
+
 .title h1{
     color: #fff;
     font-size: 70px; 
