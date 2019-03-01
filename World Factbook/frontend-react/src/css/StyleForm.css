@@ -44,6 +44,18 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
+
+.error {
+  background-color: red !important;
+  font-size: 16px;
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #c5ecfd;
+  padding: 10px;
+  color: #c5ecfd;
+  width: 100%;
+}
  
 .input-fields{
   display: flex;
@@ -194,4 +206,28 @@
   100%{
     transform: translateX(-18px);
   }
+}
+
+
+#maleDiv {
+  float: left;
+  margin-left: 5%;
+  width: 70px;
+}
+
+#femaleDiv {
+  float: right;
+  margin-left: 5%;
+  width: 70px;
+}
+
+#genderDiv {
+  font-size: 16px;
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #c5ecfd;
+  padding: 10px;
+  color: #c5ecfd;
+  width: 100%;
 }
