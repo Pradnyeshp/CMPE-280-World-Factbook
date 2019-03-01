@@ -207,27 +207,3 @@
     transform: translateX(-18px);
   }
 }
-
-
-#maleDiv {
-  float: left;
-  margin-left: 5%;
-  width: 70px;
-}
-
-#femaleDiv {
-  float: right;
-  margin-left: 5%;
-  width: 70px;
-}
-
-#genderDiv {
-  font-size: 16px;
-  margin: 10px 0;
-  background: transparent;
-  border: 0px;
-  border-bottom: 2px solid #c5ecfd;
-  padding: 10px;
-  color: #c5ecfd;
-  width: 100%;
-}

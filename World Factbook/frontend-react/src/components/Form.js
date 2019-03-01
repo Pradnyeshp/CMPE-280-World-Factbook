@@ -76,7 +76,7 @@ export default class Form extends Component {
 
     validatePhone(event) {
         event.preventDefault();
-        let regex = /^[1-9][0-9]{9}/;
+        let regex = /^[1-9][0-9]{9}$/;
         let ans = event.target.value.search(regex);
         if(ans >= 0 || event.target.value === "") {
             this.setState({
