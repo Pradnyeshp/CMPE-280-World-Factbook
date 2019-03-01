@@ -94,47 +94,21 @@ export default class Form extends Component {
     validatePhone(event) {
         event.preventDefault();
         let regex = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-        //console.log(event.target.value.search(regex));
-        let ans = event.target.value.search(regex)
-        if(ans==0){
-        this.setState({
-            errorFlag: true,
-            error: "",
-            [event.target.id]: event.target.value
-        })
-        } else {
+        let ans = event.target.value.search(regex);
+        if(ans >= 0 || event.target.value === "") {
+            this.setState({
+                errorFlag: true,
+                error: "",
+                [event.target.id]: event.target.value
+            })   
+        }
+        else {
             this.setState({
                 errorFlag: false,
-                error: "Invalid phone number.",
+                error: "Invalid phone number",
                 [event.target.id]: event.target.value
-            })
+            })  
         }
-        // this.setState({
-        //     errorFlag: false,
-        //     error: "",
-        //     [event.target.id]: event.target.value
-        // })
-        // let ans = event.target.value.search(regex);
-        // if(ans !=0){
-        //     this.setState({
-        //                 errorFlag: true,
-        //                 error: "Invalid phone number."
-        //             })
-        // }
-        // if(ans >= 0 || event.target.value === "") {
-        //     this.setState({
-        //         errorFlag: true,
-        //         error: "",
-        //         [event.target.id]: event.target.value
-        //     })   
-        // }
-        // else {
-        //     this.setState({
-        //         errorFlag: false,
-        //         error: "Invalid phone number",
-        //         [event.target.id]: event.target.value
-        //     })  
-        // }
     }
 
     render() {
