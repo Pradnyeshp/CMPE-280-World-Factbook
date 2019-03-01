@@ -18,6 +18,7 @@ export default class Form extends Component {
         this.handleRegister = this.handleRegister.bind(this);
         this.validateFirstNameAndLastName = this.validateFirstNameAndLastName.bind(this);
         this.validateEmail = this.validateEmail.bind(this);
+        this.validatePhone = this.validatePhone.bind(this);
     }
 
     handleRegister(e) {
@@ -73,6 +74,28 @@ export default class Form extends Component {
         }
     }
 
+    validatePhone(event) {
+        event.preventDefault();
+        let regex = /^[1-9][0-9]{9}/;
+        let ans = event.target.value.search(regex);
+        if(ans >= 0 || event.target.value === "") {
+            this.setState({
+                errorFlag: true,
+                error: "",
+                [event.target.id]: event.target.value
+            })
+            
+        }
+        else {
+            this.setState({
+                errorFlag: false,
+                error: "Sorry! Invalid phone number",
+                [event.target.id]: event.target.value
+            })
+            
+        }
+    }
+
     render() {
 
     return (
@@ -92,20 +115,7 @@ export default class Form extends Component {
                         <input id = "firstname" type="text" className="input" placeholder="First Name" value={this.state.firstname} onChange={this.validateFirstNameAndLastName}/>
                         <input id = "lastname" type="text" className="input" placeholder="Last Name" value={this.state.lastname} onChange={this.validateFirstNameAndLastName}/>
                         <input id = "email" type="text" className="input" placeholder="Email Address" value={this.state.email} onChange={this.validateEmail}/>
-                        
-                        <input type="text" className="input" placeholder="Phone"/>
-                        <div id="maleDiv">
-                            <input id = "male" type="radio"  value="male" /><span> Male</span><br/>
-                        </div>
-
-                        <div id="femaleDiv">
-                            <input id = "female" type="radio"  value="female" /><span> Female</span><br/>
-                        </div>
-
-                        <div id="otherDiv">
-                            <input id = "other" type="radio"  value= "other" /><span> Other</span><br/>
-                        </div>
-                        
+                        <input type="text" className="input" placeholder="Phone Number" value={this.state.phone} onChange={this.validatePhone}/>      
                     </div>
 
                     <div className="msg">
