@@ -95,7 +95,7 @@ export default class Form extends Component {
         event.preventDefault();
         let regex = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
         //console.log(event.target.value.search(regex));
-        const ans = event.target.value.search(regex)
+        let ans = event.target.value.search(regex)
         if(ans==0){
         this.setState({
             errorFlag: true,
@@ -126,16 +126,14 @@ export default class Form extends Component {
         //         errorFlag: true,
         //         error: "",
         //         [event.target.id]: event.target.value
-        //     })
-            
+        //     })   
         // }
         // else {
         //     this.setState({
         //         errorFlag: false,
         //         error: "Invalid phone number",
         //         [event.target.id]: event.target.value
-        //     })
-            
+        //     })  
         // }
     }
 
@@ -158,7 +156,7 @@ export default class Form extends Component {
                         <input id = "firstname" type="text" className="input" placeholder="First Name" value={this.state.firstname} onChange={this.validateFirstNameAndLastName}/>
                         <input id = "lastname" type="text" className="input" placeholder="Last Name" value={this.state.lastname} onChange={this.validateFirstNameAndLastName}/>
                         <input id = "email" type="text" className="input" placeholder="Email Address" value={this.state.email} onChange={this.validateEmail}/>
-                        <input id ="phone" type="text" className="input" placeholder="Phone Number" value={this.state.phone} onChange={this.validatePhone}/>
+                        <input id ="phone" type="tel" className="input" placeholder="Phone Number" value={this.state.phone} onChange={this.validatePhone}/>
                     </div>
 
                     <div className="msg">
