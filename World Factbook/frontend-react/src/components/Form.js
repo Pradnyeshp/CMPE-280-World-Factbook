@@ -12,8 +12,9 @@ export default class Form extends Component {
             errorFlag: true,
             error: "",
             email: "",
-            lastname: ""
-        }
+            lastname: "",
+            phone : ""
+        };
         
         this.handleRegister = this.handleRegister.bind(this);
         this.validateFirstNameAndLastName = this.validateFirstNameAndLastName.bind(this);
@@ -23,10 +24,25 @@ export default class Form extends Component {
 
     handleRegister(e) {
         e.preventDefault();
-        swal("Registered Successfully",'','success')
-            .then((response)=>{
-                window.location.href = 'http://localhost:3000/Homepage';
-            });
+        console.log("Register button clicked");
+        console.log(this.state);
+        console.log('firstname : ', this.state.firstname.length);
+        if(this.state.firstname.length === 0 ||
+            this.state.lastname.length === 0 ||
+            this.state.email.length === 0 ||
+            this.state.phone.length === 0){
+                console.log('atleast 1 condidtion statisfied');
+                this.setState({
+                    errorFlag: false,
+                    error: "Please fill all details",
+            })
+        }
+        else {
+            swal("Registered Successfully",'','success')
+                .then((response)=>{
+                    window.location.href = 'http://localhost:3000/Homepage';
+                });
+        }
 
     }
 
@@ -39,7 +55,7 @@ export default class Form extends Component {
         if(ans >=0) {
             this.setState({
                 errorFlag: false,
-                error: "Sorry!, Digits are not allowed.",
+                error: "Digits are not allowed.",
                 [event.target.id]: event.target.value
             })
             
@@ -67,7 +83,7 @@ export default class Form extends Component {
         else {
             this.setState({
                 errorFlag: false,
-                error: "Sorry! Invalid email address.",
+                error: "Invalid email address.",
                 [event.target.id]: event.target.value
             })
             
@@ -89,7 +105,7 @@ export default class Form extends Component {
         else {
             this.setState({
                 errorFlag: false,
-                error: "Sorry! Invalid phone number",
+                error: "Invalid phone number",
                 [event.target.id]: event.target.value
             })
             
@@ -99,11 +115,11 @@ export default class Form extends Component {
     render() {
 
     return (
-      <div class="classs">
-            <div class="logo"> 
+      <div className="classs">
+            <div className="logo">
                 <img src={globe}/>
             </div>
-        <div class="wrapper">
+        <div className="wrapper">
             <div className='container small'>
                 <h3 className='registerHeader'>Register for the Updates</h3>
                 <br/>
@@ -115,7 +131,7 @@ export default class Form extends Component {
                         <input id = "firstname" type="text" className="input" placeholder="First Name" value={this.state.firstname} onChange={this.validateFirstNameAndLastName}/>
                         <input id = "lastname" type="text" className="input" placeholder="Last Name" value={this.state.lastname} onChange={this.validateFirstNameAndLastName}/>
                         <input id = "email" type="text" className="input" placeholder="Email Address" value={this.state.email} onChange={this.validateEmail}/>
-                        <input type="text" className="input" placeholder="Phone Number" value={this.state.phone} onChange={this.validatePhone}/>      
+                        <input type="text" className="input" placeholder="Phone Number" value={this.state.phone} onChange={this.validatePhone}/>
                     </div>
 
                     <div className="msg">
@@ -123,7 +139,9 @@ export default class Form extends Component {
                         <div className="btn1" onClick={this.handleRegister}>
                             <i className="fa fa-paper-plane-o fa-2x send" aria-hidden="true"></i>
                             <i className="fa fa-paper-plane-o fa-2x send2" aria-hidden="true"></i>
-                            <a href="../Homepage" ><p>Register</p></a>
+                            <button id="registerButton" onClick={this.handleRegister}  >
+                                <p>Register</p>
+                            </button>
                         </div>
                     </div>
                 </div>
