@@ -23,7 +23,7 @@ class Can extends Component {
             
             var CanvasXSize = 1000;
             var CanvasYSize = 2;
-            var speed = 2; // lower is faster
+            var speed = 10; // lower is faster
             var scale = 0.2;
             var y = -1.5; // vertical offset
             
