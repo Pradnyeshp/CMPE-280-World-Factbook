@@ -95,7 +95,7 @@ class Can extends Component {
       <div>
         <div class="title1">
                     <h1>HTML Canvas 5 Animation</h1>
-                    <canvas id="canvas" width="1400" height="200"></canvas>
+                    <canvas id="canvas" width="1400" height="198.5"></canvas>
 
                     {/* <script type = "text/javascript"></script> */}
                 </div>
