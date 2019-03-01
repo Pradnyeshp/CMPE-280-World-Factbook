@@ -1,4 +1,12 @@
 import React, { Component } from 'react'
+import "../css/style.css"
+import Background from '../Images/world-map.png';
+
+// var sectionStyle = {
+//     //width: "100%",
+//     //height: "400px",
+//     backgroundImage: `url(${Background})`
+//   };
 
 class Can extends Component {
   constructor(props){
@@ -10,12 +18,13 @@ class Can extends Component {
 
             // User Variables - customize these to change the image being scrolled, its
             // direction, and the speed.
-            
+            //backgroundImage: `url(${Background})`
             img.src = 'https://www.techwench.com/wp-content/uploads/2012/02/world-map.png';
-            var CanvasXSize = 900;
-            var CanvasYSize = 200;
+            
+            var CanvasXSize = 1500;
+            var CanvasYSize = 2;
             var speed = 10; // lower is faster
-            var scale = 0.3;
+            var scale = 0.2;
             var y = -1.5; // vertical offset
             
             // Main program
@@ -50,8 +59,7 @@ class Can extends Component {
                 }
                 
                 // get canvas context
-                ctx = document.getElementById('canvas').getContext('2d');
-             
+                ctx = document.getElementById('HTMLcanvas').getContext('2d');
                 // set refresh rate
                 return setInterval(draw, speed);
             }
@@ -92,10 +100,14 @@ class Can extends Component {
                 x += dx;
             }
    return (
+    
+    //</section>
       <div>
+         
         <div class="title1">
-                    <h1>HTML Canvas 5 Animation</h1>
-                    <canvas id="canvas" width="1400" height="198.5"></canvas>
+                    {/* <h1>HTML Canvas 5 Animation</h1> */}
+                    <canvas id="HTMLcanvas" width="600" height="100"></canvas>
+                    {/* <section style={ sectionStyle } /> */}
 
                     {/* <script type = "text/javascript"></script> */}
                 </div>

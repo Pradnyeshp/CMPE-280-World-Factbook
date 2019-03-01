@@ -129,20 +129,23 @@ class Main extends Component {
                             </li>
                         </ul>
                     </div>
+                    
+                
+                    <br/>
+                    <br/>
+                    <br/>
+                <div>
+                    <Can />
+                </div>
                 <div class="title">
                     <h1>World FactBook</h1>
                 </div>
-                    <br/>
-                    <br/>
-                    <br/>
-
                 <div class="button1">
                     <a href="../Form" class="btn2">First Time ?</a>
                     <a href="../Homepage" class="btn2">Let's Go</a>
                 </div>
-                <div>
-                    <Can />
-                </div>
+                
+                
                 {/* <div class="title1">
                     <h1>HTML Canvas 5 Animation</h1>
                     <canvas id="canvas" width="1400" height="200"></canvas>

@@ -76,6 +76,21 @@ ul.menu li.active a{
     max-width: 1200px;
     margin: auto;
 }
+.title1{
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#HTMLcanvas{
+    border-radius: 20px;
+
+}
+
+.title1 h1{
+    color: rgb(15, 15, 15);
+    font-size: 30px; 
+}
 
 .title{
     position: absolute;
@@ -84,20 +99,9 @@ ul.menu li.active a{
     transform: translate(-50%,-50%);
 }
 
-.title1{
-    position: absolute;
-    top: 99%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.title1 h1{
-    color: #fff;
-    font-size: 50px; 
-}
 
 .title h1{
-    color: #fff;
+    color: rgb(255, 255, 255);
     font-size: 70px;
     margin-bottom: 4.5rem !important;
 }
@@ -116,7 +120,7 @@ ul.menu li.active a{
     padding: 15px 30px;
     border: 2px solid #fff;
     transition: 0.6s ease-out;
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .btn2:hover{
