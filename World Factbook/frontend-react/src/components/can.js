@@ -21,9 +21,9 @@ class Can extends Component {
             //backgroundImage: `url(${Background})`
             img.src = 'https://www.techwench.com/wp-content/uploads/2012/02/world-map.png';
             
-            var CanvasXSize = 1500;
+            var CanvasXSize = 1000;
             var CanvasYSize = 2;
-            var speed = 10; // lower is faster
+            var speed = 2; // lower is faster
             var scale = 0.2;
             var y = -1.5; // vertical offset
             
