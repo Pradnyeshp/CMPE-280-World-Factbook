@@ -10,9 +10,10 @@ class Navbar extends Component {
     constructor() {
         super();
 
-        this.state = ({
-            searchText : ''
-        });
+        this.state = {
+            searchText : '',
+            searchLinkFlag: false
+        };
 
         this.handleSearch = this.handleSearch.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -44,7 +45,8 @@ class Navbar extends Component {
         const styleNavbar = {
             color : "white"
         };
-        
+        let flag = "none";
+        (this.state.searchText.length !== 0) ? flag = "block" : flag = "none";
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -68,11 +70,14 @@ class Navbar extends Component {
                         <form className="form-inline my-lg-6 my-lg-6">
                             <input style={styleNavbar} className="form-control mr-sm-3 bg-dark" type="search"
                                    placeholder="Search by Country" name="searchText"
-                                   aria-label="Search" onChange={this.handleChange}/>
+                                   aria-label="Search" onChange={this.handleChange} />
+                            <div style={{display: flag}}>
                                 <Link className="btn btn-outline-success my-2 my-sm-0"
-                                        to={`/getcountry/${this.state.searchText}`} >
+                                      to={`/getcountry/${this.state.searchText}`} >
                                     Search
                                 </Link>
+                            </div>
+
                         </form>
                     </div>
                 </nav>

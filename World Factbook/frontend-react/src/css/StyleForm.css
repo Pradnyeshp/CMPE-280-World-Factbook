@@ -8,15 +8,16 @@
 }
 */
 
+/*.msg .btn1 > #registerButton > p :hover {*/
+    /*background-color: #ffc107 !important;*/
+/*}*/
+
 #registerButton {
-    background-color: #314a51;
+    background-color: transparent;
     border: 0;
     padding: 0;
 }
 
-#registerButton :hover{
-    background-color: #ffc107;
-}
 
 .registerHeader {
     text-align: center;

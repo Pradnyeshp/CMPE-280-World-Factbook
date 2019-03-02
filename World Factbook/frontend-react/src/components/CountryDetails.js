@@ -37,22 +37,31 @@ class CountryDetails extends Component {
     }
 
     loadCountryDetails(country) {
-        let url = `http://localhost:3001/getcountry/${country}`;
-        axios.get(url)
-            .then((response)=>{
-                if(response.data.message === 'error') {
-                    swal(response.data.data, "sorry please search again", "error");
-                    this.props.history.push('/HomePage');
-                }
+        console.log("in country details page");
+        console.log("country length : ", country.length );
+        if( country === ""  || country.length === 0 ){
+            swal("Please enter some serach criteria" , "try with different keyword", "error");
+            this.props.history.push('/HomePage');
+        }
+        else {
+            let url = `http://localhost:3001/getcountry/${country}`;
+            axios.get(url)
+                .then((response)=>{
+                    if(response.data.message === 'error') {
+                        swal(response.data.data, "try with different keyword", "error");
+                        this.props.history.push('/HomePage');
+                    }
 
-                this.setState({
-                    introduction: response.data.data.introduction,
-                    area: response.data.data.area,
-                    age_structure: response.data.data.age_structure,
-                    climate: response.data.data.climate,
-                    population: response.data.data.population
+                    this.setState({
+                        introduction: response.data.data.introduction,
+                        area: response.data.data.area,
+                        age_structure: response.data.data.age_structure,
+                        climate: response.data.data.climate,
+                        population: response.data.data.population
+                    })
                 })
-            })
+        }
+
     }
 
 
