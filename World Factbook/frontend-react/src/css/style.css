@@ -111,6 +111,7 @@ ul.menu li.active a{
     top: 60%;
     left: 50%;
     transform: translate(-50%,-50%);
+    margin-top: 60px;
 }
 
 .btn2{

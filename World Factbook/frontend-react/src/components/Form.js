@@ -50,12 +50,12 @@ export default class Form extends Component {
     validateFirstNameAndLastName(event) {
         event.preventDefault();
         //console.log(event.target.value);
-        let regex = /\d/g;
+        let regex = /[^a-zA-Z]/;
         let ans = event.target.value.search(regex);
         if(ans >=0) {
             this.setState({
                 errorFlag: false,
-                error: "Digits are not allowed.",
+                error: "Please enter valid name.",
                 [event.target.id]: event.target.value
             })
             

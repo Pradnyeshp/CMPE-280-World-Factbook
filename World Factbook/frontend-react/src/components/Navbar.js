@@ -43,12 +43,15 @@ class Navbar extends Component {
     render() {
         const styleNavbar = {
             color : "white"
-        }
+        };
+        
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className="logo">
-                        <img style={{ width: "50px" , height: "auto" , marginRight: "15px"}} src={globe}/>
+                        <img style={{ width: "50px" , height: "auto" , marginRight: "15px"}}
+                             src={globe}
+                             alt="globe_image"/>
                     </div>
                     <Link className="navbar-brand" to="/">The World Factbook</Link>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
