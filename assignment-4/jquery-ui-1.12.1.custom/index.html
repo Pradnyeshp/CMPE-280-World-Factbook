@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Example Page</title>
+	<link href="jquery-ui.css" rel="stylesheet">
+	<link href="index.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Welcome to jQuery UI!</h1>
+
+<h1>Let's build your resume:</h1>
+
+
+<div id="objective">
+	<h3>Objective</h3>
+	<button id="btnAddObjective" class="ui-button ui-widget ui-corner-all">Add/Edit Objective</button>
+</div>	
+
+<div id="dialog-form-objective" title="Create Objective">
+	<form>
+		<fieldset>
+		<label for="objective">Enter Objective</label>
+		<input type="text" name="objective" id="input-objective" class="text ui-widget-content ui-corner-all">
+		
+		<!-- Allow form submission with keyboard without duplicating the dialog button -->
+		<input type="submit" tabindex="-1" style="position:absolute; top:-1000px; border-radius: 1em">
+		</fieldset>
+	</form>
+</div>
+
+
+<div id="education">
+	<h3>Education</h3> 
+	<button id="btnAddEducation" class="ui-button ui-widget ui-corner-all">Add/Edit Education</button>
+</div>
+
+<div id="dialog-form" title="Create Education">
+	<form>
+	  <fieldset>
+		<label for="uname">University Name</label>
+		<input type="text" name="uname" id="uname" class="text ui-widget-content ui-corner-all">
+		
+		<label for="degree">Select a Degree</label>
+		<select name="degree" id="degree">
+		  <option disabled selected>Please pick one</option>
+		  <option>M.S.</option>
+		  <option>M.E.</option>
+		  <option>B.S.</option>
+		  <option>B.E.</option>
+		  <option>Other</option>
+		</select>
+
+		<label for="major">Major</label>
+		<input type="text" name="major" id="major" class="text ui-widget-content ui-corner-all">
+
+		<label for="start-date">Start Date</label>
+		<input type="text" name="start-date" id="start-date" class="text ui-widget-content ui-corner-all">
+
+		<label for="end-date">End Date</label>
+		<input type="text" name="end-date" id="end-date" class="text ui-widget-content ui-corner-all">
+
+		
+   
+		<!-- Allow form submission with keyboard without duplicating the dialog button -->
+		<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+	  </fieldset>
+	</form>
+</div>
+
+<div id="technical-skills-main-div-with-accordian">
+	<div id="technical-skills-main-div">
+		<h3>Technical Skills</h3>
+		<!-- <button id="reset" class="ui-button ui-widget ui-corner-all">Reset All Skills</button> -->
+		<div id='div-programming-languages'>
+			<table id="technicalSkillsTablePL">
+
+				<tr>
+					<td id="label-programming-languages">
+						Programming Languages:
+					</td>
+					<td>
+
+						<div id="label-programming-languages-values"></div>
+						
+					</td>
+				</tr>
+			</table>
+				
+		</div>
+
+		<div id='div-cloud-services'>
+			<table id="technicalSkillsTableCS">
+				<tr>
+					<td id="label-cloud-services">
+						Cloud Services:
+					</td>
+					<td id="label-cloud-services-values">
+						
+					</td>
+				</tr>	
+			</table>
+		</div>
+		
+		
+	</div>
+
+	<div id="technical-skills-accordian">
+		<h3>Programming Languages</h3>
+		<div id="programming-languages">
+				<p id="java">Java</p>
+				<p id="js">JavaScript</p>
+				<p id="python">Python</p>
+		</div>
+		<h3>Cloud Services</h3>
+		<div id="cloud-services">
+				<p id="aws">Amazon Web Services</p>
+				<p id="gcp">Google Cloud Providers</p>
+				<p id="azure">Microsoft Azure</p>
+		</div>
+	</div>
+</div>
+
+<div id="submitDiv">
+	<button id="submit" class="ui-button ui-widget ui-corner-all">Submit Details</button>	
+</div>
+
+
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

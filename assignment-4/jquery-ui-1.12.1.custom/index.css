@@ -1,0 +1,115 @@
+body{
+    font-family: "Trebuchet MS", sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+    overflow: visible;
+}
+
+fieldset {
+    border: 0;
+}
+
+label {
+    display: block;
+    margin: 30px 0 0 0;
+}
+
+div {
+    margin-bottom: 10px;
+}
+#dialog-form > form > fieldset > label, input {
+    margin-bottom: 10px;
+}
+
+#dialog-form > form > fieldset > input {
+    font-size: 16px;
+    width: 16em;
+    line-height: 30px;
+}
+
+#dialog-form > form {
+    border: none;
+    margin: 10px;
+}
+
+#dialog-form-objective > form > fieldset > label, input {
+    margin-bottom: 10px;
+}
+
+#dialog-form-objective > form > fieldset > input {
+    font-size: 16px;
+    width: 16em;
+    line-height: 30px;
+}
+
+#dialog-form-objective > form {
+    border: none;
+    margin: 10px;
+}
+
+
+#btnAddEducation, #btnAddObjective {
+    border-radius: 1em;
+}
+
+#education {
+    width: 96em;
+    height: 15em;
+    /* border: 1px solid; */
+    border-radius: 1em;
+    background-color: blanchedalmond;
+    padding: 1em;
+}
+
+#objective {
+    width: 96em;
+    height: 10em;
+    /* border: 1px solid; */
+    border-radius: 1em;
+    background-color: blanchedalmond;
+    padding: 1em;
+}
+
+#technical-skills-main-div {
+    width: 50%;
+    /* border: 1px solid; */
+    border-radius: 1em;
+    background-color: blanchedalmond;
+    padding: 1em;
+    float: left;
+    height: 13em;
+}
+
+#technical-skills-accordian{
+    float: left;
+    margin-left: 10px;
+}
+
+.ui-accordion .ui-accordion-header {
+    border-radius: 1em;
+}
+
+.ui-accordion .ui-accordion-content {
+    border-radius: 1em; 
+}
+
+
+#label-programming-languages-values > p {
+    float: left;
+}
+
+#label-cloud-services-values > p {
+    float: left;
+}
+
+#submit {
+    border-radius: 1em;
+    margin-bottom: 10px;
+    width: 51.5em;
+    height: 4em;
+}
+
+#submitDiv {
+    clear: left;
+}
+
