@@ -16,7 +16,7 @@ class Categories extends Component {
             economy: "We will add links here shortly, Please explore Area in Georgraphy as of now.",
             communications: "We will add links here shortly, Please explore Area in Georgraphy as of now.",
             acceptedDivs: ["geography", "energy", "peopleandsociety", "economy", "transportation", "communications"]
-        }
+        } ;
         this.mouseOver = this.mouseOver.bind(this);
         this.mouseOut = this.mouseOut.bind(this);
     }

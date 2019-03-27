@@ -9,13 +9,16 @@ class Profile extends Component {
     constructor() {
         super();
 
-        this.state = ({
+        this.state = {
             fname : "",
             lname : "",
             phone : "",
             email : "pradnyesh.patil@sjsu.edu",
-            display : true
-        })
+            display : false
+        } ;
+
+        this.handleChange = this.handleChange.bind(this) ;
+        this.handleProfile = this.handleProfile.bind(this) ;
     }
 
     componentWillMount() {
@@ -25,7 +28,7 @@ class Profile extends Component {
     handleChange(e) {
         e.preventDefault() ;
         this.setState({
-            email : [e.target.value]
+            [e.target.name] : e.target.value
         }) ;
         console.log(this.state) ;
         console.log("Email adress entered") ;

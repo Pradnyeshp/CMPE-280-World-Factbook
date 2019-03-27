@@ -43,8 +43,17 @@ class Navbar extends Component {
 
     render() {
         const styleNavbar = {
-            color : "white"
+            color : "white" ,
+            width: "350px" ,
+            marginRight : "15px"
         };
+
+        let styleSearchButton = {
+            display: flag,
+            marginLeft : "10px",
+            marginRight : "10px"
+        };
+
         let flag = "none";
         (this.state.searchText.length !== 0) ? flag = "block" : flag = "none";
         return(
@@ -68,10 +77,14 @@ class Navbar extends Component {
                             </li>
                         </ul>
                         <form className="form-inline my-lg-6 my-lg-6">
-                            <input style={styleNavbar} className="form-control mr-sm-3 bg-dark" type="search"
+                            <input style={styleNavbar} className="form-control bg-dark" type="search"
                                    placeholder="Search by Country" name="searchText"
                                    aria-label="Search" onChange={this.handleChange} />
-                            <div style={{display: flag}}>
+                            <div style={{
+                                display: flag,
+                                marginLeft : "10px",
+                                marginRight : "10px"
+                            }}>
                                 <Link className="btn btn-outline-success my-2 my-sm-0"
                                       to={`/getcountry/${this.state.searchText}`} >
                                     Search

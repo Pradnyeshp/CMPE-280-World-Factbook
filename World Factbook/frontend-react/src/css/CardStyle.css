@@ -5,3 +5,7 @@
     margin-right : 1.1em ;
     height : 12rem ;
 }
+
+#geography, #peopleandsociety, #economy ,#energy, #transportation, #communications{
+    box-shadow: 10px 10px 5px #888888;
+}
