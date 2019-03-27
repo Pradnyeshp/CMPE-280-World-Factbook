@@ -57,13 +57,13 @@ class Navbar extends Component {
                     </div>
                     <Link className="navbar-brand" to="/">The World Factbook</Link>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav mr-auto">
+                        <ul className="navbar-nav mr-auto link2">
                             <li className="nav-item active">
                                 <Link className="nav-link" to="/homepage">
                                     Home
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item link2">
                                 <a className="nav-link" href="/countrylist">List of Countries</a>
                             </li>
                         </ul>
@@ -79,6 +79,20 @@ class Navbar extends Component {
                             </div>
 
                         </form>
+
+                        <div className='profilelink'>
+                            <ul className="navbar-nav mr-auto">
+                                <li className="nav-item active">
+                                    <Link className="nav-link" to="/userprofile">
+                                        Profile
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className='username'>
+                            Welcome, Pradnyesh
+                        </div>
                     </div>
                 </nav>
             </div>

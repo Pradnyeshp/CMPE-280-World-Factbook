@@ -12,3 +12,102 @@
 {
     font-size: 1.25rem;
 }
+
+.username {
+    color: white;
+    padding-left: 10px;
+    font-weight: bolder;
+}
+
+.profilelink{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.link2{
+    padding-left: 5px;
+}
+
+#emaillabel {
+    font-size: 17px;
+}
+
+.profileEmail{
+    margin : 5px;
+}
+
+.userprofile{
+    width: 100%;
+    float: left;
+    margin-right: 1.1em;
+    height: 40rem;
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+}
+
+.userHeading{
+    font-size: 3rem;
+    text-align: center;
+    margin: 15px;
+    position: absolute;
+    top: 320px;
+    color: black;
+    font-weight: bolder;
+    left: 400px;
+}
+
+.coverImage{
+    opacity: 0.55;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 4%;
+}
+
+.profileImage{
+    /*position: absolute;*/
+    /*border: black;*/
+    /*!*top: 210px;*!*/
+    /*color: black;*/
+    /*font-weight: bolder;*/
+    /*!*left: 400px;*!*/
+    /*border-radius: 1.25rem;*/
+    /*background-clip: border-box;*/
+    /*object-fit: contain;*/
+
+    width: 250px;
+    border-radius: 50%;
+    height: 240px;
+    position: absolute;
+    left: 400px;
+    top: 80px;
+}
+
+.profiledetails{
+    width: 60%;
+    height: 100px;
+    position: absolute;
+    left: 240px;
+    top: 450px;
+}
+
+.box1{
+    background: black;
+    opacity: 0.7;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 3%;
+}
+
+.labels{
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+
+}
