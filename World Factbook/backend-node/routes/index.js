@@ -6,6 +6,6 @@ var countrydetails = require('./country_specific_details');
 /* GET area response page. */
 router.get('/area', read_area_file.getArea);
 
-router.get('/getcountry/:country', countrydetails.getCountryDetails);
+router.get('/getcountry/:country', countrydetails.getCountrySpecificDetails);
 
 module.exports = router;

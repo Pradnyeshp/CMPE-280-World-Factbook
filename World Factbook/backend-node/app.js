@@ -4,12 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
 var app = express();
-
+const db = require('./dbs/index.js');
+//const getCountryDetails = require('./dbs/extract-and-load/extractAndLoadCountries.js');
 var cors = app.use(cors(
   {
     origin: 'http://localhost:3000'
@@ -29,6 +28,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+//MongoDB connection
+db.connection.once('connected', ()=>{
+  console.log("Successfully connected to MongoDB");
+
+  //extract and load the database
+  //Please commented this next line as the database is allready populated
+  //getCountryDetails.getCountryDetails();
+
+});
+
+db.connection.once('disconnected', ()=>{
+  console.log("Successfully disconnected from MongoDB");
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
