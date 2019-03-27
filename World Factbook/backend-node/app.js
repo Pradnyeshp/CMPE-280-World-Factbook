@@ -33,7 +33,7 @@ db.connection.once('connected', ()=>{
   console.log("Successfully connected to MongoDB");
 
   //extract and load the database
-  //Please commented this next line as the database is allready populated
+  //Please do not uncomment this next line as the database is already populated, it will insert
   //getCountryDetails.getCountryDetails();
 
 });
