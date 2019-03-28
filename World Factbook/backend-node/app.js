@@ -8,7 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var app = express();
 const db = require('./dbs/index.js');
-//const getCountryDetails = require('./dbs/extract-and-load/extractAndLoadCountries.js');
+//const getCountryDetails = require('./dbs/extract-and-load/countries.js');
+const loadCountryList = require('./dbs/extract-and-load/areas-of-all-countries.js');
 var cors = app.use(cors(
   {
     origin: 'http://localhost:3000'
@@ -29,13 +30,13 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 //MongoDB connection
-db.connection.once('connected', ()=>{
+db.connection.once('open', ()=>{
   console.log("Successfully connected to MongoDB");
 
   //extract and load the database
   //Please do not uncomment this next line as the database is already populated, it will insert
   //getCountryDetails.getCountryDetails();
-
+  //loadCountryList.loadCountryList();
 });
 
 db.connection.once('disconnected', ()=>{

@@ -100,7 +100,7 @@ class Area extends Component {
                     <div className='graph'>
                         <BarChart width={1050} height={350} data={top10}>
                             <CartesianGrid strokeDasharray="1 1" />
-                            <XAxis dataKey="country" />
+                            <XAxis dataKey="countryName" />
                             <YAxis dataKey="area"/>
                             <Tooltip />
                             <Legend />

@@ -29,9 +29,9 @@ class CountryList extends Component {
         let topTenCountryListToShow = null;
         topTenCountryListToShow = this.state.areaData.map((a)=>{
             return (
-                <tr key={a.country}>
+                <tr key={a.countryName}>
                     <td>
-                        <Link to={`/getcountry/${a.country}`}>{a.country}</Link>
+                        <Link to={`/getcountry/${a.countryName}`}>{a.countryName}</Link>
                     </td>
                 </tr>
             )
@@ -46,7 +46,9 @@ class CountryList extends Component {
                             Country List
                         </h1>
                         <table style={{fontSize: "20px"}}>
-                            {topTenCountryListToShow}
+                            <tbody>
+                                {topTenCountryListToShow}
+                            </tbody>
                         </table>
                     </div>
                 </div>
