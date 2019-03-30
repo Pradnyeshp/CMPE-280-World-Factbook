@@ -3,6 +3,7 @@ import "../css/StyleForm.css"
 import globe from "../Images/globe.png"
 import swal from "sweetalert" ;
 import {Link} from "react-router-dom" ;
+import axios from 'axios';
 
 export default class Form extends Component {
 
@@ -35,6 +36,7 @@ export default class Form extends Component {
         this.validateLastName = this.validateLastName.bind(this);
         this.validateEmail = this.validateEmail.bind(this);
         this.validatePhone = this.validatePhone.bind(this);
+        this.postUsers = this.postUsers.bind(this);
     }
 
     handleRegister(e) {
@@ -74,6 +76,7 @@ export default class Form extends Component {
     }
 
 
+
     validateFirstName(event) {
         event.preventDefault();
         //console.log(event.target.value);
@@ -100,6 +103,8 @@ export default class Form extends Component {
             })
         }
     }
+
+
 
     validateLastName(event) {
         event.preventDefault();
@@ -184,6 +189,25 @@ export default class Form extends Component {
         }
     }
 
+    postUsers(){
+        let url = `http://localhost:3001/postUser`;
+        var data = {
+            firstName : this.state.firstname ,
+            lastName : this.state.lastname,
+            emailId : this.state.email,
+            number : this.state.phone
+        }
+
+        console.log(data)
+        axios.post(url, data)
+            .then( (response) => {
+                
+                console.log(response.data())
+            })
+            localStorage.removeItem("Email")
+            localStorage.setItem("Email",data.emailId)
+    }
+    
     render() {
 
     return (
@@ -216,7 +240,7 @@ export default class Form extends Component {
                         <div className="btn1" onClick={this.handleRegister}>
                             <i className="fa fa-paper-plane-o fa-2x send" aria-hidden="true"></i>
                             <i className="fa fa-paper-plane-o fa-2x send2" aria-hidden="true"></i>
-                            <button id="registerButton" to="../HomePage" >
+                            <button id="registerButton" to="../HomePage" onClick={this.postUsers} >
                                 <p>Register</p>
                             </button>
                         </div>

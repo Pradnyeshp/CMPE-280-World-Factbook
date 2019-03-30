@@ -11,6 +11,7 @@ class Navbar extends Component {
         super();
 
         this.state = {
+            firstname: "",
             searchText : '',
             searchLinkFlag: false
         };
@@ -104,7 +105,7 @@ class Navbar extends Component {
                         </div>
 
                         <div className='username'>
-                            Welcome, Pradnyesh
+                            Welcome {this.state.firstname}
                         </div>
                     </div>
                 </nav>

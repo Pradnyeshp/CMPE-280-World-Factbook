@@ -10,6 +10,7 @@ var app = express();
 const db = require('./dbs/index.js');
 //const getCountryDetails = require('./dbs/extract-and-load/countries.js');
 const loadCountryList = require('./dbs/extract-and-load/areas-of-all-countries.js');
+const postUserDetails = require('./dbs/extract-and-load/areas-of-all-countries.js');
 var cors = app.use(cors(
   {
     origin: 'http://localhost:3000'
@@ -37,6 +38,8 @@ db.connection.once('open', ()=>{
   //Please do not uncomment this next line as the database is already populated, it will insert
   //getCountryDetails.getCountryDetails();
   //loadCountryList.loadCountryList();
+
+  //postUserDetails.postUserDetails();
 });
 
 db.connection.once('disconnected', ()=>{
