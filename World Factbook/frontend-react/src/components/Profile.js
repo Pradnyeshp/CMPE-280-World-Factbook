@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import axios from 'axios';
 import '../css/graphStyle.css'
 import Form from './Form';
+import swal from "sweetalert" ;
 
 class Profile extends Component {
 
@@ -24,7 +25,6 @@ class Profile extends Component {
         this.deleteProfile = this.deleteProfile.bind(this) ;
         this.setfname = this.setfname.bind(this);
         this.setlname = this.setlname.bind(this);
-
         this.setphone = this.setphone.bind(this);
 
     }
@@ -65,6 +65,36 @@ class Profile extends Component {
         })
     }
 
+    handleRegister(e) {
+        e.preventDefault();
+        console.log("Update button clicked");
+        //console.log(this.state);
+        // console.log('firstname : ', this.state.fname.length);
+        // if(this.state.fname.length === 0 ||
+        //     this.state.lname.length === 0 ||
+        //     this.state.email.length === 0 ||
+        //     this.state.phone.length === 0){
+        //         console.log('atleast 1 condidtion statisfied');
+        //     //     this.setState({
+        //     //         //errorFlag: true,
+        //     //         //generalErrorFlag: "block",
+        //     //         error: "Fill all valid details",
+        //     // });
+
+        // }
+        // else {
+            // this.setState({
+            //     generalErrorFlag: "none",
+            //     error: "",
+            //     errorFlag: false
+            // });
+            swal("Updated Successfully",'','success')
+                .then((response)=>{
+                    window.location.href = 'http://localhost:3000/userprofile';
+                });
+        //}
+
+    }
     handleChange(e) {
         e.preventDefault() ;
         this.setState({
@@ -192,7 +222,7 @@ class Profile extends Component {
                                         </div>
                                     </div>
                                     
-                                    <div className='anony'>
+                                    <div className='anony' onClick={this.handleRegister}>
                                     <button type="button" className="btn btn-success" onClick={this.editProfile}>
                                         Update
                                     </button>
