@@ -11,6 +11,7 @@ const db = require('./dbs/index.js');
 //const getCountryDetails = require('./dbs/extract-and-load/countries.js');
 const loadCountryList = require('./dbs/extract-and-load/areas-of-all-countries.js');
 const postUserDetails = require('./dbs/extract-and-load/areas-of-all-countries.js');
+const energyData = require('./dbs/extract-and-load/energy-data-collection.js');
 var cors = app.use(cors(
   {
     origin: 'http://localhost:3000'
@@ -40,6 +41,32 @@ db.connection.once('open', ()=>{
   //loadCountryList.loadCountryList();
 
   //postUserDetails.postUserDetails();
+
+
+  // <--- Venkatesh energy data collection starts
+  //Collection for energy data
+
+  //Collecting gross demand data
+  //energyData.getEnergyGrossDemandData();
+
+
+  //Collecting gross production data
+  //energyData.getEnergyProductionData();
+
+  //Collecting electricity consumption by agriculture
+  //energyData.getEnergyConsumptionDataByAgriculture();
+
+  //Collecting electricity consumption by transport
+  //energyData.getEnergyConsumptionDataByTransport();
+
+  //Collecting electricity consumption by manufacturing
+  //energyData.getEnergyConsumptionDataByManufacturing();
+
+  //Collecting total energy consumption
+  //energyData.getTotalEnergyConsumptionData();
+
+  ////Venkatesh energy data collection ends --->
+  
 });
 
 db.connection.once('disconnected', ()=>{
