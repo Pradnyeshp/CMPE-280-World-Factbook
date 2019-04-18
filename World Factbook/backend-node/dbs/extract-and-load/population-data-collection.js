@@ -3,10 +3,10 @@ const fs = require('fs');
 const UNDataCountryModel = require('../model/UNDataCountryModel.js');
 
 getPopulationData = async () => {
-    await processAndSaveToMongoDB('population-prospect', 'population_prospect');
+    await processPopulationAndSaveToMongoDB('population-prospect', 'population_prospect');
 };
 
-processAndSaveToMongoDB = async (filename, objectType) => {
+processPopulationAndSaveToMongoDB = async (filename, objectType) => {
     console.log("Processing filename: ", filename);
     console.log("Processing objectType: ", objectType);
     let map = new Map();
@@ -25,7 +25,7 @@ processAndSaveToMongoDB = async (filename, objectType) => {
             }
         })
         .on('end', ()=>{
-            console.log("Printing the map", map);
+            //console.log("Printing the map", map);
 
             //store to mongodb
             map.forEach( async (value, key) => {

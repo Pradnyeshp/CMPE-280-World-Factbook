@@ -64,10 +64,10 @@ const UNDataCountryModel = require('../model/UNDataCountryModel.js');
 
 //2.Education
 getEducationExpenditure = async () => {
-    await processAndSaveToMongoDB('education-expenditure', 'education_expenditure');
+    await processEducationAndSaveToMongoDB('education-expenditure', 'education_expenditure');
 }
 
-processAndSaveToMongoDB = async (filename, objectType) => {
+processEducationAndSaveToMongoDB = async (filename, objectType) => {
     console.log("Processing filename: ", filename);
     console.log("Processing objectType: ", objectType);
     let map = new Map();

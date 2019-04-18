@@ -58,7 +58,7 @@ getEnergyProductionData = async () => {
         }
     })
     .on('end', ()=>{
-        console.log("Final Energy Gross Production Map:", energyProductionMap);
+        //console.log("Final Energy Gross Production Map:", energyProductionMap);
 
         //store to mongodb
         energyProductionMap.forEach( async (value, key) => {
@@ -100,22 +100,22 @@ getEnergyProductionData = async () => {
 }
 
 getEnergyConsumptionDataByAgriculture = async () => {
-    await processAndSaveToMongoDB('totalelectricity-consumption-by-agriculture', 'energy_consumption_agriculture');
+    await processEnergyAndSaveToMongoDB('totalelectricity-consumption-by-agriculture', 'energy_consumption_agriculture');
 }
 
 getEnergyConsumptionDataByTransport = async () => {
-    await processAndSaveToMongoDB('totalelectricity-consumption-by-transport', 'energy_consumption_transport');
+    await processEnergyAndSaveToMongoDB('totalelectricity-consumption-by-transport', 'energy_consumption_transport');
 }
 
 getEnergyConsumptionDataByManufacturing = async () => {
-    await processAndSaveToMongoDB('totalelectricity-consumption-by-manufacturing', 'energy_consumption_manufacturing');
+    await processEnergyAndSaveToMongoDB('totalelectricity-consumption-by-manufacturing', 'energy_consumption_manufacturing');
 }
 
 getTotalEnergyConsumptionData = async () => {
-    await processAndSaveToMongoDB('totalelectricity-consumption', 'energy_total_consumption');
+    await processEnergyAndSaveToMongoDB('totalelectricity-consumption', 'energy_total_consumption');
 }
 
-processAndSaveToMongoDB = async (filename, objectType) => {
+processEnergyAndSaveToMongoDB = async (filename, objectType) => {
     console.log("Processing filename: ", filename);
     console.log("Processing objectType: ", objectType);
     let map = new Map();
@@ -134,7 +134,7 @@ processAndSaveToMongoDB = async (filename, objectType) => {
         }
     })
     .on('end', ()=>{
-        console.log("Printing the map", map);
+        //console.log("Printing the map", map);
 
         //store to mongodb
         map.forEach( async (value, key) => {

@@ -4,18 +4,18 @@ const UNDataCountryModel = require('../model/UNDataCountryModel.js');
 
 //3.Economy
 getGDP = async () => {
-    await processAndSaveToMongoDB('GDP', 'gdp');
+    await processEconomyAndSaveToMongoDB('GDP', 'gdp');
 }
 
 getPovertyHeadcountRatio = async () => {
-    await processAndSaveToMongoDB('poverty-headcount-ratio', 'poverty_headcount_ratio');
+    await processEconomyAndSaveToMongoDB('poverty-headcount-ratio', 'poverty_headcount_ratio');
 }
 
 getMilitaryExpenditure = async () => {
-    await processAndSaveToMongoDB('military-expenditure', 'military_expenditure');
+    await processEconomyAndSaveToMongoDB('military-expenditure', 'military_expenditure');
 }
 
-processAndSaveToMongoDB = async (filename, objectType) => {
+processEconomyAndSaveToMongoDB = async (filename, objectType) => {
     console.log("Processing filename: ", filename);
     console.log("Processing objectType: ", objectType);
     let map = new Map();
@@ -34,7 +34,7 @@ processAndSaveToMongoDB = async (filename, objectType) => {
         }
     })
     .on('end', ()=>{
-        console.log("Printing the map", map);
+        //console.log("Printing the map", map);
 
         //store to mongodb
         map.forEach( async (value, key) => {
