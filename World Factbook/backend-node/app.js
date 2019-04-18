@@ -13,6 +13,7 @@ const loadCountryList = require('./dbs/extract-and-load/areas-of-all-countries.j
 const postUserDetails = require('./dbs/extract-and-load/areas-of-all-countries.js');
 const energyData = require('./dbs/extract-and-load/energy-data-collection.js');
 const educationData = require('./dbs/extract-and-load/education-data-collection.js');
+const economyData = require('./dbs/extract-and-load/economy-data-collection.js');
 var cors = app.use(cors(
   {
     origin: 'http://localhost:3000'
@@ -46,6 +47,17 @@ db.connection.once('open', ()=>{
   // <--- Abhishek education data collection starts
   //educationData.getEducationExpenditure();
   // <--- Abhishek education data collection ends
+
+  // <--- Abhishek economy data collection starts
+  //Collecting GDP data
+  economyData.getGDP();
+
+  //Collecting Poverty Headcount Ratio data
+  economyData.getPovertyHeadcountRatio();
+
+  //Collecting Military Expenditure data
+  economyData.getMilitaryExpenditure();
+  // <--- Abhishek economy data collection ends
 
   // <--- Venkatesh energy data collection starts
   //Collection for energy data
