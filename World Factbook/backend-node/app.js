@@ -14,6 +14,9 @@ const postUserDetails = require('./dbs/extract-and-load/areas-of-all-countries.j
 const energyData = require('./dbs/extract-and-load/energy-data-collection.js');
 const educationData = require('./dbs/extract-and-load/education-data-collection.js');
 const economyData = require('./dbs/extract-and-load/economy-data-collection.js');
+const populationData = require('./dbs/extract-and-load/population-data-collection.js');
+
+
 var cors = app.use(cors(
   {
     origin: 'http://localhost:3000'
@@ -44,19 +47,23 @@ db.connection.once('open', ()=>{
 
   //postUserDetails.postUserDetails();
 
+  // <--- Pradnyesh population data collection starts
+  // populationData.getPopulationData();
+  // <--- Pradnyesh population data collection ends
+
   // <--- Abhishek education data collection starts
   //educationData.getEducationExpenditure();
   // <--- Abhishek education data collection ends
 
   // <--- Abhishek economy data collection starts
   //Collecting GDP data
-  economyData.getGDP();
+  // economyData.getGDP();
 
   //Collecting Poverty Headcount Ratio data
-  economyData.getPovertyHeadcountRatio();
+  // economyData.getPovertyHeadcountRatio();
 
   //Collecting Military Expenditure data
-  economyData.getMilitaryExpenditure();
+  // economyData.getMilitaryExpenditure();
   // <--- Abhishek economy data collection ends
 
   // <--- Venkatesh energy data collection starts
