@@ -18,13 +18,13 @@ class Dashboard extends Component {
     componentWillMount() {
         let url = `http://localhost:3001/dashboard/${this.state.country}`;
         // let url = 'http://localhost:3001/area';
-        axios.get(url)
-            .then(response=>{
-                console.log(response.data.data);
-                this.setState({
-                    areaData : response.data.data
-                })
-            })
+        // axios.get(url)
+        //     .then(response=>{
+        //         console.log(response.data.data);
+        //         this.setState({
+        //             areaData : response.data.data
+        //         })
+        //     })
 
         // let url = 'http://localhost:3001/population/' + this.state.country ;
         // axios.get(url)
@@ -59,14 +59,6 @@ class Dashboard extends Component {
                             {/*Write graph component here, and pass countryName as props*/}
                             <PopulationGraph country = {this.state.country}/>
                             {/*Basic demo graph below*/}
-                            <BarChart width={500} height={300} data={top10}>
-                                <CartesianGrid strokeDasharray="1 1" />
-                                <XAxis dataKey="countryName" />
-                                <YAxis dataKey="area"/>
-                                <Tooltip />
-                                <Legend />
-                                <Bar dataKey="area" fill="#8884d8" />
-                            </BarChart>
                         </div>
                         <div className= 'col-md-6'>
                             <h3>Energy</h3>

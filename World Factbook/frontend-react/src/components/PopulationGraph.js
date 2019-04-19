@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Navbar from "./Navbar";
 import axios from 'axios';
-import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
+import {Bar, BarChart, CartesianGrid, Line, Legend, Tooltip, XAxis, YAxis, LineChart} from "recharts";
 
 class PopulationGraph extends Component {
 
@@ -14,46 +14,60 @@ class PopulationGraph extends Component {
     }
 
     componentWillMount() {
-        let url = 'http://localhost:3001/population/' + this.state.country ;
+
+        console.log("country props : " , this.props.country) ;
+
+        let url = `http://localhost:3001/population/${this.state.country}` ;
+
         axios.get(url)
             .then(response =>{
-                console.log("Response from server : ", response) ;
+                console.log("Response from server : ", response.data) ;
                 this.setState({
-                    populationArray : response.data
+                    populationArray : response.data.data
                 })
             }
         )
+
     }
 
     render() {
-        
+
+        let populationArray = this.state.populationArray ;
+        populationArray.sort((a,b) => {
+            let year1 = a.yearRange.split('-') ;
+            let year2 = b.yearRange.split('-') ;
+
+            return year1[0] - year2[0] ;
+        });
+
         return(
             <div>
                 {/*<Navbar/>*/}
-                <br/>
-                <div className="container small">
+                <div className="container">
                     {/*<h1 className='graph'>Population Page</h1>*/}
                     {/*<br/>*/}
-                    <h3>Population growth trend</h3>
+                    {/*<h3>Population growth trend</h3>*/}
                     <br/>
                     <div className='graph'>
 
-                        {/*<BarChart width={1050} height={350} data={top10}>*/}
-                        {/*    <CartesianGrid strokeDasharray="1 1" />*/}
-                        {/*    <XAxis dataKey="countryName" />*/}
-                        {/*    <YAxis dataKey="area"/>*/}
-                        {/*    <Tooltip />*/}
-                        {/*    <Legend />*/}
-                        {/*    <Bar dataKey="area" fill="#8884d8" />*/}
-                        {/*</BarChart>*/}
+                        <BarChart width={550} height={250} data={populationArray}>
+                            <CartesianGrid strokeDasharray="1 1" />
+                            <XAxis dataKey="yearRange" />
+                            <YAxis dataKey="value"/>
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="value" fill="#8884d8" />
+                        </BarChart>
+                        {/*<LineChart width={500} height={300} data={populationArray}>*/}
+                        {/*    <XAxis dataKey="value"/>*/}
+                        {/*    <YAxis dataKey="yearRange"/>*/}
+                        {/*    <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>*/}
+                        {/*    <Line type="monotone" dataKey="uv" stroke="#8884d8" />*/}
+                        {/*    <Line type="monotone" dataKey="value" stroke="#82ca9d" />*/}
+                        {/*</LineChart>*/}
                     </div>
                     <br/>
-                    {/*<PieChart width={730} height={250}>*/}
-                    {/*<Pie data={top10} dataKey="area" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" label/>*/}
-                    {/*/!*<Pie data={top10} dataKey="country" nameKey="country" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />*!/*/}
-                    {/*</PieChart>*/}
                 </div>
-
             </div>
         )
     }
