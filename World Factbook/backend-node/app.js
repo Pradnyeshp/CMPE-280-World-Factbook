@@ -49,6 +49,8 @@ db.connection.once('open', ()=>{
 
   // <--- Pradnyesh population data collection starts
   // populationData.getPopulationData();
+
+  // populationData.getPopulationCount() ;
   // <--- Pradnyesh population data collection ends
 
   // <--- Abhishek education data collection starts
