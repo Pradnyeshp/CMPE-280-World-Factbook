@@ -52,7 +52,7 @@ db.connection.once('open', ()=>{
   // <--- Pradnyesh population data collection ends
 
   // <--- Abhishek education data collection starts
-  //educationData.getEducationExpenditure();
+  // educationData.getEducationExpenditure();
   // <--- Abhishek education data collection ends
 
   // <--- Abhishek economy data collection starts
@@ -70,23 +70,23 @@ db.connection.once('open', ()=>{
   //Collection for energy data
 
   //Collecting gross demand data
-  //energyData.getEnergyGrossDemandData();
+  // energyData.getEnergyGrossDemandData();
 
 
   //Collecting gross production data
-  //energyData.getEnergyProductionData();
+  // energyData.getEnergyProductionData();
 
   //Collecting electricity consumption by agriculture
-  //energyData.getEnergyConsumptionDataByAgriculture();
+  // energyData.getEnergyConsumptionDataByAgriculture();
 
   //Collecting electricity consumption by transport
-  //energyData.getEnergyConsumptionDataByTransport();
+  // energyData.getEnergyConsumptionDataByTransport();
 
   //Collecting electricity consumption by manufacturing
-  //energyData.getEnergyConsumptionDataByManufacturing();
+  // energyData.getEnergyConsumptionDataByManufacturing();
 
   //Collecting total energy consumption
-  //energyData.getTotalEnergyConsumptionData();
+  // energyData.getTotalEnergyConsumptionData();
 
   ////Venkatesh energy data collection ends --->
   

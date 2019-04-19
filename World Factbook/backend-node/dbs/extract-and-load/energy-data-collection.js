@@ -4,19 +4,19 @@ const UNDataCountryModel = require('../model/UNDataCountryModel.js');
 
 async function getEnergyGrossDemandData() {
     console.log("Hello in getEnergyData");
-    let grossDemandMap = new Map();
+    let map = new Map();
     //read gross demand CSV File
     fs.createReadStream('./dataset/gross-demand.csv')
     .pipe(csv())
     .on('data', async (row)=>{
-        if(grossDemandMap.has(row.countryName)) {
-            let energyGrossDemandArray = grossDemandMap.get(row.countryName);
-            energyGrossDemandArray.push({'year': row.year, 'value': Number(row.value)});
-            grossDemandMap.set(row.countryName, energyGrossDemandArray);
+        if(map.has(row.countryName.toString().toLowerCase())) {
+            let array = map.get(row.countryName.toString().toLowerCase());
+            array.push({'year': row.year, 'value': Number(row.value)});
+            map.set(row.countryName.toString().toLowerCase(), array);
         } else {
-            let energyGrossDemandArray = [];
-            energyGrossDemandArray.push({'year': row.year, 'value': Number(row.value)});
-            grossDemandMap.set(row.countryName, energyGrossDemandArray);
+            let array = [];
+            array.push({'year': row.year, 'value': Number(row.value)});
+            map.set(row.countryName.toString().toLowerCase(), array);
         }
     })
     .on('end', () => {
@@ -24,7 +24,7 @@ async function getEnergyGrossDemandData() {
         //console.log("Final Gross Demand Map:", grossDemandMap);
 
         //store to mongodb
-        grossDemandMap.forEach( async (value, key) => {
+        map.forEach( async (value, key) => {
             let newCountry = new UNDataCountryModel({
                 'countryName': key,
                 'energy_gross_demand': value
@@ -42,26 +42,26 @@ async function getEnergyGrossDemandData() {
 
 getEnergyProductionData = async () => {
     console.log("In getEnergyProductionData method");
-    let energyProductionMap = new Map();
+    let map = new Map();
 
     fs.createReadStream('./dataset/totalelectricity-gross-production.csv')
     .pipe(csv())
     .on('data', async (row) => {
-        if(energyProductionMap.has(row.countryName)) {
-            let energyProductionArray = energyProductionMap.get(row.countryName);
-            energyProductionArray.push({'year': row.year, 'value': Number(row.value)});
-            energyProductionMap.set(row.countryName, energyProductionArray);
+        if(map.has(row.countryName.toString().toLowerCase())) {
+            let array = map.get(row.countryName.toString().toLowerCase());
+            array.push({'year': row.year, 'value': Number(row.value)});
+            map.set(row.countryName.toString().toLowerCase(), array);
         } else {
-            let energyProductionArray = [];
-            energyProductionArray.push({'year': row.year, 'value': Number(row.value)});
-            energyProductionMap.set(row.countryName, energyProductionArray);
+            let array = [];
+            array.push({'year': row.year, 'value': Number(row.value)});
+            map.set(row.countryName.toString().toLowerCase(), array);
         }
     })
     .on('end', ()=>{
         //console.log("Final Energy Gross Production Map:", energyProductionMap);
 
         //store to mongodb
-        energyProductionMap.forEach( async (value, key) => {
+        map.forEach( async (value, key) => {
             try {
                 let foundCountry = await UNDataCountryModel.findOne({
                     countryName: key
@@ -123,14 +123,14 @@ processEnergyAndSaveToMongoDB = async (filename, objectType) => {
     fs.createReadStream(`./dataset/${filename}.csv`)
     .pipe(csv())
     .on('data', async (row) => {
-        if(map.has(row.countryName)) {
-            let array = map.get(row.countryName);
+        if(map.has(row.countryName.toString().toLowerCase())) {
+            let array = map.get(row.countryName.toString().toLowerCase());
             array.push({'year': row.year, 'value': Number(row.value)});
-            map.set(row.countryName, array);
+            map.set(row.countryName.toString().toLowerCase(), array);
         } else {
             let array = [];
             array.push({'year': row.year, 'value': Number(row.value)});
-            map.set(row.countryName, array);
+            map.set(row.countryName.toString().toLowerCase(), array);
         }
     })
     .on('end', ()=>{
@@ -172,7 +172,7 @@ processEnergyAndSaveToMongoDB = async (filename, objectType) => {
 
         });
     });
-}
+};
 
 module.exports = {
     getEnergyGrossDemandData: getEnergyGrossDemandData,
@@ -181,4 +181,4 @@ module.exports = {
     getEnergyConsumptionDataByTransport: getEnergyConsumptionDataByTransport,
     getEnergyConsumptionDataByManufacturing: getEnergyConsumptionDataByManufacturing,
     getTotalEnergyConsumptionData: getTotalEnergyConsumptionData
-}
+};

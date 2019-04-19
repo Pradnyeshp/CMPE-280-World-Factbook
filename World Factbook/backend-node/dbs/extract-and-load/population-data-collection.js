@@ -14,14 +14,14 @@ processPopulationAndSaveToMongoDB = async (filename, objectType) => {
     fs.createReadStream(`./dataset/${filename}.csv`)
         .pipe(csv())
         .on('data', async (row) => {
-            if(map.has(row.countryName)) {
-                let array = map.get(row.countryName);
+            if(map.has(row.countryName.toString().toLowerCase())) {
+                let array = map.get(row.countryName.toString().toLowerCase());
                 array.push({'yearRange': row.year, 'value': Number(row.value)});
-                map.set(row.countryName, array);
+                map.set(row.countryName.toString().toLowerCase(), array);
             } else {
                 let array = [];
                 array.push({'yearRange': row.year, 'value': Number(row.value)});
-                map.set(row.countryName, array);
+                map.set(row.countryName.toString().toLowerCase(), array);
             }
         })
         .on('end', ()=>{

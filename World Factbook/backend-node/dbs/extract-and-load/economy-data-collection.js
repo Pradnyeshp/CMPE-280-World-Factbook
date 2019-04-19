@@ -23,14 +23,14 @@ processEconomyAndSaveToMongoDB = async (filename, objectType) => {
     fs.createReadStream(`./dataset/${filename}.csv`)
     .pipe(csv())
     .on('data', async (row) => {
-        if(map.has(row.countryName)) {
-            let array = map.get(row.countryName);
+        if(map.has(row.countryName.toString().toLowerCase())) {
+            let array = map.get(row.countryName.toString().toLowerCase());
             array.push({'year': row.year, 'value': Number(row.value)});
-            map.set(row.countryName, array);
+            map.set(row.countryName.toString().toLowerCase(), array);
         } else {
             let array = [];
             array.push({'year': row.year, 'value': Number(row.value)});
-            map.set(row.countryName, array);
+            map.set(row.countryName.toString().toLowerCase(), array);
         }
     })
     .on('end', ()=>{
@@ -72,10 +72,10 @@ processEconomyAndSaveToMongoDB = async (filename, objectType) => {
 
         });
     });
-}
+};
 
 module.exports = {
     getGDP: getGDP,
     getPovertyHeadcountRatio: getPovertyHeadcountRatio,
     getMilitaryExpenditure: getMilitaryExpenditure
-}
+};
