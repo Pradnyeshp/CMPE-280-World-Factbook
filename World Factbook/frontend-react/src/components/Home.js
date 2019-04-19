@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 // import {Link} from "react-router-dom";
 import '../css/CardStyle.css';
 import Categories from "./Categories";
+import Dashboard from "./Dashboard";
 
 class Home extends Component {
 
@@ -14,9 +15,7 @@ class Home extends Component {
 
         return(
             <div>
-                <Navbar/>
-                <br/>
-                <Categories/>
+                <Dashboard/>
                 <br/>
                 <br/>
                 <br/>

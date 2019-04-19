@@ -59,7 +59,7 @@ class Categories extends Component {
                             onMouseOut={this.mouseOut}>
                             
                             <h4 className="card-title">Geography</h4>
-                            <Link to={`/area`} style={{fontSize : "18px"}} >
+                            <Link to={`/area`} style={{fontSize : "16px"}} >
                                 <span>Area</span></Link>
                         </div>
                     </div>
@@ -69,9 +69,9 @@ class Categories extends Component {
                             onMouseOver={this.mouseOver}
                             onMouseOut={this.mouseOut}>
                             <h4 className="card-title">People and Society</h4>
-                            {/* <Link to={`/population`} >
+                             <Link to={`/population`} style={{fontSize : "16px"}}>
                                 <span>Population</span></Link>
-                            <link /> */}
+                            <link />
                         </div>
                     </div>
                     <div className="card text-white bg-dark mb-3">
