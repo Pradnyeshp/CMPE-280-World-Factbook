@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import axios from 'axios';
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 import PopulationGraph from "./PopulationGraph";
-
+import EnergyGraph from './EnergyGraph';
 class Dashboard extends Component {
 
     constructor() {
@@ -61,10 +61,11 @@ class Dashboard extends Component {
                             {/*Basic demo graph below*/}
                         </div>
                         <div className= 'col-md-6'>
-                            <h3>Energy</h3>
+                            {/* <h3>Energy</h3>
                             <br/>
-                            <p>Graph Here</p>
+                            <p>Graph Here</p> */}
                             {/*Write graph component here, and pass countryName as props*/}
+                            <EnergyGraph country = {this.state.country}/>
                         </div>
                     </div>
 
