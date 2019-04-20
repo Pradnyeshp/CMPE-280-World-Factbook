@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 
 const UNDataCountrySchema = new Schema({
     countryName: String,
-    population_prospect: [{yearRange: String, value: Number}],
+    population_prospect : [{yearRange: String, value: Number}],
+    population_birth_count : [{yearRange: String, value: Number}],
+    population_death_count : [{yearRange: String, value: Number}],
+    population_migrant_count : [{yearRange: String, value: Number}],
     population_count : [{year : String , value : Number}],
     energy_gross_demand: [{year: String, value: Number}],
     energy_consumption_agriculture: [{year: String, value: Number}],

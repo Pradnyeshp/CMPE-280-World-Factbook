@@ -10,6 +10,18 @@ getPopulationCount = async () => {
     await processPopulationCountAndSaveToMongoDB('population-count', 'population_count');
 };
 
+getBirthCount = async () => {
+    await processPopulationAndSaveToMongoDB('number-of-births','population_birth_count');
+};
+
+getDeathCount = async () => {
+    await processPopulationAndSaveToMongoDB('number-of-deaths','population_death_count');
+};
+
+getMigrantsCount = async () => {
+    await processPopulationAndSaveToMongoDB('number-of-migrants','population_migrant_count');
+};
+
 processPopulationAndSaveToMongoDB = async (filename, objectType) => {
     console.log("Processing filename: ", filename);
     console.log("Processing objectType: ", objectType);
@@ -127,5 +139,8 @@ processPopulationCountAndSaveToMongoDB = async (filename, objectType) => {
 
 module.exports = {
     getPopulationData : getPopulationData,
-    getPopulationCount : getPopulationCount
+    getPopulationCount : getPopulationCount,
+    getBirthCount : getBirthCount,
+    getDeathCount : getDeathCount,
+    getMigrantsCount : getMigrantsCount
 };

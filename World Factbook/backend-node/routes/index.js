@@ -24,6 +24,14 @@ router.get('/population/:country', countrypopulationdetails.getCountryPopulation
 
 router.get('/energy-data/:country/', energyData.prepareEnergyGraph);
 
-router.get('/age-structure-data/:country/', oldCountriesData.prepareAgeStructureGraph)
+router.get('/age-structure-data/:country/', oldCountriesData.prepareAgeStructureGraph);
+
+router.get('/birthcount/:country', countrypopulationdetails.getCountryBirthCount);
+
+router.get('/deathcount/:country', countrypopulationdetails.getCountryDeathCount);
+
+router.get('/migrantcount/:country', countrypopulationdetails.getCountryMigrantCount);
+
+router.get('/populationCount/:country', countrypopulationdetails.getCountryPopulationCount) ;
 
 module.exports = router;
