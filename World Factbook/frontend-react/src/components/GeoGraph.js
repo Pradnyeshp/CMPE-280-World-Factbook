@@ -14,8 +14,8 @@ class GeoGraph extends Component {
     }
 
     componentWillMount() {
-
-        let url = `http://localhost:3001/populationCount/${this.state.country}` ;
+        //change port to 3001
+        let url = `http://localhost:4040/populationCount/${this.state.country}` ;
         axios.get(url)
             .then(response=>{
                 console.log(response.data) ;

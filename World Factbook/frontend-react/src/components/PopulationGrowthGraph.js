@@ -17,7 +17,8 @@ class PopulationGrowthGraph extends Component {
 
         console.log("country props : " , this.props.country) ;
 
-        let url = `http://localhost:3001/population/${this.state.country}` ;
+        //change port to 3001
+        let url = `http://localhost:4040/population/${this.state.country}` ;
 
         axios.get(url)
             .then(response =>{

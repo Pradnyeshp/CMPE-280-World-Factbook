@@ -10,6 +10,7 @@ class EnergyGraph extends Component {
     }
 
     componentDidMount() {
+        //change port to 3001
         axios.get(`http://localhost:4040/energy-data/${this.props.country}`)
         .then((response) => {
             console.log(response.data);

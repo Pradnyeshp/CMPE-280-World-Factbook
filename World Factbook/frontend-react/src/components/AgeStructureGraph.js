@@ -12,6 +12,7 @@ class AgeStructureGraph extends Component {
     }
 
     componentDidMount() {
+        //change port to 3001
         axios.get(`http://localhost:4040/age-structure-data/${this.props.country}`)
         .then((response) => {
             if(response.data.message === 'success') {

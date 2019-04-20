@@ -20,7 +20,7 @@ class PopulationGraph extends Component {
     componentWillMount() {
 
         console.log("country props : " , this.props.country) ;
-
+        //change port to 3001
         let populationCountURL = `http://localhost:4040/populationCount/${this.state.country}` ;
         axios.get(populationCountURL)
             .then(response => {
@@ -30,7 +30,8 @@ class PopulationGraph extends Component {
                     })
                 }
             );
-
+        
+        //change port to 3001
         let birthCountURL = `http://localhost:4040/birthcount/${this.state.country}` ;
         axios.get(birthCountURL)
             .then(response => {
@@ -41,6 +42,7 @@ class PopulationGraph extends Component {
                 }
             );
 
+        //change port to 3001
         let deathCountURL = `http://localhost:4040/deathcount/${this.state.country}` ;
         axios.get(deathCountURL)
             .then(response => {
@@ -50,7 +52,8 @@ class PopulationGraph extends Component {
                     })
                 }
             );
-
+        
+        //change port to 3001
         let migrantCountURL = `http://localhost:4040/migrantcount/${this.state.country}` ;
         axios.get(migrantCountURL)
             .then(response => {

@@ -18,6 +18,7 @@ class Dashboard extends Component {
     }
 
     componentWillMount() {
+        //change port to 3001
         let url = `http://localhost:4040/dashboard/${this.state.country}`;
         // let url = 'http://localhost:3001/area';
         // axios.get(url)
