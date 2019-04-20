@@ -1,6 +1,7 @@
 const UNCountryModel = require('../dbs/model/UNDataCountryModel.js');
 
 prepareEconomyGraph = async (req, res, next) => {
+
     const country = req.params.country.toLowerCase();
     console.log("In prepareEconomyGraph", country);
 
