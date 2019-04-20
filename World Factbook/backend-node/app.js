@@ -94,7 +94,7 @@ db.connection.once('open', ()=>{
   ////Venkatesh energy data collection ends --->
 
   //Nikhil Collecting youth literacy rate
-  educationData.getYouthLiteracyRate();
+  // educationData.getYouthLiteracyRate();
   // Nikhil youth literacy data end
 
 
