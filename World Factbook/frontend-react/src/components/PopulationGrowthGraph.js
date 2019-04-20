@@ -88,7 +88,7 @@ class PopulationGrowthGraph extends Component {
                         {/*Google chart*/}
 
                         <Chart
-                            width={'500px'}
+                            width={'700px'}
                             height={'300px'}
                             chartType="Bar"
                             loader={<div>Loading Chart</div>}

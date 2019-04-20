@@ -11,6 +11,7 @@ class PopulationGraph extends Component {
         this.state = {
             country : "india" ,
             populationArray : [],
+            populationGrowthArray : [],
             birthArray : [],
             deathArray : [],
             migrationArray : []
@@ -21,6 +22,18 @@ class PopulationGraph extends Component {
 
         console.log("country props : " , this.props.country) ;
         //change port to 3001
+
+        let url = `http://localhost:4040/population/${this.state.country}` ;
+
+        axios.get(url)
+            .then(response =>{
+                    console.log("Response from server : ", response.data) ;
+                    this.setState({
+                        populationGrowthArray : response.data.data
+                    })
+                }
+            );
+
         let populationCountURL = `http://localhost:4040/populationCount/${this.state.country}` ;
         axios.get(populationCountURL)
             .then(response => {
@@ -81,10 +94,12 @@ class PopulationGraph extends Component {
         });
 
         let graphArray = [] ;
-        let header = ['Year Range', 'value', 'birth rate', 'death rate', 'migrants count'] ;
+        // let header = ['Year', 'population', 'birthcount', 'death count'] ;
+        let header = ['Year', 'population', 'growth rate'] ;
+
         graphArray.push(header) ;
-        let startYear = 0 ;
-        let endYear = 0 ;
+        let startYear = 1995 ;
+        let endYear = 2020 ;
 
         populationArray.forEach(function (row) {
             let temp = [] ;
@@ -95,57 +110,75 @@ class PopulationGraph extends Component {
             }
         });
 
-        let birthArray = this.state.birthArray ;
-        birthArray.forEach(function (row) {
+        let populationGrowthArray = this.state.populationGrowthArray ;
+        populationGrowthArray.forEach(function (row) {
             let range = row.yearRange ;
             row.yearRange = range.split('-')[0]
         });
 
-        birthArray.sort((a,b) => (a.yearRange - b.yearRange)) ;
+        populationGrowthArray.sort((a,b) => (a.yearRange - b.yearRange)) ;
 
         for(let i = 1 ; i < graphArray.length ; i++){
             let temp = graphArray[i] ;
             let year = temp[0] ;
 
-            birthArray.forEach(function (row) {
+            populationGrowthArray.forEach(function (row) {
                 if(row.yearRange === year)
                     temp.push(row.value);
             });
         }
 
-        let deathArray = this.state.deathArray ;
-        deathArray.forEach(function (row) {
-            let range = row.yearRange ;
-            row.yearRange = range.split('-')[0]
-        });
-        deathArray.sort((a,b) => ( a.yearRange - b.yearRange)) ;
+        // let birthArray = this.state.birthArray ;
+        // birthArray.forEach(function (row) {
+        //     let range = row.yearRange ;
+        //     row.yearRange = range.split('-')[0]
+        // });
+        //
+        // birthArray.sort((a,b) => (a.yearRange - b.yearRange)) ;
+        //
+        // for(let i = 1 ; i < graphArray.length ; i++){
+        //     let temp = graphArray[i] ;
+        //     let year = temp[0] ;
+        //
+        //     birthArray.forEach(function (row) {
+        //         if(row.yearRange === year)
+        //             temp.push(row.value);
+        //     });
+        // }
+        //
+        // let deathArray = this.state.deathArray ;
+        // deathArray.forEach(function (row) {
+        //     let range = row.yearRange ;
+        //     row.yearRange = range.split('-')[0]
+        // });
+        // deathArray.sort((a,b) => ( a.yearRange - b.yearRange)) ;
+        //
+        // for(let i = 1 ; i < graphArray.length ; i++){
+        //     let temp = graphArray[i] ;
+        //     let year = temp[0] ;
+        //
+        //     deathArray.forEach(function (row) {
+        //         if(row.yearRange === year)
+        //             temp.push(row.value);
+        //     });
+        // }
 
-        for(let i = 1 ; i < graphArray.length ; i++){
-            let temp = graphArray[i] ;
-            let year = temp[0] ;
-
-            deathArray.forEach(function (row) {
-                if(row.yearRange === year)
-                    temp.push(row.value);
-            });
-        }
-
-        let migrantArray = this.state.migrationArray ;
-        migrantArray.forEach(function (row) {
-            let range = row.yearRange ;
-            row.yearRange = range.split('-')[0]
-        });
-        migrantArray.sort((a,b) => ( a.yearRange - b.yearRange)) ;
-
-        for(let i = 1 ; i < graphArray.length ; i++){
-            let temp = graphArray[i] ;
-            let year = temp[0] ;
-
-            migrantArray.forEach(function (row) {
-                if(row.yearRange === year)
-                    temp.push(row.value);
-            });
-        }
+        // let migrantArray = this.state.migrationArray ;
+        // migrantArray.forEach(function (row) {
+        //     let range = row.yearRange ;
+        //     row.yearRange = range.split('-')[0]
+        // });
+        // migrantArray.sort((a,b) => ( a.yearRange - b.yearRange)) ;
+        //
+        // for(let i = 1 ; i < graphArray.length ; i++){
+        //     let temp = graphArray[i] ;
+        //     let year = temp[0] ;
+        //
+        //     migrantArray.forEach(function (row) {
+        //         if(row.yearRange === year)
+        //             temp.push(row.value);
+        //     });
+        // }
 
         // console.log(graphArray) ;
         // console.log(birthArray) ;
@@ -156,10 +189,9 @@ class PopulationGraph extends Component {
 
         return(
             <div>
-                {/*<Navbar/>*/}
                 <div className="container">
                         <Chart
-                            width={'500px'}
+                            width={'660px'}
                             height={'300px'}
                             chartType="Bar"
                             loader={<div>Loading Chart</div>}
@@ -167,13 +199,21 @@ class PopulationGraph extends Component {
                             options={{
                                 // Material design options
                                 chart: {
-                                    title: 'Population Growth ',
-                                    subtitle: 'Year { ' + startYear + ' - ' + endYear + ' }'
+                                    title: 'Population Insights ',
+                                    subtitle: 'Population count, growth rate from ' + startYear + ' - ' + endYear
                                 },
-                                chartArea: { right: 80 }
+                                series: {
+                                    0: { axis: 'population' }, // Bind series 0 to an axis named 'distance'.
+                                    1: { axis: 'growthrate' } // Bind series 1 to an axis named 'brightness'.
+                                },
+                                axes: {
+                                    y: {
+                                        population: {label: 'population'}, // Left y-axis.
+                                        growthrate: {side: 'right', label: 'population growth rate'} // Right y-axis.
+                                    }
+                                }
                             }}
-                            // For tests
-                            rootProps={{ 'data-testid': '2' }}
+                            legendToggle
                         />
                     <br/>
                 </div>

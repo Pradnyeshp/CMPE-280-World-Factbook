@@ -6,39 +6,57 @@ import PopulationGraph from "./PopulationGraph";
 import EnergyGraph from './EnergyGraph';
 import AgeStructureGraph from './AgeStructureGraph';
 import EconomyGraph from './EconomyGraph';
+import PopulationGrowthGraph from "./PopulationGrowthGraph";
 class Dashboard extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            country : 'india' ,
+            country : 'india',
             populationArray : [] ,
             areaData : []
         }
     }
 
-    componentWillMount() {
-        //change port to 3001
-        let url = `http://localhost:4040/dashboard/${this.state.country}`;
-        // let url = 'http://localhost:3001/area';
-        // axios.get(url)
-        //     .then(response=>{
-        //         console.log(response.data.data);
-        //         this.setState({
-        //             areaData : response.data.data
-        //         })
+    componentWillReceiveProps(nextProps, nextContext) {
+        // if(nextProps.match.params.country !== this.state.country) {
+        //     this.setState({
+        //         country: nextProps.match.params.country
         //     })
+        // }
+        this.setState({
+            country : nextProps.match.params.country.toLowerCase()
+        });
 
-        // let url = 'http://localhost:3001/population/' + this.state.country ;
-        // axios.get(url)
-        //     .then(response =>{
-        //             console.log("Response from server : ", response) ;
-        //             this.setState({
-        //                 populationArray : response.data
-        //             })
-        //         }
-        //     )
     }
+
+    // componentDidMount() {
+    //     //change port to 3001
+    //     // this.setState({
+    //     //     country :
+    //     // },()=>{
+    //     //     let url = `http://localhost:4040/dashboard/${this.state.country}`;
+    //     // }) ;
+    //
+    //     // let url = 'http://localhost:3001/area';
+    //     // axios.get(url)
+    //     //     .then(response=>{
+    //     //         console.log(response.data.data);
+    //     //         this.setState({
+    //     //             areaData : response.data.data
+    //     //         })
+    //     //     })
+    //
+    //     // let url = 'http://localhost:3001/population/' + this.state.country ;
+    //     // axios.get(url)
+    //     //     .then(response =>{
+    //     //             console.log("Response from server : ", response) ;
+    //     //             this.setState({
+    //     //                 populationArray : response.data
+    //     //             })
+    //     //         }
+    //     //     )
+    // }
 
     render() {
 
@@ -54,7 +72,7 @@ class Dashboard extends Component {
                 <Navbar/>
                 <br/>
                 <div className="dashboard" style={ {marginLeft : "50px" , marginRight : "50px"}}>
-                    <h1 className='graph'>Dashboard</h1>
+                    <h1>{this.state.country.toUpperCase()}</h1>
                     <br/>
                     <div className='row'>
                         <div className= 'col-md-6'>
@@ -74,7 +92,6 @@ class Dashboard extends Component {
 
                     <div className='row'>
                         <div className= 'col-md-6'>
-                            <h3>Economy</h3>
                             <br/>
                             {/*<p>Graph Here</p>*/}
                             {/*Write graph component here, and pass countryName as props*/}
