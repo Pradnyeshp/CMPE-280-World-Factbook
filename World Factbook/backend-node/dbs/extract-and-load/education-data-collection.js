@@ -126,6 +126,78 @@ processEducationAndSaveToMongoDB = async (filename, objectType) => {
     });
 }
 
+// getYouthLiteracyRate
+getYouthLiteracyRate = async () => {
+    await processYouthLiteracyRateToMongoDB('youth-literacy-data', 'youth_literacy_rate');
+}
+
+
+processYouthLiteracyRateToMongoDB = async (filename, objectType) => {
+    console.log("Processing filename: ", filename);
+    console.log("Processing objectType: ", objectType);
+    let map = new Map();
+
+    fs.createReadStream(`./dataset/${filename}.csv`)
+    .pipe(csv())
+    .on('data', async (row) => {
+        if(map.has(row.countryName.toString().toLowerCase())) {
+            let array = map.get(row.countryName.toString().toLowerCase());
+            array.push({'year': row.year,'sex': row.sex ,'value': Number(row.value)});
+            map.set(row.countryName.toString().toLowerCase(), array);
+        } else {
+            let array = [];
+            array.push({'year': row.year,'sex': row.sex , 'value': Number(row.value)});
+            map.set(row.countryName.toString().toLowerCase(), array);
+        }
+    })
+    .on('end', ()=>{
+        console.log("Printing the map", map);
+
+        //store to mongodb
+        map.forEach( async (value, key) => {
+            try {
+                let foundCountry = await UNDataCountryModel.findOne({
+                    countryName: key
+                });
+
+                /*  if we do not find a country already in db in uncountries collection 
+                    then add it to uncountries collection as new country
+                */
+                if(foundCountry == null || foundCountry == undefined) {
+                    try {
+                        let newCountry = new UNDataCountryModel({
+                            'countryName': key,
+                            objectType: value
+                        });
+                        let savedCountry = await newCountry.save();
+                    } catch(err) {
+                        console.log("Error in saving new country from map", err);
+                    }
+                } else {
+                    try {
+                        foundCountry[objectType] = value;
+                        let savedCountry = await foundCountry.save();
+                    } catch(err) {
+                        console.log("Error in updating new country from map", err);
+                    }
+                    
+                }
+            } catch (err) {
+                console.log("Error in processing map", err);
+            }
+            
+
+        });
+    });
+}
+
+
+
+
+
+
 module.exports = {
-    getEducationExpenditure: getEducationExpenditure
+    getEducationExpenditure: getEducationExpenditure,
+    getYouthLiteracyRate: getYouthLiteracyRate
+
 }

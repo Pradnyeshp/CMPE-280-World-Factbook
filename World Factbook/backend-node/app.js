@@ -17,6 +17,7 @@ const economyData = require('./dbs/extract-and-load/economy-data-collection.js')
 const populationData = require('./dbs/extract-and-load/population-data-collection.js');
 
 
+
 var cors = app.use(cors(
   {
     origin: 'http://localhost:3000'
@@ -54,7 +55,7 @@ db.connection.once('open', ()=>{
   // <--- Pradnyesh population data collection ends
 
   // <--- Abhishek education data collection starts
-  // educationData.getEducationExpenditure();
+  //educationData.getEducationExpenditure();
   // <--- Abhishek education data collection ends
 
   // <--- Abhishek economy data collection starts
@@ -91,6 +92,12 @@ db.connection.once('open', ()=>{
   // energyData.getTotalEnergyConsumptionData();
 
   ////Venkatesh energy data collection ends --->
+
+  //Nikhil Collecting youth literacy rate
+  educationData.getYouthLiteracyRate();
+  // Nikhil youth literacy data end
+
+
   
 });
 
