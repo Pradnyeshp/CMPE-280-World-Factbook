@@ -114,4 +114,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.listen(4040,
+  console.log("Changed and connected on 4040"));
+
 module.exports = app;

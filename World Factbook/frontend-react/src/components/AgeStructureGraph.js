@@ -12,7 +12,7 @@ class AgeStructureGraph extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3001/age-structure-data/${this.props.country}`)
+        axios.get(`http://localhost:4040/age-structure-data/${this.props.country}`)
         .then((response) => {
             if(response.data.message === 'success') {
                 this.setState({

@@ -21,7 +21,7 @@ class PopulationGraph extends Component {
 
         console.log("country props : " , this.props.country) ;
 
-        let populationCountURL = `http://localhost:3001/populationCount/${this.state.country}` ;
+        let populationCountURL = `http://localhost:4040/populationCount/${this.state.country}` ;
         axios.get(populationCountURL)
             .then(response => {
                     console.log("Response from server : ", response.data) ;
@@ -31,7 +31,7 @@ class PopulationGraph extends Component {
                 }
             );
 
-        let birthCountURL = `http://localhost:3001/birthcount/${this.state.country}` ;
+        let birthCountURL = `http://localhost:4040/birthcount/${this.state.country}` ;
         axios.get(birthCountURL)
             .then(response => {
                     console.log("Response from server : ", response.data) ;
@@ -41,7 +41,7 @@ class PopulationGraph extends Component {
                 }
             );
 
-        let deathCountURL = `http://localhost:3001/deathcount/${this.state.country}` ;
+        let deathCountURL = `http://localhost:4040/deathcount/${this.state.country}` ;
         axios.get(deathCountURL)
             .then(response => {
                     console.log("Response from server : ", response.data) ;
@@ -51,7 +51,7 @@ class PopulationGraph extends Component {
                 }
             );
 
-        let migrantCountURL = `http://localhost:3001/migrantcount/${this.state.country}` ;
+        let migrantCountURL = `http://localhost:4040/migrantcount/${this.state.country}` ;
         axios.get(migrantCountURL)
             .then(response => {
                     console.log("Response from server : ", response.data) ;
@@ -60,6 +60,7 @@ class PopulationGraph extends Component {
                     })
                 }
             );
+        //let url = `http://localhost:4040/population/${this.state.country}` ;
 
 
     }

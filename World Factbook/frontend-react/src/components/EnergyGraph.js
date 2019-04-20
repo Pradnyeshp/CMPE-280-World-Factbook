@@ -10,7 +10,7 @@ class EnergyGraph extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3001/energy-data/${this.props.country}`)
+        axios.get(`http://localhost:4040/energy-data/${this.props.country}`)
         .then((response) => {
             console.log(response.data);
             if(response.data.message === 'success') {

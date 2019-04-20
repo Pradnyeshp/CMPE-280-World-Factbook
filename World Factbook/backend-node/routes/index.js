@@ -6,6 +6,7 @@ var countrypopulationdetails = require('./country_population_details') ;
 var userdetails = require('./user_details');
 const energyData = require('./energy-data-retrieval');
 const oldCountriesData = require('./old-countries-data-retrieval');
+const economyData = require('./economy-data-retrieval');
 
 /* GET area response page. */
 router.get('/area', read_area_file.getArea);
@@ -33,5 +34,7 @@ router.get('/deathcount/:country', countrypopulationdetails.getCountryDeathCount
 router.get('/migrantcount/:country', countrypopulationdetails.getCountryMigrantCount);
 
 router.get('/populationCount/:country', countrypopulationdetails.getCountryPopulationCount) ;
+
+router.get('/economy-data/:country/', economyData.prepareEconomyGraph);
 
 module.exports = router;

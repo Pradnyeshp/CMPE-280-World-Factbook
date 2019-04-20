@@ -5,6 +5,7 @@ import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recha
 import PopulationGraph from "./PopulationGraph";
 import EnergyGraph from './EnergyGraph';
 import AgeStructureGraph from './AgeStructureGraph';
+import EconomyGraph from './EconomyGraph';
 class Dashboard extends Component {
 
     constructor() {
@@ -17,7 +18,7 @@ class Dashboard extends Component {
     }
 
     componentWillMount() {
-        let url = `http://localhost:3001/dashboard/${this.state.country}`;
+        let url = `http://localhost:4040/dashboard/${this.state.country}`;
         // let url = 'http://localhost:3001/area';
         // axios.get(url)
         //     .then(response=>{
@@ -74,8 +75,9 @@ class Dashboard extends Component {
                         <div className= 'col-md-6'>
                             <h3>Economy</h3>
                             <br/>
-                            <p>Graph Here</p>
+                            {/*<p>Graph Here</p>*/}
                             {/*Write graph component here, and pass countryName as props*/}
+                            <EconomyGraph country = {this.state.country}/>
                         </div>
                         <div className= 'col-md-6'>
                             <h3>Age Structure</h3>
