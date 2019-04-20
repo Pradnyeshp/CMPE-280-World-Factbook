@@ -28,7 +28,7 @@ class AgeStructureGraph extends Component {
         return (
             <div className='AgeStructureGraph'>
                 <Chart
-                width={'800px'}
+                width={'500px'}
                 height={'300px'}
                 chartType="PieChart"
                 loader={<div>Loading Chart</div>}
@@ -36,8 +36,9 @@ class AgeStructureGraph extends Component {
                 options={{
                     chartArea: {
                         top: '20',
-                        left: '0'
-                    }
+                        left: '30'
+                    },
+                    legend: {position: 'right'}
                 }}
                 />
             </div>
