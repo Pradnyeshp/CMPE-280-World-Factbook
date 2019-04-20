@@ -7,6 +7,8 @@ import EnergyGraph from './EnergyGraph';
 import AgeStructureGraph from './AgeStructureGraph';
 import EconomyGraph from './EconomyGraph';
 import PopulationGrowthGraph from "./PopulationGrowthGraph";
+import YouthLiteracyGraph from "./YouthLiteracyGraph";
+
 class Dashboard extends Component {
 
     constructor(props) {
@@ -97,12 +99,20 @@ class Dashboard extends Component {
                             {/*Write graph component here, and pass countryName as props*/}
                             <EconomyGraph country = {this.state.country}/>
                         </div>
-                        <div className= 'col-md-6'>
+                        <div className= 'col-md-3'>
                             <h3>Age Structure</h3>
                             <br/>
                             {/*Write graph component here, and pass countryName as props*/}
                             <AgeStructureGraph country = {this.state.country} />
                         </div>
+                        
+                        <div className= 'col-md-3'>
+                            <h3>Youth Literacy</h3>
+                            <br/>
+                            {/*Write graph component here, and pass countryName as props*/}
+                            <YouthLiteracyGraph country = {this.state.country} />
+                        </div>
+
                     </div>
 
                 </div>
