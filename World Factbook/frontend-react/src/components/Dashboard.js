@@ -56,7 +56,7 @@ class Dashboard extends Component {
                     <br/>
                     <div className='row'>
                         <div className= 'col-md-6'>
-                            <h3>Population</h3>
+                            {/*<h3>Population</h3>*/}
                             {/*Write graph component here, and pass countryName as props*/}
                             <PopulationGraph country = {this.state.country}/>
                             {/*Basic demo graph below*/}
