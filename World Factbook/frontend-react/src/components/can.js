@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import "../css/style.css"
-import Background from '../Images/world-map.png';
 
 // var sectionStyle = {
 //     //width: "100%",
@@ -9,9 +8,11 @@ import Background from '../Images/world-map.png';
 //   };
 
 class Can extends Component {
-  constructor(props){
+
+    constructor(props){
       super(props);
-  }
+      this.state = {} ;
+    }
 
           render() {
             var img = new Image();

@@ -44,9 +44,11 @@ class GeoGraph extends Component {
 
         let allCountryPouplations = this.state.allCountryPopulationArray ;
 
-        allCountryPouplations.forEach(function (row) {
-            graphData.push(row) ;
-        }) ;
+        if(allCountryPouplations !== null){
+            allCountryPouplations.forEach(function (row) {
+                graphData.push(row) ;
+            }) ;
+        }
 
         // let populationCountArray = this.state.allCountryPopulationArray ;
         // let currentPopulation ;
@@ -67,8 +69,8 @@ class GeoGraph extends Component {
                 <Navbar/>
                 <br/>
                 <Chart
-                    width={'1500px'}
-                    height={'700px'}
+                    width={'1550px'}
+                    height={'750px'}
                     chartType="GeoChart"
                     data={ graphData
                     //     [
@@ -81,7 +83,12 @@ class GeoGraph extends Component {
                     //     // ['RU', 700],
                     // ]
                     }
-                    // options = {{displayMode : 'text'}}
+                    options = {{
+                        // displayMode : 'text',
+                        colorAxis: { colors: ['white', '#e31b23'] },
+                        backgroundColor: '#81d4fa',
+                        // textStyle: {color: 'blue', fontSize: 16}
+                    }}
                     // Note: you will need to get a mapsApiKey for your project.
                     // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
                     mapsApiKey="AIzaSyBgT9S1jtBpZ7HNyqTz86ay1uEeHVj0bMY"

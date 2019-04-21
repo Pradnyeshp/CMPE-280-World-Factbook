@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import "../css/StyleForm.css"
 import globe from "../Images/globe.png"
 import swal from "sweetalert" ;
-import {Link} from "react-router-dom" ;
 import axios from 'axios';
 
 export default class Form extends Component {
@@ -69,7 +68,7 @@ export default class Form extends Component {
             });
             swal("Registered Successfully",'','success')
                 .then((response)=>{
-                    window.location.href = 'http://localhost:3000/Homepage';
+                    window.location.href = 'http://localhost:3000/dashboard/india';
                 });
         }
 
@@ -165,7 +164,7 @@ export default class Form extends Component {
     
     validatePhone(event) {
         event.preventDefault();
-        let regex = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+        let regex = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s.]{0,1}[0-9]{3}[-\s.]{0,1}[0-9]{4}$/;
         let ans = event.target.value.search(regex);
         if(ans >= 0 || event.target.value === "") {
             this.setState({
@@ -240,7 +239,7 @@ export default class Form extends Component {
                         <div className="btn1" onClick={this.handleRegister}>
                             <i className="fa fa-paper-plane-o fa-2x send" aria-hidden="true"></i>
                             <i className="fa fa-paper-plane-o fa-2x send2" aria-hidden="true"></i>
-                            <button id="registerButton" to="../HomePage" onClick={this.postUsers} >
+                            <button id="registerButton" onClick={this.postUsers} >
                                 <p>Register</p>
                             </button>
                         </div>

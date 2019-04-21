@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Navbar from "./Navbar";
 import axios from 'axios';
 import '../css/graphStyle.css'
-import Form from './Form';
 import swal from "sweetalert" ;
 
 class Profile extends Component {
@@ -106,7 +105,7 @@ class Profile extends Component {
 
     handleProfile(e){
 
-        let url = "http://localhost:3000" ;
+        // let url = "http://localhost:3000" ;
         e.preventDefault() ;
         console.log('submit button clicked');
         // axios.post(url)

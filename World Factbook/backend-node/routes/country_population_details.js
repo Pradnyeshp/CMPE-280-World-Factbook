@@ -1,5 +1,6 @@
 var fs = require('fs');
 const UNDataCountryModel = require('../dbs/model/UNDataCountryModel');
+const areaModel = require('../dbs/model/areaModel') ;
 
 module.exports.getCountryPopulationDetails = async (req, res, next) => {
 
@@ -25,14 +26,23 @@ module.exports.getAllCountryPopulationDetails = async (req, res, next) => {
     // console.log('countryName : ', countryName) ;
 
     try {
-        const countryDetails = await UNDataCountryModel.find();
-        // console.log(countryDetails);
+        const countryDetails = await UNDataCountryModel.find() ;
+        const countryAreas = await areaModel.find() ;
+        // console.log(countryAreas);
+
+        let map = new Map() ;
+
+        countryAreas.forEach(function (row) {
+           map.set(row.countryName.toLowerCase(), row.area)
+        });
+
+        console.log(map);
 
         let response = [] ;
 
         countryDetails.forEach(function (row) {
             let countryName = row.countryName.toUpperCase() ;
-            console.log(row.countryName);
+            // console.log(row.countryName);
 
             if(countryName.toLowerCase() !== 'world'){
                 if(row.population_count !== null){
@@ -45,12 +55,16 @@ module.exports.getAllCountryPopulationDetails = async (req, res, next) => {
                         if(parseInt(row.year) === 2018 && parseInt(row.value) <= 1415045.928){
                             temp2.push(countryName) ;
                             temp2.push(row.value) ;
+                            // if(map.has(countryName.toLowerCase()))
+                            //     temp2.push(map.get(countryName.toLowerCase())) ;
                             response.push(temp2) ;
                         }
                     })
                 }
             }
         }) ;
+
+        console.log(response) ;
 
         res.json({message : "success", data : response}) ;
 

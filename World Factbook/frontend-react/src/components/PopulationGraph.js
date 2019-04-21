@@ -205,7 +205,7 @@ class PopulationGraph extends Component {
             <div>
                 <div className="container">
                         <Chart
-                            width={'660px'}
+                            width={'700px'}
                             height={'300px'}
                             chartType="Bar"
                             loader={<div>Loading Chart</div>}

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Navbar from "./Navbar";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, BarChart, PieChart, Pie } from 'recharts';
+import { CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, BarChart } from 'recharts';
 import axios from 'axios';
 import '../css/graphStyle.css'
 

@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import Navbar from "./Navbar";
-import axios from 'axios';
-import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 import PopulationGraph from "./PopulationGraph";
 import EnergyGraph from './EnergyGraph';
 import AgeStructureGraph from './AgeStructureGraph';
 import EconomyGraph from './EconomyGraph';
-import PopulationGrowthGraph from "./PopulationGrowthGraph";
 import YouthLiteracyGraph from "./YouthLiteracyGraph";
+import '../css/style.css';
+
 
 class Dashboard extends Component {
 
@@ -70,15 +69,17 @@ class Dashboard extends Component {
                             <EconomyGraph country = {this.state.country}/>
                         </div>
                         <div className= 'col-md-3'>
-                            <h3>Age Structure</h3>
                             <br/>
+                            <p className="graphTitle">Age Insights</p>
+                            <p className="graphSubtitle">Population by age groups</p>
                             {/*Write graph component here, and pass countryName as props*/}
                             <AgeStructureGraph country = {this.state.country} />
                         </div>
-                        
+
                         <div className= 'col-md-3'>
-                            <h3>Youth Literacy</h3>
                             <br/>
+                            <p className="graphTitle">Literacy Insights</p>
+                            <p className="graphSubtitle">Literacy by gender</p>
                             {/*Write graph component here, and pass countryName as props*/}
                             <YouthLiteracyGraph country = {this.state.country} />
                         </div>

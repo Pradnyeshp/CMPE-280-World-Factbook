@@ -46,14 +46,13 @@ class EnergyGraph extends Component {
         return (
             <div className="EnergyGraph">
                 <Chart
-                    width={900}
-                    height={300}
                     chartType="Bar"
                     loader={<div>Loading Chart</div>}
                     data= {this.state.dataSource}
                     options={
                         {
-                            width: 600,
+                            width: 700,
+                            height: 300,
                             chart: {
                                 title: 'Energy Insights',
                                 subtitle: `Energy demand, production and consumption from ${this.state.start} - ${this.state.end}`

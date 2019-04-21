@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Label, Legend} from 'recharts';
 import '../css/countrydetails.css';
 import swal from 'sweetalert';
 import AgeStructureGraph from './AgeStructureGraph';
