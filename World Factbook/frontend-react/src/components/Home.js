@@ -9,13 +9,26 @@ class Home extends Component {
 
     constructor() {
         super();
+        this.state = {
+            country: 'india'
+        }
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        console.log("In home componentWillReceiveProps nextprops",nextProps.match.params.country);
+        console.log("In home componentWillReceiveProps current props",this.state.country);
+        if(nextProps.match.params.country.toLowerCase() !== this.state.country.toLowerCase()) {
+            this.setState({
+                country: nextProps.match.params.country.toLowerCase()
+            })
+        }
     }
 
     render() {
 
         return(
             <div>
-                <Dashboard/>
+                <Dashboard countryName={this.state.country}/>
                 <br/>
                 <br/>
                 <br/>

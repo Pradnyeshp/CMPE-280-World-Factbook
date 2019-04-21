@@ -14,51 +14,21 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            country : 'india',
+            country : this.props.countryName.toLowerCase(),
             populationArray : [] ,
             areaData : []
         }
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        // if(nextProps.match.params.country !== this.state.country) {
-        //     this.setState({
-        //         country: nextProps.match.params.country
-        //     })
-        // }
-        this.setState({
-            country : nextProps.match.params.country.toLowerCase()
-        });
-
+        console.log("In dashboard componentWillReceiveProps nextprops",nextProps.countryName);
+        console.log("In dashboard componentWillReceiveProps current props",this.state.country);
+        if(nextProps.countryName.toLowerCase() !== this.state.country.toLowerCase()) {
+            this.setState({
+                country: nextProps.countryName.toLowerCase()
+            })
+        }
     }
-
-    // componentDidMount() {
-    //     //change port to 3001
-    //     // this.setState({
-    //     //     country :
-    //     // },()=>{
-    //     //     let url = `http://localhost:4040/dashboard/${this.state.country}`;
-    //     // }) ;
-    //
-    //     // let url = 'http://localhost:3001/area';
-    //     // axios.get(url)
-    //     //     .then(response=>{
-    //     //         console.log(response.data.data);
-    //     //         this.setState({
-    //     //             areaData : response.data.data
-    //     //         })
-    //     //     })
-    //
-    //     // let url = 'http://localhost:3001/population/' + this.state.country ;
-    //     // axios.get(url)
-    //     //     .then(response =>{
-    //     //             console.log("Response from server : ", response) ;
-    //     //             this.setState({
-    //     //                 populationArray : response.data
-    //     //             })
-    //     //         }
-    //     //     )
-    // }
 
     render() {
 

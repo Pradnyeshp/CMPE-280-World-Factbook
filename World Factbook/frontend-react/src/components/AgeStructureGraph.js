@@ -7,13 +7,24 @@ class AgeStructureGraph extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            country: this.props.country
         }
     }
 
-    componentDidMount() {
-        //change port to 3001
-        axios.get(`http://localhost:4040/age-structure-data/${this.props.country}`)
+    componentWillReceiveProps(nextProps, nextContext) {
+        //console.log("In age componentWillReceiveProps nextprops",nextProps.country);
+        //console.log("In age componentWillReceiveProps current props",this.state.country);
+        if(nextProps.country.toLowerCase() !== this.state.country.toLowerCase()) {
+            this.setState({
+                country: nextProps.country.toLowerCase()
+            })
+
+           this.loadAgeStructureGraph(nextProps.country);
+        }
+    }
+
+    loadAgeStructureGraph(country) {
+        axios.get(`http://localhost:4040/age-structure-data/${country}`)
         .then((response) => {
             if(response.data.message === 'success') {
                 this.setState({
@@ -24,6 +35,12 @@ class AgeStructureGraph extends Component {
             }
         })
     }
+
+    componentDidMount() {
+        //change port to 3001
+        this.loadAgeStructureGraph(this.state.country);
+    }
+
 
     render() {
         return (

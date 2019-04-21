@@ -7,26 +7,36 @@ class YouthLiteracyGraph extends Component{
     constructor(props) {
         super(props);
         this.state = {
+            country: this.props.country
         }
     }
 
-    componentDidMount() {
+    componentWillReceiveProps(nextProps, nextContext) {
+        //console.log("In age componentWillReceiveProps nextprops",nextProps.country);
+        //console.log("In age componentWillReceiveProps current props",this.state.country);
+        if(nextProps.country.toLowerCase() !== this.state.country.toLowerCase()) {
+            this.setState({
+                country: nextProps.country.toLowerCase()
+            })
+           this.loadYouthLiteracyGraph(nextProps.country);
+        }
+    }
 
-        axios.get(`http://localhost:4040/youth-literacy-rate/${this.props.country}`)
-            .then((response) =>{
+    loadYouthLiteracyGraph(country) {
+        axios.get(`http://localhost:4040/youth-literacy-rate/${country}`)
+        .then((response) => {
+            if(response.data.message === 'success') {
+                this.setState({
+                    data: response.data.data
+                })
+            } else {
 
-                console.log(response.data);
-                if(response.data.message === 'success') {
-                    this.setState({
-                        data: response.data.data
-                    });
-                }
-                else {
-                    alert("Error loading the content");
-                }
             }
-        )
+        })
+    }
 
+    componentDidMount() {
+        this.loadYouthLiteracyGraph(this.state.country);
     }
 
 
@@ -35,17 +45,19 @@ class YouthLiteracyGraph extends Component{
 
             <div className="YouthLiteracyGraph">
                 <Chart
-                        width={'300px'}
+                        width={'500px'}
                         height={'300px'}
                         chartType="PieChart"
                         loader={<div>Loading Chart</div>}
                         data={this.state.data}
                         options={{
-                            title: 'Youth Literacy Rate',
-                            // Just add this option
-                            pieHole: 0.4,
+                            chartArea: {
+                                top: '20',
+                                left: '30'
+                            },
+                            legend: {position: 'right'}
                         }}
-                        rootProps={{ 'data-testid': '3' }}
+                        
                         />
 
             </div>

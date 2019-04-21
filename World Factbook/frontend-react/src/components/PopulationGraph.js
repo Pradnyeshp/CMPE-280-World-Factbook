@@ -7,9 +7,9 @@ import { Chart } from "react-google-charts";
 class PopulationGraph extends Component {
 
     constructor(props) {
-        super();
+        super(props);
         this.state = {
-            country : "india" ,
+            country : this.props.country ,
             populationArray : [],
             populationGrowthArray : [],
             birthArray : [],
@@ -18,12 +18,22 @@ class PopulationGraph extends Component {
         }
     }
 
-    componentWillMount() {
+    componentWillReceiveProps(nextProps, nextContext) {
+        //console.log("In age componentWillReceiveProps nextprops",nextProps.country);
+        //console.log("In age componentWillReceiveProps current props",this.state.country);
+        if(nextProps.country.toLowerCase() !== this.state.country.toLowerCase()) {
+            this.setState({
+                country: nextProps.country.toLowerCase()
+            })
+           this.loadPopulationGraph(nextProps.country);
+        }
+    }
 
-        console.log("country props : " , this.props.country) ;
+    loadPopulationGraph(country) {
+        //console.log("country props : " , this.props.country) ;
         //change port to 3001
 
-        let url = `http://localhost:4040/population/${this.state.country}` ;
+        let url = `http://localhost:4040/population/${country}` ;
 
         axios.get(url)
             .then(response =>{
@@ -34,7 +44,7 @@ class PopulationGraph extends Component {
                 }
             );
 
-        let populationCountURL = `http://localhost:4040/populationCount/${this.state.country}` ;
+        let populationCountURL = `http://localhost:4040/populationCount/${country}` ;
         axios.get(populationCountURL)
             .then(response => {
                     console.log("Response from server : ", response.data) ;
@@ -45,7 +55,7 @@ class PopulationGraph extends Component {
             );
         
         //change port to 3001
-        let birthCountURL = `http://localhost:4040/birthcount/${this.state.country}` ;
+        let birthCountURL = `http://localhost:4040/birthcount/${country}` ;
         axios.get(birthCountURL)
             .then(response => {
                     console.log("Response from server : ", response.data) ;
@@ -56,7 +66,7 @@ class PopulationGraph extends Component {
             );
 
         //change port to 3001
-        let deathCountURL = `http://localhost:4040/deathcount/${this.state.country}` ;
+        let deathCountURL = `http://localhost:4040/deathcount/${country}` ;
         axios.get(deathCountURL)
             .then(response => {
                     console.log("Response from server : ", response.data) ;
@@ -67,7 +77,7 @@ class PopulationGraph extends Component {
             );
         
         //change port to 3001
-        let migrantCountURL = `http://localhost:4040/migrantcount/${this.state.country}` ;
+        let migrantCountURL = `http://localhost:4040/migrantcount/${country}` ;
         axios.get(migrantCountURL)
             .then(response => {
                     console.log("Response from server : ", response.data) ;
@@ -79,6 +89,10 @@ class PopulationGraph extends Component {
         //let url = `http://localhost:4040/population/${this.state.country}` ;
 
 
+    }
+
+    componentDidMount() {
+        this.loadPopulationGraph(this.state.country);
     }
 
     render() {

@@ -87,7 +87,7 @@ class Navbar extends Component {
                                 marginRight : "10px"
                             }}>
                                 <Link className="btn btn-outline-success my-2 my-sm-0"
-                                      to={`/getcountry/${this.state.searchText}`} >
+                                      to={`/dashboard/${this.state.searchText}`} >
                                     Search
                                 </Link>
                             </div>
