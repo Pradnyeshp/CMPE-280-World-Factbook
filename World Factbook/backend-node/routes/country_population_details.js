@@ -7,15 +7,64 @@ module.exports.getCountryPopulationDetails = async (req, res, next) => {
     console.log('countryName : ', countryName) ;
 
     const countryDetails = await UNDataCountryModel.findOne({countryName: countryName});
+    if(countryDetails != null) {
+        let countryPopulationDeatils = countryDetails.population_prospect ;
+        // console.log(countryPopulationDeatils) ;
 
-    // console.log(countryDetails);
-    let countryPopulationDeatils = countryDetails.population_prospect ;
-    // console.log(countryPopulationDeatils) ;
-
-    if(countryPopulationDeatils.length !== 0)
-        res.json({message: "success", data: countryPopulationDeatils});
+        if(countryPopulationDeatils.length !== 0)
+            res.json({message: "success", data: countryPopulationDeatils});
+    }
     else
         res.json({message: "error", data: "Could not find the country in the database"});
+
+};
+
+module.exports.getAllCountryPopulationDetails = async (req, res, next) => {
+
+    // const countryName = req.params.country.toLowerCase();
+    // console.log('countryName : ', countryName) ;
+
+    try {
+        const countryDetails = await UNDataCountryModel.find();
+        // console.log(countryDetails);
+
+        let response = [] ;
+
+        countryDetails.forEach(function (row) {
+            let countryName = row.countryName.toUpperCase() ;
+            console.log(row.countryName);
+
+            if(countryName.toLowerCase() !== 'world'){
+                if(row.population_count !== null){
+                    let populationArray = row.population_count ;
+                    populationArray.sort((a,b) => (a.year - b.year)) ;
+
+                    populationArray.forEach(function (row) {
+                        let temp2 = [] ;
+
+                        if(parseInt(row.year) === 2018 && parseInt(row.value) <= 1415045.928){
+                            temp2.push(countryName) ;
+                            temp2.push(row.value) ;
+                            response.push(temp2) ;
+                        }
+                    })
+                }
+            }
+        }) ;
+
+        res.json({message : "success", data : response}) ;
+
+        //
+        // let allcountryPopulationDeatils = countryDetails.population_count ;
+        // // console.log(countryPopulationDeatils) ;
+        //
+        // if(allcountryPopulationDeatils.length !== 0)
+        //     res.json({message: "success", data: allcountryPopulationDeatils});
+
+    }
+    catch (e) {
+        res.json({message: "error", data: "Could not find the country in the database"});
+    }
 
 };
 

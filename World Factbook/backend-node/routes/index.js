@@ -23,6 +23,8 @@ router.post('/updateUser', userdetails.updateUser);
 
 router.post('/deleteUser', userdetails.deleteUser);
 
+router.get('/population/countries', countrypopulationdetails.getAllCountryPopulationDetails);
+
 router.get('/population/:country', countrypopulationdetails.getCountryPopulationDetails);
 
 router.get('/energy-data/:country/', energyData.prepareEnergyGraph);

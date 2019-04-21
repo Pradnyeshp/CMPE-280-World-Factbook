@@ -9,18 +9,28 @@ class GeoGraph extends Component {
         super();
         this.state = {
             country : "india" ,
-            populationCountArray : []
+            populationCountArray : [],
+            allCountryPopulationArray : []
         }
     }
 
     componentWillMount() {
-        //change port to 3001
-        let url = `http://localhost:4040/populationCount/${this.state.country}` ;
-        axios.get(url)
-            .then(response=>{
+        // change port to 3001
+        // let url = `http://localhost:4040/populationCount/${this.state.country}` ;
+        // axios.get(url)
+        //     .then(response=>{
+        //         console.log(response.data) ;
+        //         this.setState({
+        //             populationCountArray : response.data.data
+        //         })
+        //     }) ;
+
+        let countryPopulationURL = 'http://localhost:4040/population/countries' ;
+        axios.get(countryPopulationURL)
+            .then(response=> {
                 console.log(response.data) ;
                 this.setState({
-                    populationCountArray : response.data.data
+                    allCountryPopulationArray : response.data.data
                 })
             })
     }
@@ -28,42 +38,50 @@ class GeoGraph extends Component {
     render() {
 
         // console.log(this.state.populationCountArray) ;
-        let populationCountArray = this.state.populationCountArray ;
-        let currentPopulation ;
+        let header = ['Country', 'Population'] ;
+        let graphData = [] ;
+        graphData.push(header) ;
 
-        for(let i = 0 ; i < populationCountArray.length ; i++){
+        let allCountryPouplations = this.state.allCountryPopulationArray ;
 
-            let row = populationCountArray[i] ;
-            if(row.year === "2019"){
-                currentPopulation = row.value ;
-                break;
-            }
-        }
+        allCountryPouplations.forEach(function (row) {
+            graphData.push(row) ;
+        }) ;
 
-        console.log(currentPopulation);
+        // let populationCountArray = this.state.allCountryPopulationArray ;
+        // let currentPopulation ;
+        //
+        // for(let i = 0 ; i < populationCountArray.length ; i++){
+        //
+        //     let row = populationCountArray[i] ;
+        //     if(row.year === "2019"){
+        //         currentPopulation = row.value ;
+        //         break;
+        //     }
+        // }
 
+        // console.log(currentPopulation);
 
         return(
             <div>
                 <Navbar/>
                 <br/>
-                <h2>
-                    Geo Graph
-                </h2>
-                Geo Chart
                 <Chart
-                    width={'1200px'}
+                    width={'1500px'}
                     height={'700px'}
                     chartType="GeoChart"
-                    data={[
-                        ['Country', 'Population'],
-                        [this.state.country.toLocaleUpperCase(), currentPopulation],
-                        // ['United States', 300],
-                        // ['Brazil', 400],
-                        // ['Canada', 500],
-                        // ['France', 600],
-                        // ['RU', 700],
-                    ]}
+                    data={ graphData
+                    //     [
+                    //     ['Country', 'Population'],
+                    //     [this.state.country.toLocaleUpperCase(), currentPopulation],
+                    //     // ['United States', 300],
+                    //     // ['Brazil', 400],
+                    //     // ['Canada', 500],
+                    //     // ['France', 600],
+                    //     // ['RU', 700],
+                    // ]
+                    }
+                    // options = {{displayMode : 'text'}}
                     // Note: you will need to get a mapsApiKey for your project.
                     // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
                     mapsApiKey="AIzaSyBgT9S1jtBpZ7HNyqTz86ay1uEeHVj0bMY"
