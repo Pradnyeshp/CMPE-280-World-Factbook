@@ -4,7 +4,7 @@ import axios from 'axios';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Label, Legend} from 'recharts';
 import '../css/countrydetails.css';
 import swal from 'sweetalert';
-
+import AgeStructureGraph from './AgeStructureGraph';
 
 
 class CountryDetails extends Component {
@@ -50,15 +50,16 @@ class CountryDetails extends Component {
                     if(response.data.message === 'error') {
                         swal(response.data.data, "try with different keyword", "error");
                         this.props.history.push('/HomePage');
+                    } else {
+                        //console.log(response.data.data);
+                        this.setState({
+                            introduction: response.data.data.introduction,
+                            area: response.data.data.area,
+                            age_structure: response.data.data.age_structure,
+                            climate: response.data.data.climate,
+                            population: response.data.data.population
+                        })
                     }
-
-                    this.setState({
-                        introduction: response.data.data.introduction,
-                        area: response.data.data.area,
-                        age_structure: response.data.data.age_structure,
-                        climate: response.data.data.climate,
-                        population: response.data.data.population
-                    })
                 })
         }
 
@@ -109,46 +110,13 @@ class CountryDetails extends Component {
 
                 <br/>
                 <br/>
-                
-                <div id="graphArea">
-                    <h3>
-                        Area - (In Sq. Km.)
-                    </h3>
-                    <BarChart width={400} height={300} data={this.state.area}
-                                margin={{top: 50, right: 30, left: 20, bottom: 5}}>
-                        {/* <CartesianGrid strokeDasharray="3 3"/> */}
-                        <XAxis dataKey="type">
-                            {/* <Label value="Geography Type" offset={0} position="bottom" /> */}
-                        </XAxis>
-                        <YAxis dataKey="area">
-                            {/* <Label value="Area" offset={3} angle={-90} position="left"/> */}
-                        </YAxis>
-                        <Tooltip/>
-                        <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 1, lineHeight: '20px' }}/>
-                        <Bar dataKey="area" fill="#8884d8" />
-                    </BarChart>
-                </div>
-
 
                 <div id="graphAgeStructure">
                     <h3>
-                        Age Structure
+                        Age Structure:
                     </h3>
                     
-                    <BarChart width={600} height={300} data={this.state.age_structure}
-                                margin={{top: 50, right: 30, left: 20, bottom: 5}}>
-                        {/* <CartesianGrid strokeDasharray="3 3"/> */}
-                        <XAxis dataKey="range">
-                            {/* <Label value="Age range in the country" offset={0} position="bottom" /> */}
-                        </XAxis>
-                        <YAxis dataKey="percentage"> 
-                            {/* <Label value="Percentage of the range" offset={0} angle={-90} position="left" /> */}
-                        </YAxis>
-                        
-                        <Tooltip/>
-                        <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 1, lineHeight: '20px' }}/>
-                        <Bar dataKey="percentage" fill="#8884d8" />
-                    </BarChart>
+                    <AgeStructureGraph country = {this.state.country} />
                     
                 </div>
             </div>
