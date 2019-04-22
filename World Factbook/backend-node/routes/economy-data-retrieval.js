@@ -47,7 +47,7 @@ prepareEconomyGraph = async (req, res, next) => {
 
    //Google charts data
     let dataSource = [];
-    let header = ['Year', 'Growth Rate','Unemployment Rate'];
+    let header = ['Year', 'GDP Growth Rate','Unemployment Rate'];
     dataSource.push(header);
     i=0;
     finalObject.forEach((object)=>{

@@ -46,22 +46,37 @@ class EnergyGraph extends Component {
         return (
             <div className="EnergyGraph">
                 <Chart
-                    chartType="Bar"
+                    chartType="ColumnChart"
                     loader={<div>Loading Chart</div>}
                     data= {this.state.dataSource}
                     options={
                         {
+                            // width: 700,
+                            // height: 300,
+                            // chart: {
+                            //     title: 'Energy Insights',
+                            //     subtitle: `Energy demand, production and consumption from ${this.state.start} - ${this.state.end}`
+                            //   },
+                            // axes: {
+                            //     y: {
+                            //       0: { side: 'left', label: 'killo-watts/million'} // left y position 
+                            //     }
+                            //   },
                             width: 700,
                             height: 300,
-                            chart: {
-                                title: 'Energy Insights',
-                                subtitle: `Energy demand, production and consumption from ${this.state.start} - ${this.state.end}`
-                              },
-                            axes: {
-                                y: {
-                                  0: { side: 'left', label: 'killo-watts/million'} // left y position 
+                            hAxis: {
+                                title: 'Year'
+                            },
+                            vAxis: {
+                                title: 'killo-watt-hour/million',
+                                format: 'short',
+                                gridlines: {
+                                    color: 'lightgrey',
+                                    count: 2
                                 }
-                              },
+                            },
+                            fontSize: 16,
+                            legend: { position: 'top'}
                         }
                     }
                     legendToggle

@@ -205,27 +205,58 @@ class PopulationGraph extends Component {
             <div>
                 <div >
                         <Chart
-                            width={'774px'}
-                            height={'324px'}
-                            chartType="Bar"
+                            
+                            chartType="ComboChart"
                             loader={<div>Loading Chart</div>}
                             data = {graphArray}
                             options={{
                                 // Material design options
-                                chart: {
-                                    title: 'Population Insights ',
-                                    subtitle: 'Population count, growth rate from ' + startYear + ' - ' + endYear
-                                },
+                                // chart: {
+                                //     title: 'Population Insights ',
+                                //     subtitle: 'Population count, growth rate from ' + startYear + ' - ' + endYear
+                                // },
+                                // series: {
+                                //     0: { axis: 'population' }, // Bind series 0 to an axis named 'distance'.
+                                //     1: { axis: 'growthrate' } // Bind series 1 to an axis named 'brightness'.
+                                // },
+                                // axes: {
+                                //     y: {
+                                //         population: {label: 'population'}, // Left y-axis.
+                                //         growthrate: {side: 'right', label: 'population growth rate'} // Right y-axis.
+                                //     }
+                                // }
+
+                                width: 700,
+                                height: 300,
+                                seriesType: 'bars',
                                 series: {
-                                    0: { axis: 'population' }, // Bind series 0 to an axis named 'distance'.
-                                    1: { axis: 'growthrate' } // Bind series 1 to an axis named 'brightness'.
+                                    0: {targetAxisIndex: 0},
+                                    1: {targetAxisIndex: 1, type: 'line'}
                                 },
-                                axes: {
-                                    y: {
-                                        population: {label: 'population'}, // Left y-axis.
-                                        growthrate: {side: 'right', label: 'population growth rate'} // Right y-axis.
-                                    }
-                                }
+                                hAxis: {
+                                    title: 'Year'
+                                },
+                                vAxes: {
+                                    0: {
+                                        title: 'population', 
+                                        format: 'short', 
+                                        gridlines: {
+                                            color: 'lightgrey',
+                                            count: 2
+                                        }
+                                    },
+                                    1: {
+                                        title: 'population growth rate', 
+                                        gridlines: {
+                                            color: 'lightgrey',
+                                            count: 1
+                                        }
+                                    },
+                                    
+                                },
+                                fontSize: 16,
+                                legend: { position: 'top'},
+                                bar: {groupWidth: "40%"}
                             }}
                             legendToggle
                         />

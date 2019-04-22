@@ -47,26 +47,46 @@ class EconomyGraph extends Component {
         return (
             <div className="EconomyGraph">
                 <Chart
-                    width={'700px'}
-                    height={'300px'}
-                    chartType="Line"
+                    
+                    chartType="LineChart"
                     loader={<div>Loading Chart</div>}
                     data={this.state.dataSource}
                     options={{
-                        chart: {
-                        title: 'Economy Insights',
-                        subtitle: 'Comparison between Umemployment rate and Growth rate',
-                        },
+                        width: 700,
+                        height: 300,
                         series: {
-                            0: { axis: 'growthrate' }, // Bind series 0 to an axis named 'distance'.
-                            1: { axis: 'unemployment' } // Bind series 1 to an axis named 'brightness'.
+                            0: {targetAxisIndex: 0},
+                            1: {targetAxisIndex: 1}
                         },
-                        axes: {
-                            y: {
-                                growthrate: {label: 'growth rate'}, // Left y-axis.
-                                unemployment: {side: 'right', label: 'unemployment rate'} // Right y-axis.
-                            }
-                        }
+                        // series: {
+                        //     0: { axis: 'growthrate' }, // Bind series 0 to an axis named 'distance'.
+                        //     1: { axis: 'unemployment' } // Bind series 1 to an axis named 'brightness'.
+                        // },
+                        // axes: {
+                        //     y: {
+                        //         growthrate: {label: 'growth rate'}, // Left y-axis.
+                        //         unemployment: {side: 'right', label: 'unemployment rate'} // Right y-axis.
+                        //     }
+                        // },
+                        vAxes: {
+                            0: {
+                                title: 'unemployment rate',
+                                gridlines: {
+                                    color: 'lightgrey',
+                                    count: 2
+                                }
+                            },
+                            1: {
+                                title: 'GDP growth rate', 
+                                gridlines: {
+                                    color: 'lightgrey',
+                                    count: 1
+                                }
+                            },
+                            
+                        },
+                        fontSize: 16,
+                        legend: { position: 'top'},
                     }}
                     legendToggle
                     //rootProps={{ 'data-testid': '3' }}
