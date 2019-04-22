@@ -31,7 +31,9 @@ class CountryList extends Component {
             return (
                 <tr key={a.countryName}>
                     <td>
-                        <Link to={`/getcountry/${a.countryName}`}>{a.countryName}</Link>
+                        <Link to={`/getcountry/${a.countryName}`}>
+                            {a.countryName}
+                        </Link>
                     </td>
                 </tr>
             )

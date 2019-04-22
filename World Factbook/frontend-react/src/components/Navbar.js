@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import axios from 'axios';
 import '../css/graphStyle.css';
 import globe from "../Images/globe.png"
 
@@ -49,11 +48,11 @@ class Navbar extends Component {
             marginRight : "15px"
         };
 
-        let styleSearchButton = {
-            display: flag,
-            marginLeft : "10px",
-            marginRight : "10px"
-        };
+        // let styleSearchButton = {
+        //     display: flag,
+        //     marginLeft : "10px",
+        //     marginRight : "10px"
+        // };
 
         let flag = "none";
         (this.state.searchText.length !== 0) ? flag = "block" : flag = "none";
