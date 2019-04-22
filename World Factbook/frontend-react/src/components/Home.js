@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../css/CardStyle.css';
 import Dashboard from "./Dashboard";
+import swal from "sweetalert" ;
 
 class Home extends Component {
 
@@ -19,6 +20,10 @@ class Home extends Component {
                 country: nextProps.match.params.country.toLowerCase()
             })
         }
+    }
+
+    componentDidMount() {
+        swal("Enjoy your stay!", "Search country in search box to change the dashboard.");
     }
 
     render() {
