@@ -1,4 +1,4 @@
-const UNCountryModel = require('../dbs/model/UNDataCountryModel.js');
+const UNCountryModel = require('../dbs/model/UNDataCountryModel1.js');
 
 prepareEconomyGraph = async (req, res, next) => {
 
@@ -7,13 +7,23 @@ prepareEconomyGraph = async (req, res, next) => {
 
     let result = await UNCountryModel.findOne({ countryName: country });
 
-    //Get the gross demand data
-    let gdpData = result.gdp;
+    //Get the ggrowth rate world data
+    let growthRateWorldData = result.growth_rate_world;
+
+    let unemploymentRateWorldData = result.unemployment_rate_world;
 
     let map = new Map();
     let finalObject = [];
-    gdpData.forEach((element) => {
+    growthRateWorldData.forEach((element) => {
         map.set(element.year, {'year': element.year, 'value': element.value});
+    });
+
+    unemploymentRateWorldData.forEach((element) => {
+        if(map.has(element.year)) {
+            let object = map.get(element.year);
+            object['Unemployment'] = element.value;
+            map.set(element.year, object);
+        }
     });
 
     let i = 0;
@@ -37,13 +47,14 @@ prepareEconomyGraph = async (req, res, next) => {
 
    //Google charts data
     let dataSource = [];
-    let header = ['Year', 'Value'];
+    let header = ['Year', 'Value','Unemployment'];
     dataSource.push(header);
     i=0;
     finalObject.forEach((object)=>{
         let row = [];
         row.push(object.year);
         row.push(object.value);
+        row.push(object.Unemployment);
         if(i==0)
             start = object.year;
         if(i == finalObject.length-1)

@@ -9,6 +9,7 @@ const oldCountriesData = require('./old-countries-data-retrieval');
 const economyData = require('./economy-data-retrieval');
 const youthLiteracyData = require('./youth-literacy-data-retrieval');
 
+const economyMultiLineData = require('./economy-multiline-chart');
 
 /* GET area response page. */
 router.get('/area', read_area_file.getArea);
@@ -42,5 +43,6 @@ router.get('/populationCount/:country', countrypopulationdetails.getCountryPopul
 router.get('/economy-data/:country/', economyData.prepareEconomyGraph);
 
 router.get('/youth-literacy-rate/:country',youthLiteracyData.prepareYouthLiteracyChart);
+//router.get('/economy-data-multiline/:country/', economyMultiLineData.prepareEconomyMultiLineGraph);
 
 module.exports = router;

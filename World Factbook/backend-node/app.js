@@ -14,6 +14,7 @@ const postUserDetails = require('./dbs/extract-and-load/areas-of-all-countries.j
 const energyData = require('./dbs/extract-and-load/energy-data-collection.js');
 const educationData = require('./dbs/extract-and-load/education-data-collection.js');
 const economyData = require('./dbs/extract-and-load/economy-data-collection.js');
+const economyData1 = require('./dbs/extract-and-load/economy-gdp_unemp-data-collection');
 const populationData = require('./dbs/extract-and-load/population-data-collection.js');
 
 
@@ -67,13 +68,18 @@ db.connection.once('open', ()=>{
 
   //Collecting Military Expenditure data
   // economyData.getMilitaryExpenditure();
+
+  //economyData1.getUnemploymentRateWorld();
+
+  //economyData1.getGrowthRateWorld();
+  
   // <--- Abhishek economy data collection ends
 
   // <--- Venkatesh energy data collection starts
   //Collection for energy data
 
   //Collecting gross demand data
-  // energyData.getEnergyGrossDemandData();
+  //energyData.getEnergyGrossDemandData();
 
 
   //Collecting gross production data

@@ -30,24 +30,25 @@ class EconomyGraph extends Component {
 
     render() {
         return (
-            <div className="EnergyGraph">
+            <div className="EconomyGraph">
                 <Chart
                     width={'600px'}
-                    height={'300px'}
+                    height={'400px'}
                     chartType="Line"
                     loader={<div>Loading Chart</div>}
                     data={this.state.dataSource}
                     options={{
                         chart: {
-                        title: 'GDP Data',
-                        subtitle: `GDP per capita from ${this.state.start} - ${this.state.end}`
+                        title: 'Economy Insights',
+                        subtitle: 'Comparison in Umemployment and growth rate',
                         },
                         axes: {
                             y: {
-                              0: { side: 'left', label: 'Value in Trillions'} 
+                              0: { side: 'left', label: 'Value in Millions'} // left y position 
                             }
                           },
                     }}
+                    legendToggle
                     //rootProps={{ 'data-testid': '3' }}
                     />
             </div>

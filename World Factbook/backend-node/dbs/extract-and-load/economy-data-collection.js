@@ -15,6 +15,14 @@ getMilitaryExpenditure = async () => {
     await processEconomyAndSaveToMongoDB('military-expenditure', 'military_expenditure');
 }
 
+// getUnemploymentRateWorld = async () => {
+//     await processEconomyAndSaveToMongoDB('unemployment-rate-world', 'unemployment_rate_world');
+// }
+
+// getGrowthRateWorld = async () => {
+//     await processEconomyAndSaveToMongoDB('growth-rate-world', 'growth_rate_world');
+// }
+
 processEconomyAndSaveToMongoDB = async (filename, objectType) => {
     console.log("Processing filename: ", filename);
     console.log("Processing objectType: ", objectType);
@@ -72,10 +80,21 @@ processEconomyAndSaveToMongoDB = async (filename, objectType) => {
 
         });
     });
+//     csv
+//    .fromStream(stream, {headers : true})
+//    .on("record", function(err, data){
+//         ....
+//    })
+//    .on('error', function(error) {
+//       console.log("Catch an invalid csv file!!!");
+//       return res.fail('The csv file is invalid!');
+//    });
 };
 
 module.exports = {
     getGDP: getGDP,
     getPovertyHeadcountRatio: getPovertyHeadcountRatio,
     getMilitaryExpenditure: getMilitaryExpenditure
+    // getUnemploymentRateWorld: getUnemploymentRateWorld,
+    // getGrowthRateWorld: getGrowthRateWorld
 };

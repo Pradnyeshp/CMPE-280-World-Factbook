@@ -17,6 +17,8 @@ const UNDataCountrySchema = new Schema({
     education_expenditure: [{year: String, value: Number}],
     military_expenditure: [{year: String, value: Number}],
     poverty_headcount_ratio: [{year: String, value: Number}],
+    //unemployment_rate_world: [{year: String, value: Number}],
+    //growth_rate_world: [{year: String, value: Number}],
     youth_literacy_rate: [{year: String, sex: String, value: Number}],
     gdp: [{year: String, value: Number}]
 });
