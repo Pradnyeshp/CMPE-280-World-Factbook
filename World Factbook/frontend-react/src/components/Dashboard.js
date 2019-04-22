@@ -38,14 +38,15 @@ class Dashboard extends Component {
             top10.push(data[i]);
         }
 
+        // let countryName = this.state.country ;
+        // countryName = countryName.charAt(0).toUpperCase() + countryName.slice(1);
+
         return(
             <div>
                 <Navbar/>
-                <br/>
                 <div className="dashboard" style={ {marginLeft : "50px" , marginRight : "50px"}}>
-                    <h1>{this.state.country.toUpperCase()}</h1>
-                    <br/>
-                    <div className='row'>
+                    <h1 className="countryHeader">{this.state.country.toUpperCase()}</h1>
+                    <div className='row firstRow'>
                         <div className= 'col-md-6'>
                             {/*<h3>Population</h3>*/}
                             {/*Write graph component here, and pass countryName as props*/}
@@ -62,13 +63,13 @@ class Dashboard extends Component {
                     </div>
 
                     <div className='row'>
-                        <div className= 'col-md-6'>
+                        <div className= 'col-md-6 graphEconomy' style={{paddingRight : "0", paddingLeft : "0", width :"770px"}}>
                             <br/>
                             {/*<p>Graph Here</p>*/}
                             {/*Write graph component here, and pass countryName as props*/}
                             <EconomyGraph country = {this.state.country}/>
                         </div>
-                        <div className= 'col-md-3'>
+                        <div className= 'col-md-3 ageGraph'>
                             <br/>
                             <p className="graphTitle">Age Insights</p>
                             <p className="graphSubtitle">Population by age groups</p>
@@ -76,7 +77,7 @@ class Dashboard extends Component {
                             <AgeStructureGraph country = {this.state.country} />
                         </div>
 
-                        <div className= 'col-md-3'>
+                        <div className= 'col-md-3 literacyGraph'>
                             <br/>
                             <p className="graphTitle">Literacy Insights</p>
                             <p className="graphSubtitle">Literacy by gender</p>

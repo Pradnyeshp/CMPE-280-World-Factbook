@@ -47,7 +47,7 @@ class AgeStructureGraph extends Component {
             <div className='AgeStructureGraph'>
                 <Chart
                 width={'500px'}
-                height={'300px'}
+                height={'320px'}
                 chartType="PieChart"
                 loader={<div>Loading Chart</div>}
                 data={this.state.data}
@@ -57,7 +57,7 @@ class AgeStructureGraph extends Component {
                         left: '30'
                     },
                     legend: {position: 'right'},
-                    fontSize: 16
+                    fontSize: 15
                 }}
                 />
             </div>

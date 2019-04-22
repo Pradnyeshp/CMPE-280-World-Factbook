@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-// import Navbar from "./Navbar";
 import axios from 'axios';
-// import {Bar, BarChart, CartesianGrid, Line, Legend, Tooltip, XAxis, YAxis, LineChart} from "recharts";
 import { Chart } from "react-google-charts";
+import '../css/style.css';
 
 class PopulationGraph extends Component {
 
@@ -24,7 +23,7 @@ class PopulationGraph extends Component {
         if(nextProps.country.toLowerCase() !== this.state.country.toLowerCase()) {
             this.setState({
                 country: nextProps.country.toLowerCase()
-            })
+            });
            this.loadPopulationGraph(nextProps.country);
         }
     }
@@ -203,9 +202,14 @@ class PopulationGraph extends Component {
 
         return(
             <div>
-                <div >
+                <div className="populationGraph">
+                    <div className="graphTitle">
+                        Population Insights
+                    </div>
+                    <div className="graphSubtitle">
+                        Population count, growth rate from 1995 - 2020
+                    </div>
                         <Chart
-                            
                             chartType="ComboChart"
                             loader={<div>Loading Chart</div>}
                             data = {graphArray}
@@ -226,7 +230,7 @@ class PopulationGraph extends Component {
                                 //     }
                                 // }
 
-                                width: 700,
+                                width: 770,
                                 height: 300,
                                 seriesType: 'bars',
                                 series: {
@@ -243,18 +247,20 @@ class PopulationGraph extends Component {
                                         gridlines: {
                                             color: 'lightgrey',
                                             count: 2
-                                        }
+                                        },
+                                        italic : false
                                     },
                                     1: {
                                         title: 'population growth rate', 
                                         gridlines: {
                                             color: 'lightgrey',
                                             count: 1
-                                        }
+                                        },
+                                        italic : false
                                     },
                                     
                                 },
-                                fontSize: 16,
+                                fontSize: 15,
                                 legend: { position: 'top'},
                                 bar: {groupWidth: "40%"}
                             }}

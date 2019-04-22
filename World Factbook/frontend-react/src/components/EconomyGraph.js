@@ -20,7 +20,7 @@ class EconomyGraph extends Component {
         if(nextProps.country.toLowerCase() !== this.state.country.toLowerCase()) {
             this.setState({
                 country: nextProps.country.toLowerCase()
-            })
+            });
            this.loadEconomyGraph(nextProps.country);
         }
     }
@@ -45,15 +45,22 @@ class EconomyGraph extends Component {
 
     render() {
         return (
-            <div className="EconomyGraph">
+            <div className="EconomyGraph" style={{paddingRight : "0", paddingLeft : "0", width : '770px'}}>
+
+                <div className="graphTitle">
+                    Economy Insights
+                </div>
+                <div className="graphSubtitle">
+                    GDP growth rate vs Unemployment rate from {this.state.start} - {this.state.end}
+                </div>
+
                 <Chart
-                    
                     chartType="LineChart"
                     loader={<div>Loading Chart</div>}
                     data={this.state.dataSource}
                     options={{
                         width: 700,
-                        height: 300,
+                        height: 320,
                         series: {
                             0: {targetAxisIndex: 0},
                             1: {targetAxisIndex: 1}
@@ -85,7 +92,7 @@ class EconomyGraph extends Component {
                             },
                             
                         },
-                        fontSize: 16,
+                        fontSize: 15,
                         legend: { position: 'top'},
                     }}
                     legendToggle

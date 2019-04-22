@@ -45,6 +45,12 @@ class EnergyGraph extends Component {
     render() {
         return (
             <div className="EnergyGraph">
+                <div className="graphTitle">
+                    Energy Insights
+                </div>
+                <div className="graphSubtitle">
+                    Energy demand, production and consumption from {this.state.start} - {this.state.end}
+                </div>
                 <Chart
                     chartType="ColumnChart"
                     loader={<div>Loading Chart</div>}
@@ -62,7 +68,7 @@ class EnergyGraph extends Component {
                             //       0: { side: 'left', label: 'killo-watts/million'} // left y position 
                             //     }
                             //   },
-                            width: 700,
+                            width: 770,
                             height: 300,
                             hAxis: {
                                 title: 'Year'
@@ -75,7 +81,7 @@ class EnergyGraph extends Component {
                                     count: 2
                                 }
                             },
-                            fontSize: 16,
+                            fontSize: 15,
                             legend: { position: 'top'}
                         }
                     }
