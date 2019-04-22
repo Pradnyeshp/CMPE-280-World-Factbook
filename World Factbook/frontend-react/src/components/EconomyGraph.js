@@ -6,12 +6,27 @@ class EconomyGraph extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            country: this.props.country
         }
     }
 
     componentDidMount() {
-        //change port to 3001
-        axios.get(`http://localhost:4040/economy-data/${this.props.country}`)
+        this.loadEconomyGraph(this.state.country);
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        //console.log("In age componentWillReceiveProps nextprops",nextProps.country);
+        //console.log("In age componentWillReceiveProps current props",this.state.country);
+        if(nextProps.country.toLowerCase() !== this.state.country.toLowerCase()) {
+            this.setState({
+                country: nextProps.country.toLowerCase()
+            })
+           this.loadEconomyGraph(nextProps.country);
+        }
+    }
+
+    loadEconomyGraph(country) {
+        axios.get(`http://localhost:4040/economy-data/${country}`)
         .then((response) => {
             console.log(response.data);
             if(response.data.message === 'success') {
@@ -24,16 +39,16 @@ class EconomyGraph extends Component {
             else {
                 alert("Error loading the content");
             }
-            
-        })   
+
+        })  
     }
 
     render() {
         return (
             <div className="EconomyGraph">
                 <Chart
-                    width={'600px'}
-                    height={'400px'}
+                    width={'700px'}
+                    height={'300px'}
                     chartType="Line"
                     loader={<div>Loading Chart</div>}
                     data={this.state.dataSource}
@@ -48,8 +63,8 @@ class EconomyGraph extends Component {
                         },
                         axes: {
                             y: {
-                                growthrate: {label: 'Growth rate'}, // Left y-axis.
-                                unemployment: {side: 'right', label: 'Unemployment rate'} // Right y-axis.
+                                growthrate: {label: 'growth rate'}, // Left y-axis.
+                                unemployment: {side: 'right', label: 'unemployment rate'} // Right y-axis.
                             }
                         }
                     }}
