@@ -67,10 +67,9 @@ class GeoGraph extends Component {
         return(
             <div>
                 <Navbar/>
-                <br/>
                 <Chart
-                    width={'1550px'}
-                    height={'750px'}
+                    width={'1690px'}
+                    height={'910px'}
                     chartType="GeoChart"
                     data={ graphData
                     //     [
@@ -87,7 +86,19 @@ class GeoGraph extends Component {
                         // displayMode : 'text',
                         colorAxis: { colors: ['white', '#e31b23'] },
                         backgroundColor: '#81d4fa',
-                        // textStyle: {color: 'blue', fontSize: 16}
+                        markerOpacity : 1,
+                        markerColor : 'blue',
+                        legend : { numberFormat : '0',
+                            textStyle: {color: 'black', fontSize: 16}
+                        },
+                        tooltip : {
+                            textStyle: {color: 'black', fontSize: 18},
+                            trigger : 'focus'
+                        }
+                    }}
+
+                    legend = {{
+                        textStyle: {color: 'yellow', fontSize: 16},
                     }}
                     // Note: you will need to get a mapsApiKey for your project.
                     // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings

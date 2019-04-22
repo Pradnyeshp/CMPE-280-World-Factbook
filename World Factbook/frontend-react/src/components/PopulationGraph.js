@@ -109,7 +109,7 @@ class PopulationGraph extends Component {
 
         let graphArray = [] ;
         // let header = ['Year', 'population', 'birthcount', 'death count'] ;
-        let header = ['Year', 'population', 'growth rate'] ;
+        let header = ['Year', 'Population', 'Growth Rate'] ;
 
         graphArray.push(header) ;
         let startYear = 1995 ;
@@ -203,10 +203,10 @@ class PopulationGraph extends Component {
 
         return(
             <div>
-                <div className="container">
+                <div >
                         <Chart
-                            width={'700px'}
-                            height={'300px'}
+                            width={'774px'}
+                            height={'324px'}
                             chartType="Bar"
                             loader={<div>Loading Chart</div>}
                             data = {graphArray}
