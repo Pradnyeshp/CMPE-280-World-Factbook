@@ -86,9 +86,12 @@ class Dashboard extends Component {
                         </div>
 
                     </div>
-
+                <div>
+                    <a href="../getcountry/india">
+                        More details
+                    </a>
                 </div>
-
+                </div>
             </div>
         )
     }

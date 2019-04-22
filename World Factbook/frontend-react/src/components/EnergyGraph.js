@@ -81,7 +81,7 @@ class EnergyGraph extends Component {
                                     count: 2
                                 }
                             },
-                            fontSize: 15,
+                            fontSize: 14,
                             legend: { position: 'top'}
                         }
                     }

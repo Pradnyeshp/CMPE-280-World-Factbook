@@ -45,7 +45,7 @@ class YouthLiteracyGraph extends Component{
 
             <div className="YouthLiteracyGraph">
                 <Chart
-                    width={'500px'}
+                    width={'420px'}
                     height={'320px'}
                     chartType="PieChart"
                     loader={<div>Loading Chart</div>}
@@ -56,7 +56,7 @@ class YouthLiteracyGraph extends Component{
                             left: '30'
                         },
                         legend: {position: 'right'},
-                        fontSize: 15
+                        fontSize: 14
                     }}
                 />
             </div>

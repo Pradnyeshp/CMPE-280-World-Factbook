@@ -260,7 +260,7 @@ class PopulationGraph extends Component {
                                     },
                                     
                                 },
-                                fontSize: 15,
+                                fontSize: 14,
                                 legend: { position: 'top'},
                                 bar: {groupWidth: "40%"}
                             }}

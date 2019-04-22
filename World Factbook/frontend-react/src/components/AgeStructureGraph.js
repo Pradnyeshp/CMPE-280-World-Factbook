@@ -57,7 +57,7 @@ class AgeStructureGraph extends Component {
                         left: '30'
                     },
                     legend: {position: 'right'},
-                    fontSize: 15
+                    fontSize: 14
                 }}
                 />
             </div>

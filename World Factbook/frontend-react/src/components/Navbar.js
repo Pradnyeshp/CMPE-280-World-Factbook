@@ -68,7 +68,7 @@ class Navbar extends Component {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto link2">
                             <li className="nav-item active">
-                                <Link className="nav-link" to="/homepage">
+                                <Link className="nav-link" to="/dashboard/india">
                                     Home
                                 </Link>
                             </li>

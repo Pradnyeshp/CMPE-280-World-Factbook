@@ -23,7 +23,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        swal("Enjoy your stay!", "Search country in search box to change the dashboard.");
+        swal("Welcome to World FactBook!", "Search for new country using search box in navbar");
     }
 
     render() {
