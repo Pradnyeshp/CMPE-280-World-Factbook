@@ -40,13 +40,18 @@ class EconomyGraph extends Component {
                     options={{
                         chart: {
                         title: 'Economy Insights',
-                        subtitle: 'Comparison in Umemployment and growth rate',
+                        subtitle: 'Comparison between Umemployment rate and Growth rate',
+                        },
+                        series: {
+                            0: { axis: 'growthrate' }, // Bind series 0 to an axis named 'distance'.
+                            1: { axis: 'unemployment' } // Bind series 1 to an axis named 'brightness'.
                         },
                         axes: {
                             y: {
-                              0: { side: 'left', label: 'Value in Millions'} // left y position 
+                                growthrate: {label: 'Growth rate'}, // Left y-axis.
+                                unemployment: {side: 'right', label: 'Unemployment rate'} // Right y-axis.
                             }
-                          },
+                        }
                     }}
                     legendToggle
                     //rootProps={{ 'data-testid': '3' }}
