@@ -16,6 +16,8 @@ router.get('/area', read_area_file.getArea);
 
 router.get('/getcountry/:country', countrydetails.getCountrySpecificDetails);
 
+router.get('/getcountry-for-dashboard/:country', countrydetails.getCountrySpecificDetailsForDashboard);
+
 router.post('/postuser', userdetails.postUser);
 
 router.get('/getuser', userdetails.getUser);

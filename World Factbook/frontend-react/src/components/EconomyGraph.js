@@ -28,7 +28,7 @@ class EconomyGraph extends Component {
     loadEconomyGraph(country) {
         axios.get(`http://localhost:4040/economy-data/${country}`)
         .then((response) => {
-            console.log(response.data);
+            //console.log(response.data);
             if(response.data.message === 'success') {
                 this.setState({
                     dataSource: response.data.dataSource,
@@ -60,7 +60,7 @@ class EconomyGraph extends Component {
                     data={this.state.dataSource}
                     options={{
                         width: 700,
-                        height: 320,
+                        height: 290,
                         series: {
                             0: {targetAxisIndex: 0},
                             1: {targetAxisIndex: 1}

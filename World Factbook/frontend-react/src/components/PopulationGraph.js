@@ -36,7 +36,7 @@ class PopulationGraph extends Component {
 
         axios.get(url)
             .then(response =>{
-                    console.log("Response from server : ", response.data) ;
+                    //console.log("Response from server : ", response.data) ;
                     this.setState({
                         populationGrowthArray : response.data.data
                     })
@@ -46,7 +46,7 @@ class PopulationGraph extends Component {
         let populationCountURL = `http://localhost:4040/populationCount/${country}` ;
         axios.get(populationCountURL)
             .then(response => {
-                    console.log("Response from server : ", response.data) ;
+                    //console.log("Response from server : ", response.data) ;
                     this.setState({
                         populationArray : response.data.data
                     })
@@ -57,7 +57,7 @@ class PopulationGraph extends Component {
         let birthCountURL = `http://localhost:4040/birthcount/${country}` ;
         axios.get(birthCountURL)
             .then(response => {
-                    console.log("Response from server : ", response.data) ;
+                    //console.log("Response from server : ", response.data) ;
                     this.setState({
                         birthArray : response.data.data
                     })
@@ -68,7 +68,7 @@ class PopulationGraph extends Component {
         let deathCountURL = `http://localhost:4040/deathcount/${country}` ;
         axios.get(deathCountURL)
             .then(response => {
-                    console.log("Response from server : ", response.data) ;
+                    //console.log("Response from server : ", response.data) ;
                     this.setState({
                         deathArray : response.data.data
                     })
@@ -79,7 +79,7 @@ class PopulationGraph extends Component {
         let migrantCountURL = `http://localhost:4040/migrantcount/${country}` ;
         axios.get(migrantCountURL)
             .then(response => {
-                    console.log("Response from server : ", response.data) ;
+                    //console.log("Response from server : ", response.data) ;
                     this.setState({
                         migrationArray : response.data.data
                     })
@@ -96,7 +96,7 @@ class PopulationGraph extends Component {
 
     render() {
 
-        console.log(this.state);
+        //console.log(this.state);
 
         let populationArray = this.state.populationArray ;
         populationArray.sort((a,b) => {
@@ -111,8 +111,6 @@ class PopulationGraph extends Component {
         let header = ['Year', 'Population', 'Growth Rate'] ;
 
         graphArray.push(header) ;
-        let startYear = 1995 ;
-        let endYear = 2020 ;
 
         populationArray.forEach(function (row) {
             let temp = [] ;
@@ -140,7 +138,7 @@ class PopulationGraph extends Component {
                     temp.push(row.value);
             });
         }
-
+        console.log("graphArray", graphArray);
         // let birthArray = this.state.birthArray ;
         // birthArray.forEach(function (row) {
         //     let range = row.yearRange ;
@@ -231,7 +229,7 @@ class PopulationGraph extends Component {
                                 // }
 
                                 width: 770,
-                                height: 300,
+                                height: 290,
                                 seriesType: 'bars',
                                 series: {
                                     0: {targetAxisIndex: 0},
@@ -242,7 +240,7 @@ class PopulationGraph extends Component {
                                 },
                                 vAxes: {
                                     0: {
-                                        title: 'population', 
+                                        title: 'population in thousands', 
                                         format: 'short', 
                                         gridlines: {
                                             color: 'lightgrey',

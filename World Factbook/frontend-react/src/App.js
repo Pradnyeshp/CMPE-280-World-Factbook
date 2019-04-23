@@ -10,7 +10,6 @@ import Form from './components/Form';
 import HomePage from './components/HomePage';
 import Profile from "./components/Profile";
 import GeoGraph from "./components/GeoGraph";
-import Dashboard from './components/Dashboard';
 
 class App extends Component {
   render() {
