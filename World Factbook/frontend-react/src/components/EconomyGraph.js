@@ -75,6 +75,9 @@ class EconomyGraph extends Component {
                         //         unemployment: {side: 'right', label: 'unemployment rate'} // Right y-axis.
                         //     }
                         // },
+                        hAxis: {
+                            title: 'Year'
+                        },
                         vAxes: {
                             0: {
                                 title: 'unemployment rate',
