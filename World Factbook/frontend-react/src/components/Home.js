@@ -2,23 +2,47 @@ import React, {Component} from 'react';
 import '../css/CardStyle.css';
 import Dashboard from "./Dashboard";
 import swal from "sweetalert" ;
+import axios from 'axios';
 
 class Home extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            country: 'india'
+            country: this.props.match.params.country.toLowerCase()
+        }
+    }
+
+    checkIfCountryPresent(countryName) {
+        //console.log("checkIfCountryPresent", countryName);
+        if( countryName === ""  || countryName.length === 0 ){
+            swal("Please enter some search criteria" , "try with different keyword", "error");
+            this.props.history.push('/dashboard/india');
+        }
+        else {
+            let url = `http://localhost:4040/getcountry-for-dashboard/${countryName}`;
+            axios.get(url)
+                .then((response)=>{
+                    //console.log("checkIfCountryPresent", response.data.message)
+                    if(response.data.message === 'error') {
+                        swal(response.data.data, "try with different keyword", "error");
+                        this.props.history.push('/dashboard/india');
+                    } else {
+                        //console.log(response.data.data);
+                        this.setState({
+                            country: countryName
+                        })
+                    }
+                })
         }
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        console.log("In home componentWillReceiveProps nextprops",nextProps.match.params.country);
-        console.log("In home componentWillReceiveProps current props",this.state.country);
+        
         if(nextProps.match.params.country.toLowerCase() !== this.state.country.toLowerCase()) {
-            this.setState({
-                country: nextProps.match.params.country.toLowerCase()
-            })
+            this.checkIfCountryPresent(nextProps.match.params.country.toLowerCase());
+            //console.log("In home componentWillReceiveProps nextprops",nextProps.match.params.country);
+            //console.log("In home componentWillReceiveProps current props",this.state.country);
         }
     }
 
@@ -27,7 +51,7 @@ class Home extends Component {
     }
 
     render() {
-
+        
         return(
             <div>
                 <Dashboard countryName={this.state.country}/>

@@ -24,7 +24,7 @@ class EnergyGraph extends Component {
     loadEnergyGraph(country) {
         axios.get(`http://localhost:4040/energy-data/${country}`)
         .then((response) => {
-            console.log(response.data);
+            //console.log(response.data);
             if(response.data.message === 'success') {
                 this.setState({
                     dataSource: response.data.dataSource,
@@ -69,7 +69,7 @@ class EnergyGraph extends Component {
                             //     }
                             //   },
                             width: 770,
-                            height: 300,
+                            height: 290,
                             hAxis: {
                                 title: 'Year'
                             },

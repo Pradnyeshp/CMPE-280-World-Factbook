@@ -45,17 +45,17 @@ class YouthLiteracyGraph extends Component{
 
             <div className="YouthLiteracyGraph">
                 <Chart
-                    width={'420px'}
-                    height={'320px'}
+                    width={'400px'}
+                    height={'290px'}
                     chartType="PieChart"
                     loader={<div>Loading Chart</div>}
                     data={this.state.data}
                     options={{
                         chartArea: {
                             top: '20',
-                            left: '30'
+                            left: '-30'
                         },
-                        legend: {position: 'right'},
+                        legend: {position: 'bottom'},
                         fontSize: 14
                     }}
                 />

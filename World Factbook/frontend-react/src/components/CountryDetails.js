@@ -39,11 +39,11 @@ class CountryDetails extends Component {
         console.log("in country details page");
         console.log("country length : ", country.length );
         if( country === ""  || country.length === 0 ){
-            swal("Please enter some serach criteria" , "try with different keyword", "error");
+            swal("Please enter some search criteria" , "try with different keyword", "error");
             this.props.history.push('/HomePage');
         }
         else {
-            let url = `http://localhost:3001/getcountry/${country}`;
+            let url = `http://localhost:4040/getcountry/${country}`;
             axios.get(url)
                 .then((response)=>{
                     if(response.data.message === 'error') {

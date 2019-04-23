@@ -6,6 +6,7 @@ import AgeStructureGraph from './AgeStructureGraph';
 import EconomyGraph from './EconomyGraph';
 import YouthLiteracyGraph from "./YouthLiteracyGraph";
 import '../css/style.css';
+import {Link} from "react-router-dom";
 
 
 class Dashboard extends Component {
@@ -40,12 +41,19 @@ class Dashboard extends Component {
 
         // let countryName = this.state.country ;
         // countryName = countryName.charAt(0).toUpperCase() + countryName.slice(1);
-
         return(
             <div>
                 <Navbar/>
                 <div className="dashboard" style={ {marginLeft : "50px" , marginRight : "50px"}}>
+                    <div className='row'>
                     <h1 className="countryHeader">{this.state.country.toUpperCase()}</h1>
+                    <div className="moreDetailsDiv">
+                        <Link to={`/getcountry/${this.state.country}`}>
+                            More Details
+                        </Link>
+                    </div>
+                    </div>
+                    
                     <div className='row firstRow'>
                         <div className= 'col-md-6'>
                             {/*<h3>Population</h3>*/}
@@ -63,7 +71,7 @@ class Dashboard extends Component {
                     </div>
 
                     <div className='row'>
-                        <div className= 'col-md-6 graphEconomy' style={{paddingRight : "0", paddingLeft : "0", width :"770px"}}>
+                        <div className= 'col-md-6 graphEconomy' style={{paddingRight : "0", paddingLeft : "0", width :"700px"}}>
                             <br/>
                             {/*<p>Graph Here</p>*/}
                             {/*Write graph component here, and pass countryName as props*/}
@@ -86,11 +94,6 @@ class Dashboard extends Component {
                         </div>
 
                     </div>
-                <div>
-                    <a href="../getcountry/india">
-                        More details
-                    </a>
-                </div>
                 </div>
             </div>
         )
