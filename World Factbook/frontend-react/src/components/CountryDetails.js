@@ -40,7 +40,7 @@ class CountryDetails extends Component {
         console.log("country length : ", country.length );
         if( country === ""  || country.length === 0 ){
             swal("Please enter some search criteria" , "try with different keyword", "error");
-            this.props.history.push('/HomePage');
+            this.props.history.push('/dashboard/india');
         }
         else {
             let url = `http://localhost:4040/getcountry/${country}`;
@@ -48,7 +48,7 @@ class CountryDetails extends Component {
                 .then((response)=>{
                     if(response.data.message === 'error') {
                         swal(response.data.data, "try with different keyword", "error");
-                        this.props.history.push('/HomePage');
+                        this.props.history.push('/dashboard/india');
                     } else {
                         //console.log(response.data.data);
                         this.setState({

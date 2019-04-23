@@ -47,11 +47,6 @@ class Dashboard extends Component {
                 <div className="dashboard" style={ {marginLeft : "50px" , marginRight : "50px"}}>
                     <div className='row'>
                     <h1 className="countryHeader">{this.state.country.toUpperCase()}</h1>
-                    <div className="moreDetailsDiv">
-                        <Link to={`/getcountry/${this.state.country}`}>
-                            More Details
-                        </Link>
-                    </div>
                     </div>
                     
                     <div className='row firstRow'>
@@ -93,6 +88,11 @@ class Dashboard extends Component {
                             <YouthLiteracyGraph country = {this.state.country} />
                         </div>
 
+                    </div>
+                    <div className="moreDetailsDiv">
+                        <Link to={`/getcountry/${this.state.country}`}>
+                            More Details
+                        </Link>
                     </div>
                 </div>
             </div>
