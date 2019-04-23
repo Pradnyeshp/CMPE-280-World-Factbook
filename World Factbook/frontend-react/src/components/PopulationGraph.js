@@ -230,7 +230,7 @@ class PopulationGraph extends Component {
                                 //     }
                                 // }
 
-                                width: 770,
+                                width: 650,
                                 height: 300,
                                 seriesType: 'bars',
                                 series: {
