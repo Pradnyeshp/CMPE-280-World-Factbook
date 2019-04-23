@@ -3,6 +3,7 @@ import "../css/StyleForm.css"
 import globe from "../Images/globe.png"
 import swal from "sweetalert" ;
 import axios from 'axios';
+import url from '../url.js';
 
 export default class Form extends Component {
 
@@ -189,7 +190,7 @@ export default class Form extends Component {
     }
 
     postUsers(){
-        let url = `http://localhost:3001/postUser`;
+        let api = url+'/postUser';
         var data = {
             firstName : this.state.firstname ,
             lastName : this.state.lastname,
@@ -198,7 +199,7 @@ export default class Form extends Component {
         }
 
         console.log(data)
-        axios.post(url, data)
+        axios.post(api, data)
             .then( (response) => {
                 
                 console.log(response.data())

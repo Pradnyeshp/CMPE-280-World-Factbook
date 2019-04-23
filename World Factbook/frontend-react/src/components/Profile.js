@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import axios from 'axios';
 import '../css/graphStyle.css'
 import swal from "sweetalert" ;
+import url from '../url.js';
 
 class Profile extends Component {
 
@@ -29,9 +30,9 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        let url = 'http://localhost:3001/getUser';
+        let api = url+'/getUser';
         var email=localStorage.getItem("Email")
-        axios.get(url,{params:{emailId:email}})
+        axios.get(api,{params:{emailId:email}})
             .then(response=>{
                 console.log("Profile Data",response);
                 console.log(response.data.data);
@@ -123,10 +124,10 @@ class Profile extends Component {
             phone : this.state.phone,
             email : this.state.email,
         }
-        let url = "http://localhost:3001/updateUser" ;
+        let api = url+"/updateUser" ;
         e.preventDefault() ;
         console.log('edit button clicked');
-        axios.post(url,data)
+        axios.post(api,data)
             .then(response =>{
                 // console.log(response);
             })
@@ -136,10 +137,10 @@ class Profile extends Component {
         let data={
             email:this.state.email
         }
-        let url = "http://localhost:3001/deleteUser" ;
+        let api = url+"/deleteUser" ;
         e.preventDefault() ;
         console.log('edit button clicked');
-        axios.post(url,data)
+        axios.post(api,data)
             .then(response =>{
                 // console.log(response);
             })

@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../css/countrydetails.css';
 import swal from 'sweetalert';
 import AgeStructureGraph from './AgeStructureGraph';
+import url from '../url.js';
 
 
 class CountryDetails extends Component {
@@ -43,8 +44,8 @@ class CountryDetails extends Component {
             this.props.history.push('/dashboard/india');
         }
         else {
-            let url = `http://localhost:4040/getcountry/${country}`;
-            axios.get(url)
+            let api = url+'/getcountry/'+country;
+            axios.get(api)
                 .then((response)=>{
                     if(response.data.message === 'error') {
                         swal(response.data.data, "try with different keyword", "error");

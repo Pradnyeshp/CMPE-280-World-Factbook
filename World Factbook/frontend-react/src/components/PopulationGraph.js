@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Chart } from "react-google-charts";
 import '../css/style.css';
+import url from '../url.js';
 
 class PopulationGraph extends Component {
 
@@ -32,9 +33,9 @@ class PopulationGraph extends Component {
         //console.log("country props : " , this.props.country) ;
         //change port to 3001
 
-        let url = `http://localhost:4040/population/${country}` ;
+        let api = url+`/population/${country}` ;
 
-        axios.get(url)
+        axios.get(api)
             .then(response =>{
                     //console.log("Response from server : ", response.data) ;
                     this.setState({
@@ -43,7 +44,7 @@ class PopulationGraph extends Component {
                 }
             );
 
-        let populationCountURL = `http://localhost:4040/populationCount/${country}` ;
+        let populationCountURL = url+`/populationCount/${country}` ;
         axios.get(populationCountURL)
             .then(response => {
                     //console.log("Response from server : ", response.data) ;
@@ -54,7 +55,7 @@ class PopulationGraph extends Component {
             );
         
         //change port to 3001
-        let birthCountURL = `http://localhost:4040/birthcount/${country}` ;
+        let birthCountURL = url+`/birthcount/${country}` ;
         axios.get(birthCountURL)
             .then(response => {
                     //console.log("Response from server : ", response.data) ;
@@ -65,7 +66,7 @@ class PopulationGraph extends Component {
             );
 
         //change port to 3001
-        let deathCountURL = `http://localhost:4040/deathcount/${country}` ;
+        let deathCountURL = url+`/deathcount/${country}` ;
         axios.get(deathCountURL)
             .then(response => {
                     //console.log("Response from server : ", response.data) ;
@@ -76,7 +77,7 @@ class PopulationGraph extends Component {
             );
         
         //change port to 3001
-        let migrantCountURL = `http://localhost:4040/migrantcount/${country}` ;
+        let migrantCountURL = url+`/migrantcount/${country}` ;
         axios.get(migrantCountURL)
             .then(response => {
                     //console.log("Response from server : ", response.data) ;

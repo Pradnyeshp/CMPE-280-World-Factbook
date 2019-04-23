@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Chart } from "react-google-charts";
+import url from '../url.js';
 
 class PopulationGrowthGraph extends Component {
 
@@ -16,10 +17,10 @@ class PopulationGrowthGraph extends Component {
 
         console.log("country props : " , this.props.country) ;
 
-        //change port to 3001
-        let url = `http://localhost:4040/population/${this.state.country}` ;
+        
+        let api = url+`/population/${this.state.country}` ;
 
-        axios.get(url)
+        axios.get(api)
             .then(response =>{
                 console.log("Response from server : ", response.data) ;
                 this.setState({
@@ -72,17 +73,6 @@ class PopulationGrowthGraph extends Component {
                     <br/>
                     <div className='graph'>
 
-                        {/*Recharts*/}
-
-                        {/*<BarChart width={550} height={250} data={populationArray}>*/}
-                        {/*    <CartesianGrid strokeDasharray="1 1" />*/}
-                        {/*    <XAxis dataKey="yearRange" />*/}
-                        {/*    <YAxis dataKey="value"/>*/}
-                        {/*    <Tooltip />*/}
-                        {/*    <Legend />*/}
-                        {/*    <Bar dataKey="value" fill="#8884d8" />*/}
-                        {/*</BarChart>*/}
-
 
                         {/*Google chart*/}
 
@@ -92,13 +82,6 @@ class PopulationGrowthGraph extends Component {
                             chartType="Bar"
                             loader={<div>Loading Chart</div>}
                             data = {graphArray}
-                            // data={[
-                            //     ['Year', 'Sales', 'Expenses', 'Profit'],
-                            //     ['2014', 1000, 400, 200],
-                            //     ['2015', 1170, 460, 250],
-                            //     ['2016', 660, 1120, 300],
-                            //     ['2017', 1030, 540, 350],
-                            // ]}
                             options={{
                                 // Material design options
                                 chart: {

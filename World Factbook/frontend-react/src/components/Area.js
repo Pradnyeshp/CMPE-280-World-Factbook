@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import { CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, BarChart } from 'recharts';
 import axios from 'axios';
 import '../css/graphStyle.css'
+import url from '../url.js';
 
 class Area extends Component {
 
@@ -15,7 +16,7 @@ class Area extends Component {
     }
 
     componentWillMount() {
-        let url = 'http://localhost:3001/area';
+        let api = url+'/area';
         axios.get(url)
             .then(response=>{
                 console.log(response.data.data);

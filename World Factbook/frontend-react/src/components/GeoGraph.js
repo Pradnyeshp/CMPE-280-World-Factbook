@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Navbar from "./Navbar";
 import axios from 'axios';
 import { Chart } from "react-google-charts";
+import url from '../url.js';
 
 class GeoGraph extends Component {
 
@@ -25,7 +26,7 @@ class GeoGraph extends Component {
         //         })
         //     }) ;
 
-        let countryPopulationURL = 'http://localhost:4040/population/countries' ;
+        let countryPopulationURL = url+'/population/countries' ;
         axios.get(countryPopulationURL)
             .then(response=> {
                 console.log(response.data) ;
@@ -103,7 +104,7 @@ class GeoGraph extends Component {
                     // Note: you will need to get a mapsApiKey for your project.
                     // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
                     mapsApiKey="AIzaSyBgT9S1jtBpZ7HNyqTz86ay1uEeHVj0bMY"
-                    rootProps={{ 'data-testid': '1' }}
+                    //rootProps={{ 'data-testid': '1' }}
                 />
             </div>
         )

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Chart from 'react-google-charts';
+import url from '../url.js';
 
 class EconomyGraph extends Component {
     constructor(props) {
@@ -26,7 +27,8 @@ class EconomyGraph extends Component {
     }
 
     loadEconomyGraph(country) {
-        axios.get(`http://localhost:4040/economy-data/${country}`)
+        let api = url+ '/economy-data/'+country;
+        axios.get(api)
         .then((response) => {
             //console.log(response.data);
             if(response.data.message === 'success') {

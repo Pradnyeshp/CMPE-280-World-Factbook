@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Chart from 'react-google-charts';
+import url from '../url.js';
 
 class AgeStructureGraph extends Component {
 
@@ -24,7 +25,8 @@ class AgeStructureGraph extends Component {
     }
 
     loadAgeStructureGraph(country) {
-        axios.get(`http://localhost:4040/age-structure-data/${country}`)
+        let api = url+'/age-structure-data/'+country;
+        axios.get(api)
         .then((response) => {
             if(response.data.message === 'success') {
                 this.setState({

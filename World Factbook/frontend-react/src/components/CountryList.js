@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import '../css/countrylist.css';
 import {Link} from "react-router-dom";
+import url from '../url.js';
 
 class CountryList extends Component {
 
@@ -15,8 +16,8 @@ class CountryList extends Component {
     }
 
     componentWillMount() {
-        let url = 'http://localhost:3001/area';
-        axios.get(url)
+        let api = url+'/area';
+        axios.get(api)
             .then(response=>{
                 console.log(response.data.data);
                 this.setState({

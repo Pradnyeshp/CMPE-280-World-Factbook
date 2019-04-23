@@ -3,6 +3,7 @@ import '../css/CardStyle.css';
 import Dashboard from "./Dashboard";
 import swal from "sweetalert" ;
 import axios from 'axios';
+import url from '../url.js';
 
 class Home extends Component {
 
@@ -20,8 +21,8 @@ class Home extends Component {
             this.props.history.push('/dashboard/india');
         }
         else {
-            let url = `http://localhost:4040/getcountry-for-dashboard/${countryName}`;
-            axios.get(url)
+            let api = url+`/getcountry-for-dashboard/${countryName}`;
+            axios.get(api)
                 .then((response)=>{
                     //console.log("checkIfCountryPresent", response.data.message)
                     if(response.data.message === 'error') {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Chart from 'react-google-charts';
-
+import url from '../url.js';
 class YouthLiteracyGraph extends Component{
 
     constructor(props) {
@@ -23,7 +23,8 @@ class YouthLiteracyGraph extends Component{
     }
 
     loadYouthLiteracyGraph(country) {
-        axios.get(`http://localhost:4040/youth-literacy-rate/${country}`)
+        let api = url+`/youth-literacy-rate/${country}`;
+        axios.get(api)
         .then((response) => {
             if(response.data.message === 'success') {
                 this.setState({
