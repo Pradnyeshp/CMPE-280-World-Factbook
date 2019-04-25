@@ -205,7 +205,7 @@ class PopulationGraph extends Component {
                 <div className="populationGraph">
 
                     <div className="graphTitle">
-                        <Link to={`/geograph`}>
+                        <Link to={`/PopulationInsights`}>
                             Population Insights
                         </Link>
                     </div>

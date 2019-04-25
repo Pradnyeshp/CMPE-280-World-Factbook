@@ -5,7 +5,7 @@ import { Chart } from "react-google-charts";
 import url from '../url.js';
 import '../css/populationGeograph.css' ;
 
-class GeoGraph extends Component {
+class PopulationInsights extends Component {
 
     constructor(props) {
         super(props);
@@ -340,4 +340,4 @@ class GeoGraph extends Component {
 
 }
 
-export default GeoGraph;
+export default PopulationInsights;

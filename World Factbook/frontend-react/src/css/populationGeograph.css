@@ -11,27 +11,39 @@
     margin-bottom: 30px;
 }
 
-.graphTitle{
+.pigraphTitle{
     font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 24px;
     color: black;
     margin-bottom: 0;
     letter-spacing: 0.1px;
 }
 
-.graphSubtitle{
+.pigraphSubtitle{
     font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    color: gray;
+    font-size: 20px;
+    color: black;
     margin-bottom: 10px ;
     letter-spacing: 0.1px;
 }
 
 .populationBox{
     font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 24px;
+    font-weight: 500;
     color: black;
+    letter-spacing: 0.1px;
+    margin-top: 20px;
+}
+
+.populationInsightHeader{
+    font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: bolder;
+    font-size: 28px;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 0.1px;
 }

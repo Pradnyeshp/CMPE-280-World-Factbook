@@ -9,7 +9,7 @@ import CountryList from './components/CountryList';
 import Form from './components/Form';
 import HomePage from './components/HomePage';
 import Profile from "./components/Profile";
-import GeoGraph from "./components/GeoGraph";
+import PopulationInsights from "./components/PopulationInsights";
 
 class App extends Component {
   render() {
@@ -23,7 +23,7 @@ class App extends Component {
             <Route exact path = '/dashboard/:country' component = {Home} />
             <Route exact path = '/Form' component = {Form} />
             <Route exact path = '/userprofile' component = {Profile} />
-            <Route exact path = '/geograph' component = {GeoGraph} />
+            <Route exact path = '/PopulationInsights' component = {PopulationInsights} />
         </Switch>
     );
   }
