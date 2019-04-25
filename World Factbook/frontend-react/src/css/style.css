@@ -160,13 +160,16 @@ ul.menu li.active a{
     border-right: 1px solid lightgrey ;
 }
 
+.EconomyGraph{
+    border-right: 1px solid lightgrey ;
+}
+
 .firstRow{
     border-bottom: 1px solid lightgrey ;
 }
 
 .graphEconomy{
     border-right: 1px solid lightgrey ;
-    padding: 0 ;
 }
 
 .literacyGraph{

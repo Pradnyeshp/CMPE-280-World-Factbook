@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Chart } from "react-google-charts";
 import '../css/style.css';
 import url from '../url.js';
+import {Link} from "react-router-dom";
 
 class PopulationGraph extends Component {
 
@@ -202,8 +203,11 @@ class PopulationGraph extends Component {
         return(
             <div>
                 <div className="populationGraph">
+
                     <div className="graphTitle">
-                        Population Insights
+                        <Link to={`/geograph`}>
+                            Population Insights
+                        </Link>
                     </div>
                     <div className="graphSubtitle">
                         Population count, growth rate from 1995 - 2020

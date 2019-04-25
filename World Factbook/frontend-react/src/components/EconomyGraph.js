@@ -47,7 +47,7 @@ class EconomyGraph extends Component {
 
     render() {
         return (
-            <div className="EconomyGraph" style={{paddingRight : "0", paddingLeft : "0", width : '770px'}}>
+            <div className="EconomyGraph">
 
                 <div className="graphTitle">
                     Economy Insights

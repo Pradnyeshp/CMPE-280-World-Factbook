@@ -66,7 +66,7 @@ class Dashboard extends Component {
                     </div>
 
                     <div className='row'>
-                        <div className= 'col-md-6 graphEconomy' style={{paddingRight : "0", paddingLeft : "0", width :"700px"}}>
+                        <div className= 'col-md-6' style={{paddingRight : "-15px !important"}}>
                             <br/>
                             {/*<p>Graph Here</p>*/}
                             {/*Write graph component here, and pass countryName as props*/}
