@@ -94,6 +94,18 @@ db.connection.once('open', ()=>{
   //Collecting electricity consumption by manufacturing
   // energyData.getEnergyConsumptionDataByManufacturing();
 
+  //Collecting electricity consumption by chemical use
+  //energyData.getTotalEnergyConsumptionDataByChemical();
+
+  //Collecting electricity consumption by commercial and public services
+  //energyData.getTotalEnergyConsumptionDataByCommercialAndPublicServices();
+
+  //Collecting electricity consumption by construction
+  //energyData.getTotalEnergyConsumptionDataByConstruction();
+
+  //Collecting electricity consumption by household
+  //energyData.getTotalEnergyConsumptionDataByHousehold();
+
   //Collecting total energy consumption
   // energyData.getTotalEnergyConsumptionData();
 

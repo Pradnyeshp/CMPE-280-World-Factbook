@@ -20,7 +20,11 @@ const UNDataCountrySchema = new Schema({
     //unemployment_rate_world: [{year: String, value: Number}],
     //growth_rate_world: [{year: String, value: Number}],
     youth_literacy_rate: [{year: String, sex: String, value: Number}],
-    gdp: [{year: String, value: Number}]
+    gdp: [{year: String, value: Number}],
+    energy_consumption_chemical_petrochemical: [{year: String, value: Number}],
+    energy_consumption_commercial_and_public_services: [{year: String, value: Number}],
+    energy_consumption_construction: [{year: String, value: Number}],
+    energy_consumption_household: [{year: String, value: Number}]
 });
 
 module.exports = mongoose.model('UNDataCountry', UNDataCountrySchema);

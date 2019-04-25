@@ -115,6 +115,22 @@ getTotalEnergyConsumptionData = async () => {
     await processEnergyAndSaveToMongoDB('totalelectricity-consumption', 'energy_total_consumption');
 }
 
+getTotalEnergyConsumptionDataByChemical = async () => {
+    await processEnergyAndSaveToMongoDB('energy-consumption-chemical', 'energy_consumption_chemical_petrochemical');
+}
+
+getTotalEnergyConsumptionDataByCommercialAndPublicServices = async () => {
+    await processEnergyAndSaveToMongoDB('energy-consumptions-commercial-and-public-services', 'energy_consumption_commercial_and_public_services');
+}
+
+getTotalEnergyConsumptionDataByConstruction = async () => {
+    await processEnergyAndSaveToMongoDB('energy-consumption-construction', 'energy_consumption_construction');
+}
+
+getTotalEnergyConsumptionDataByHousehold = async () => {
+    await processEnergyAndSaveToMongoDB('energy-consumption-households', 'energy_consumption_household');
+}
+
 processEnergyAndSaveToMongoDB = async (filename, objectType) => {
     console.log("Processing filename: ", filename);
     console.log("Processing objectType: ", objectType);
@@ -142,33 +158,14 @@ processEnergyAndSaveToMongoDB = async (filename, objectType) => {
                 let foundCountry = await UNDataCountryModel.findOne({
                     countryName: key
                 });
-
-                /*  if we do not find a country already in db in uncountries collection 
-                    then add it to uncountries collection as new country
-                */
-                if(foundCountry == null || foundCountry == undefined) {
-                    try {
-                        let newCountry = new UNDataCountryModel({
-                            'countryName': key,
-                            objectType: value
-                        });
-                        let savedCountry = await newCountry.save();
-                    } catch(err) {
-                        console.log("Error in saving new country from map", err);
-                    }
-                } else {
-                    try {
-                        foundCountry[objectType] = value;
-                        let savedCountry = await foundCountry.save();
-                    } catch(err) {
-                        console.log("Error in updating new country from map", err);
-                    }
-                    
+    
+                if(foundCountry !== null) {
+                    foundCountry[objectType] = value;
+                    await foundCountry.save();
                 }
-            } catch (err) {
-                console.log("Error in processing map", err);
+            } catch(err) {
+                console.log('Error finding the country', err);
             }
-            
 
         });
     });
@@ -180,5 +177,9 @@ module.exports = {
     getEnergyConsumptionDataByAgriculture: getEnergyConsumptionDataByAgriculture,
     getEnergyConsumptionDataByTransport: getEnergyConsumptionDataByTransport,
     getEnergyConsumptionDataByManufacturing: getEnergyConsumptionDataByManufacturing,
-    getTotalEnergyConsumptionData: getTotalEnergyConsumptionData
+    getTotalEnergyConsumptionData: getTotalEnergyConsumptionData,
+    getTotalEnergyConsumptionDataByChemical: getTotalEnergyConsumptionDataByChemical,
+    getTotalEnergyConsumptionDataByCommercialAndPublicServices: getTotalEnergyConsumptionDataByCommercialAndPublicServices,
+    getTotalEnergyConsumptionDataByConstruction: getTotalEnergyConsumptionDataByConstruction,
+    getTotalEnergyConsumptionDataByHousehold: getTotalEnergyConsumptionDataByHousehold
 };
