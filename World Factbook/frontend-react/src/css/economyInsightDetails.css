@@ -1,0 +1,79 @@
+p {
+    text-align: justify;
+}
+
+.heading {
+    width: 100%;
+    height: auto;
+    box-shadow: 5px 5px 5px 5px rgb(42, 95, 2);
+    margin-top: 1%;
+    -webkit-text-decoration-color: aqua;
+    text-decoration-color: aqua;
+    color: chartreuse;
+    background-color: rgb(52, 58, 63);
+    margin-bottom: 2%;
+    padding: 1%;
+}
+.details {
+    width: auto;
+    height: auto;
+    box-shadow: 5px 5px 5px 5px rgb(214, 209, 209); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+}
+
+#carousel {
+    width: 100%;
+    float: left;
+    height: auto;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+    
+}
+
+#population {
+    width: 100%;
+    float: left;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+    
+}
+
+#climate {
+    width: 68%;
+    float: right;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 10px;
+    padding: 2%;
+}
+
+#graphArea {
+    width: auto;
+    height: auto;
+    float: left;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 10px;
+    padding: 2%;
+    
+}
+
+#graphAgeStructure {
+    width: 100%;
+    height: auto;
+    float: right;
+    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 10px;
+    padding: 2%;
+    
+}

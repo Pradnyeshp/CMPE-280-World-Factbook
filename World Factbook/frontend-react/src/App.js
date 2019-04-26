@@ -5,6 +5,7 @@ import Home from './components/Home';
 import PopulationGrowthGraph from './components/PopulationGrowthGraph';
 import Area from "./components/Area";
 import CountryDetails from './components/CountryDetails';
+import EconomyInsights from './components/EconomyInsightDetails';
 import CountryList from './components/CountryList';
 import Form from './components/Form';
 import HomePage from './components/HomePage';
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path = '/population' component = {PopulationGrowthGraph}/>
             <Route exact path = '/area' component = {Area}/>
             <Route path = '/getcountry/:country' component = {CountryDetails} />
+            <Route path = '/economyinsightdetails/:country' component = {EconomyInsights} />
             <Route path = '/countrylist' component = {CountryList} />
             <Route exact path = '/dashboard/:country' component = {Home} />
             <Route exact path = '/Form' component = {Form} />

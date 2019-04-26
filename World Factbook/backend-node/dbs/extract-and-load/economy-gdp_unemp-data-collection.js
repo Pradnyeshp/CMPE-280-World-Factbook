@@ -10,6 +10,22 @@ getGrowthRateWorld = async () => {
     await processEconomyAndSaveToMongoDB('growth-rate-world', 'growth_rate_world');
 }
 
+getGDPPPP = async () => {
+    await processEconomyAndSaveToMongoDB('GDP(PPP)', 'gdp_ppp');
+}
+
+getGNI = async () => {
+    await processEconomyAndSaveToMongoDB('GNI', 'gni');
+}
+
+getMilitaryExpenditure = async () => {
+    await processEconomyAndSaveToMongoDB('military-expenditure', 'military_expenditure');
+}
+
+getEducationExpenditure = async () => {
+    await processEconomyAndSaveToMongoDB('education-expenditure', 'education_expenditure');
+}
+
 processEconomyAndSaveToMongoDB = async (filename, objectType) => {
     console.log("Processing filename: ", filename);
     console.log("Processing objectType: ", objectType);
@@ -77,5 +93,9 @@ processEconomyAndSaveToMongoDB = async (filename, objectType) => {
 
 module.exports = {
     getUnemploymentRateWorld: getUnemploymentRateWorld,
+    getGDPPPP: getGDPPPP,
+    getGNI: getGNI,
+    getMilitaryExpenditure: getMilitaryExpenditure,
+    getEducationExpenditure: getEducationExpenditure,
     getGrowthRateWorld: getGrowthRateWorld
 };

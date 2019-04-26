@@ -72,6 +72,12 @@ db.connection.once('open', ()=>{
   //economyData1.getUnemploymentRateWorld();
 
   //economyData1.getGrowthRateWorld();
+
+  //economyData1.getGDPPPP();
+  //economyData1.getGNI();
+  //economyData1.getMilitaryExpenditure();
+  //economyData1.getMilitaryExpenditure();
+  //economyData1.getEducationExpenditure();
   
   // <--- Abhishek economy data collection ends
 

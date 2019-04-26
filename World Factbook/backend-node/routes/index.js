@@ -7,6 +7,7 @@ var userdetails = require('./user_details');
 const energyData = require('./energy-data-retrieval');
 const oldCountriesData = require('./old-countries-data-retrieval');
 const economyData = require('./economy-data-retrieval');
+const economyInsightsData = require('./economy-insights-dataret');
 const youthLiteracyData = require('./youth-literacy-data-retrieval');
 
 const economyMultiLineData = require('./economy-multiline-chart');
@@ -43,6 +44,8 @@ router.get('/migrantcount/:country', countrypopulationdetails.getCountryMigrantC
 router.get('/populationCount/:country', countrypopulationdetails.getCountryPopulationCount) ;
 
 router.get('/economy-data/:country/', economyData.prepareEconomyGraph);
+
+router.get('/economy-insights-data/:country/', economyInsightsData.prepareEconomyInsightsGraph);
 
 router.get('/youth-literacy-rate/:country',youthLiteracyData.prepareYouthLiteracyChart);
 //router.get('/economy-data-multiline/:country/', economyMultiLineData.prepareEconomyMultiLineGraph);
