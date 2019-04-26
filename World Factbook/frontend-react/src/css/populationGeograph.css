@@ -24,7 +24,7 @@
     font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 20px;
-    color: black;
+    color: grey;
     margin-bottom: 10px ;
     letter-spacing: 0.1px;
 }
@@ -35,7 +35,7 @@
     font-weight: 500;
     color: black;
     letter-spacing: 0.1px;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 
 .populationInsightHeader{

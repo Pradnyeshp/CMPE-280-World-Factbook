@@ -17,7 +17,8 @@ class PopulationInsights extends Component {
             birthArray : [],
             deathArray : [],
             migrationArray : [],
-            countryPopulation : 0
+            countryPopulation : 0,
+            topFiveArray : []
         };
 
     }
@@ -27,9 +28,33 @@ class PopulationInsights extends Component {
         let countryPopulationURL = url+'/population/countries' ;
         axios.get(countryPopulationURL)
             .then(response=> {
-                console.log(response.data) ;
+                // console.log(response.data) ;
                 this.setState({
                     allCountryPopulationArray : response.data.data
+                },() => {
+                    let array = this.state.allCountryPopulationArray ;
+                    array.sort((a,b) => (b[1] - a[1])) ;
+
+                    let temp = [] ;
+                    let header = ['Country', 'Population', { role: 'annotation' }] ;
+                    temp.push(header);
+
+
+                    for (let i = 0 ; i < 5 ; i++){
+                        temp.push(array[i]);
+                    }
+
+                    for (let i = 1 ; i < 6 ; i++){
+                        let x = temp[i][1] ;
+                        temp[i].push(x+'') ;
+                        // temp.push(array[i]);
+                    }
+
+                    this.setState({
+                        topFiveArray : temp
+                    });
+
+                    console.log(temp);
                 })
             });
 
@@ -83,19 +108,25 @@ class PopulationInsights extends Component {
         let header = ['Country', 'Population'] ;
         let graphData = [] ;
         graphData.push(header) ;
+        let populationMap = new Map() ;
+        let currentCountry = this.state.country ;
 
         let allCountryPouplations = this.state.allCountryPopulationArray ;
 
         if(allCountryPouplations !== null){
             allCountryPouplations.forEach(function (row) {
+                populationMap.set(row[0], row[1]) ;
+
                 // console.log(row[0]);
                 // let currentCountry = row[0] ;
-                if(row[0] === "INDIA"){
+                if(row[0] === currentCountry.toUpperCase()){
                     countryPopulation = row[1] ;
                 }
                 graphData.push(row) ;
             }) ;
         }
+
+        // console.log(populationMap) ;
 
         let populationArray = this.state.populationArray ;
         populationArray.sort((a,b) => {
@@ -120,7 +151,7 @@ class PopulationInsights extends Component {
             return row.yearRange >= 1995 && row.yearRange <= 2020;
         });
 
-        console.log(birthArray) ;
+        // console.log(birthArray) ;
 
         let deathArray = this.state.deathArray ;
         deathArray.forEach(function (row) {
@@ -184,7 +215,7 @@ class PopulationInsights extends Component {
             }
         });
 
-        console.log(map) ;
+        // console.log(map) ;
 
         map.forEach(function (value, key, map) {
             let temp = [] ;
@@ -237,11 +268,19 @@ class PopulationInsights extends Component {
             <div>
                 <Navbar/>
                 <div className= "container-fluid">
+
+                    <div className="populationInsightHeader">
+                        {this.state.country.toUpperCase()}
+                    </div>
+
                     <div className="row populationGeograph">
                         <div className="col-7">
                             <div className = "geoGraph">
-                                <div className="graphTitle">
-                                    Population Insights of the World
+                                <div className="pigraphTitle">
+                                    Population Density
+                                </div>
+                                <div className="pigraphSubtitle">
+                                    Population density comparison of countries (2018 est.)
                                 </div>
                             </div>
                             <Chart
@@ -288,8 +327,11 @@ class PopulationInsights extends Component {
 
                         <div className="col-5">
                             <div className="rateGraph">
-                                <div className="graphTitle">
+                                <div className="pigraphTitle">
                                     Factors affecting population growth rate
+                                </div>
+                                <div className="pigraphSubtitle">
+                                    Comparisons of factors like birth count, death count and migration count
                                 </div>
                             </div>
 
@@ -321,13 +363,46 @@ class PopulationInsights extends Component {
                             />
                             <br/>
                             <br/>
-                            Table Here
+                            <div className="topFiveTable">
+                                <div className="pigraphTitle">
+                                    Population of top populous countries
+                                </div>
+                                <div className="pigraphSubtitle">
+                                    Based on most recent and previous census data
+                                </div>
+                                <Chart
+                                    // width={'1690px'}
+                                    // height={'910px'}
+                                    width = {'650px'}
+                                    height = {'250px'}
+                                    chartType="Bar"
+                                    data={ this.state.topFiveArray }
+                                    options = {{
+                                        // displayMode : 'text',
+                                        // chart: {
+                                        //     title: 'Population of top populous countries',
+                                        //     subtitle: 'Based on most recent and previous census data'
+                                        // },
+                                        hAxis: {
+                                            title: 'Total Population',
+                                            minValue: 0,
+                                        },
+                                        vAxis: {
+                                            title: 'City'
+                                        },
+                                        bars: 'horizontal',
+                                    }}
+
+                                    legend = {{
+                                        textStyle: {color: 'yellow', fontSize: 16},
+                                    }}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="row container-fluid">
-                        <br/>
                         <div className="col-7 populationBox">
-                            Population of {this.state.country} : {countryPopulation*1000}
+                            Population : {countryPopulation*1000}
                         </div>
                         <div className="col-5">
                         </div>
