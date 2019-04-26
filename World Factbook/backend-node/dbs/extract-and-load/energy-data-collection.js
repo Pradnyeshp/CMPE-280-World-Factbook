@@ -132,43 +132,43 @@ getTotalEnergyConsumptionDataByHousehold = async () => {
 }
 
 processEnergyAndSaveToMongoDB = async (filename, objectType) => {
-    console.log("Processing filename: ", filename);
-    console.log("Processing objectType: ", objectType);
-    let map = new Map();
+    // console.log("Processing filename: ", filename);
+    // console.log("Processing objectType: ", objectType);
+    // let map = new Map();
 
-    fs.createReadStream(`./dataset/${filename}.csv`)
-    .pipe(csv())
-    .on('data', async (row) => {
-        if(map.has(row.countryName.toString().toLowerCase())) {
-            let array = map.get(row.countryName.toString().toLowerCase());
-            array.push({'year': row.year, 'value': Number(row.value)});
-            map.set(row.countryName.toString().toLowerCase(), array);
-        } else {
-            let array = [];
-            array.push({'year': row.year, 'value': Number(row.value)});
-            map.set(row.countryName.toString().toLowerCase(), array);
-        }
-    })
-    .on('end', ()=>{
-        //console.log("Printing the map", map);
+    // fs.createReadStream(`./dataset/${filename}.csv`)
+    // .pipe(csv())
+    // .on('data', async (row) => {
+    //     if(map.has(row.countryName.toString().toLowerCase())) {
+    //         let array = map.get(row.countryName.toString().toLowerCase());
+    //         array.push({'year': row.year, 'value': Number(row.value)});
+    //         map.set(row.countryName.toString().toLowerCase(), array);
+    //     } else {
+    //         let array = [];
+    //         array.push({'year': row.year, 'value': Number(row.value)});
+    //         map.set(row.countryName.toString().toLowerCase(), array);
+    //     }
+    // })
+    // .on('end', ()=>{
+    //     //console.log("Printing the map", map);
 
-        //store to mongodb
-        map.forEach( async (value, key) => {
-            try {
-                let foundCountry = await UNDataCountryModel.findOne({
-                    countryName: key
-                });
+    //     //store to mongodb
+    //     map.forEach( async (value, key) => {
+    //         try {
+    //             let foundCountry = await UNDataCountryModel.findOne({
+    //                 countryName: key
+    //             });
     
-                if(foundCountry !== null) {
-                    foundCountry[objectType] = value;
-                    await foundCountry.save();
-                }
-            } catch(err) {
-                console.log('Error finding the country', err);
-            }
+    //             if(foundCountry !== null) {
+    //                 foundCountry[objectType] = value;
+    //                 await foundCountry.save();
+    //             }
+    //         } catch(err) {
+    //             console.log('Error finding the country', err);
+    //         }
 
-        });
-    });
+    //     });
+    // });
 };
 
 module.exports = {

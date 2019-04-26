@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Chart from 'react-google-charts';
 import url from '../url.js';
+import {Link} from "react-router-dom";
 
 class EnergyGraph extends Component {
     constructor(props) {
@@ -48,7 +49,19 @@ class EnergyGraph extends Component {
         return (
             <div className="EnergyGraph">
                 <div className="graphTitle">
-                    Energy Insights
+                    <Link 
+                        to = {{
+                            pathname: '/dashboard/country-specific/more-energy-insights',
+                            state: {
+                                data: this.state.dataSource,
+                                start: this.state.start,
+                                end: this.state.end,
+                                country: this.state.country
+                            }
+                        }}
+                    >
+                        Energy Insights
+                    </Link>
                 </div>
                 <div className="graphSubtitle">
                     Energy demand, production and consumption from {this.state.start} - {this.state.end}
@@ -59,17 +72,6 @@ class EnergyGraph extends Component {
                     data= {this.state.dataSource}
                     options={
                         {
-                            // width: 700,
-                            // height: 300,
-                            // chart: {
-                            //     title: 'Energy Insights',
-                            //     subtitle: `Energy demand, production and consumption from ${this.state.start} - ${this.state.end}`
-                            //   },
-                            // axes: {
-                            //     y: {
-                            //       0: { side: 'left', label: 'killo-watts/million'} // left y position 
-                            //     }
-                            //   },
                             width: 770,
                             height: 290,
                             hAxis: {

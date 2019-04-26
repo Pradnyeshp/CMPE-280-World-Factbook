@@ -1,0 +1,9 @@
+.yearWiseConsumptionDemandProductionChart {
+    float: left;
+    padding-left: 85px;
+}
+
+.yearWiseConsumptionBySectorChart {
+    float: right;
+    padding-right: 80px;
+}

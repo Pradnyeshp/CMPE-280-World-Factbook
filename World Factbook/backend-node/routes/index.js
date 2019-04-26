@@ -47,4 +47,6 @@ router.get('/economy-data/:country/', economyData.prepareEconomyGraph);
 router.get('/youth-literacy-rate/:country',youthLiteracyData.prepareYouthLiteracyChart);
 //router.get('/economy-data-multiline/:country/', economyMultiLineData.prepareEconomyMultiLineGraph);
 
+router.get('/energy-data/consumption/:country/:start/:end', energyData.prepareCountrySpecificEnergyConsumptionGraph);
+
 module.exports = router;
