@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Chart from 'react-google-charts';
 import url from '../url.js';
+import {Link} from "react-router-dom";
 
 class EconomyGraph extends Component {
     constructor(props) {
@@ -50,7 +51,19 @@ class EconomyGraph extends Component {
             <div className="EconomyGraph">
 
                 <div className="graphTitle">
+                <Link 
+                        to = {{
+                            pathname: '/economyinsightdetails/india',
+                            state: {
+                                data: this.state.dataSource,
+                                start: this.state.start,
+                                end: this.state.end,
+                                country: this.state.country
+                            }
+                        }}
+                    >
                     Economy Insights
+                    </Link>
                 </div>
                 <div className="graphSubtitle">
                     GDP growth rate vs Unemployment rate from {this.state.start} - {this.state.end}
