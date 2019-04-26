@@ -38,7 +38,7 @@ function GenericYearWiseEnergyGraph(props) {
                                         loader={<div>Loading Chart</div>}
                                         data={filteredYearConsumptionData}
                                         options={{
-                                            width: 700,
+                                            width: 600,
                                             height: 400,
                                             title: `Consumption by sector for year ${year}`,
                                             hAxis: {
@@ -78,38 +78,46 @@ function GenericYearWiseEnergyGraph(props) {
     
     
     return (
-        <div className='GenericYearWiseEnergyGraph'>
-            <div className='yearWiseConsumptionDemandProductionChart'>
-                <Chart
-                    chartType="ColumnChart"
-                    loader={<div>Loading Chart</div>}
-                    data= {finalArray}
-                    options={
-                        {
-                            width: 800,
-                            height: 400,
-                            chartArea: {
-                                width: '80%'
-                            },
-                            hAxis: {
-                                title: 'Year'
-                            },
-                            vAxis: {
-                                title: 'killo-watt-hour/million',
-                                format: 'short',
-                                gridlines: {
-                                    color: 'lightgrey',
-                                    count: 2
-                                }
-                            },
-                            fontSize: 14,
-                            legend: { position: 'bottom'}
+        <div className='GenericYearWiseEnergyGraph' style={ {marginLeft : "50px" , marginRight : "50px", paddingLeft: '50px', paddingRight: '50px'}}>
+        <div className='row'>
+        <div className= 'col-md-6'>
+                <div className='yearWiseConsumptionDemandProductionChart'>
+                    <Chart
+                        chartType="ColumnChart"
+                        loader={<div>Loading Chart</div>}
+                        data= {finalArray}
+                        options={
+                            {
+                                width: 700,
+                                height: 400,
+                                chartArea: {
+                                    width: '80%'
+                                },
+                                hAxis: {
+                                    title: 'Year'
+                                },
+                                vAxis: {
+                                    title: 'killo-watt-hour/million',
+                                    format: 'short',
+                                    gridlines: {
+                                        color: 'lightgrey',
+                                        count: 2
+                                    }
+                                },
+                                fontSize: 14,
+                                legend: { position: 'bottom'}
+                            }
                         }
-                    }
-                    legendToggle
-                />
+                        legendToggle
+                    />
+                </div>
             </div>
-            {energy_consumption_graph}
+            <div className= 'col-md-6'>
+                {energy_consumption_graph}
+            </div>
+
+        </div>
+            
         </div>
         
 
