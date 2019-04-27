@@ -48,7 +48,7 @@ prepareEconomyInsightsGraph = async (req, res, next) => {
 
     let i = 0;
     map.forEach((value, key)=>{
-        if(i<6) {
+        if(i<10) {
             finalObject.push(value);
             i++;
         }
