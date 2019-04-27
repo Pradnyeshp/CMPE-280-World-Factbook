@@ -20,14 +20,14 @@ class App extends Component {
             <Route exact path = '/' component = {HomePage}/>
             <Route exact path = '/population' component = {PopulationGrowthGraph}/>
             <Route exact path = '/area' component = {Area}/>
-            <Route path = '/getcountry/:country' component = {CountryDetails} />
-            <Route path = '/economyinsightdetails/:country' component = {EconomyInsights} />
-            <Route path = '/countrylist' component = {CountryList} />
+            <Route exact path = '/getcountry/:country' component = {CountryDetails} />
+            <Route exact path = '/economyinsightdetails/:country' component = {EconomyInsights} />
+            <Route exact path = '/countrylist' component = {CountryList} />
             <Route exact path = '/dashboard/:country' component = {Home} />
             <Route exact path = '/Form' component = {Form} />
             <Route exact path = '/userprofile' component = {Profile} />
             <Route exact path = '/PopulationInsights' component = {PopulationInsights} />
-            <Route path = '/dashboard/country-specific/more-energy-insights' component = {MoreEnergyInsights}/>
+            <Route exact path = '/dashboard/country-specific/more-energy-insights' component = {MoreEnergyInsights}/>
         </Switch>
     );
   }
