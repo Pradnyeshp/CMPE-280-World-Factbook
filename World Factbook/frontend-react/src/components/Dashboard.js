@@ -46,7 +46,7 @@ class Dashboard extends Component {
                 <Navbar/>
                 <div className="dashboard" style={ {marginLeft : "50px" , marginRight : "50px"}}>
                     <div className='row'>
-                    <h1 className="countryHeader">{this.state.country.toUpperCase()}</h1>
+                        <h1 className="countryHeader">{this.state.country.toUpperCase()}</h1>
                     </div>
                     
                     <div className='row firstRow'>

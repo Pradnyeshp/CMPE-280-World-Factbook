@@ -11,17 +11,17 @@ header{
     background-position: center;
 }
 
-ul.menu{
+.classs ul.menu{
     float: right;
     list-style-type: none;
     margin-top: 25px;
 }
 
-ul li{
+.classs ul li{
     display: inline-block;
 }
 
-ul.menu li.menu_item a{
+.classs ul.menu li.menu_item a{
     text-decoration: none;
     color: aqua;
     padding: 5px 15px;
@@ -30,12 +30,12 @@ ul.menu li.menu_item a{
     border-radius: 15px;
 }
 
-ul.menu li.menu_item a:hover{
+.classs ul.menu li.menu_item a:hover{
     background-color: #fff;
     color: #000;
 }
 
-ul.menu li.active a{
+.classs ul.menu li.active a{
     color: aqua;
 }
 

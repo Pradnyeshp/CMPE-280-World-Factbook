@@ -66,7 +66,7 @@ function GenericYearWiseEnergyGraph(props) {
 
 
     let finalArray = [];
-    let header = ['Year', 'Demand', 'Consumption', 'Production'];
+    let header = ['Year', 'Demand', 'Production', 'Consumption'];
     finalArray.push(header);
     const array = dataForMainEnergyGraph.filter((element)=>{
         return element[0] == year;
@@ -80,7 +80,7 @@ function GenericYearWiseEnergyGraph(props) {
     return (
         <div className='GenericYearWiseEnergyGraph' style={ {marginLeft : "50px" , marginRight : "50px", paddingLeft: '50px', paddingRight: '50px'}}>
         <div className='row'>
-        <div className= 'col-md-6'>
+            <div className= 'col-md-6'>
                 <div className='yearWiseConsumptionDemandProductionChart'>
                     <Chart
                         chartType="ColumnChart"
@@ -115,7 +115,6 @@ function GenericYearWiseEnergyGraph(props) {
             <div className= 'col-md-6'>
                 {energy_consumption_graph}
             </div>
-
         </div>
             
         </div>

@@ -1,0 +1,37 @@
+.dropdown {
+    float: right;
+    margin-left: 55%;
+    margin-top:2%;
+}
+
+#countryHeader {
+    font-size: 36px;
+    font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    float: left;
+    margin-left: 12%;
+}
+
+.moreInfo-ul > li {
+    list-style-type: disc;
+    margin-left: 12%;
+    text-align: justify;
+    font-size: 16px;
+    width: 70%;
+    margin-top: 20px;
+}
+
+.moreInfo-ol > li {
+    list-style-type: circle;
+    margin-left: 12%;
+    text-align: justify;
+    font-size: 14px;
+    width: 70%;
+    margin-top: 20px;
+}
+
+.moreInfo {
+    margin-top: 5%;
+}
