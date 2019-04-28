@@ -72,7 +72,7 @@ prepareEconomyGraph = async (req, res, next) => {
     res.json({'message': 'success', 'dataSource': dataSource, 'start': start, 'end': end});
 };
 
-module.exports.prepareGDPGraphData = async (req,res) => {
+prepareGDPGraphData = async (req,res) => {
 
     console.log("preparing GDP Graph data here") ;
     try {
@@ -125,5 +125,6 @@ module.exports.prepareGDPGraphData = async (req,res) => {
 
 
 module.exports = {
-    prepareEconomyGraph: prepareEconomyGraph
+    prepareEconomyGraph: prepareEconomyGraph,
+    prepareGDPGraphData: prepareGDPGraphData
 };
