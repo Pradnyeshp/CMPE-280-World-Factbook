@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import '../css/countrylist.css';
 import {Link} from "react-router-dom";
 import url from '../url.js';
+import CountryListTable from './CountryListTable.js';
 
 class CountryList extends Component {
 
@@ -11,50 +12,66 @@ class CountryList extends Component {
         super(props);
 
         this.state = {
-            areaData: []
+            areaData: [],
+            col1: [],
+            col2: [],
+            col3: [],
+            col4: []
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         let api = url+'/area';
         axios.get(api)
             .then(response=>{
-                console.log(response.data.data);
+                // console.log(response.data.data);
+                let array = response.data.data;
+                let array1 = [];
+                let array2 = [];
+                let array3 = [];
+                let array4 = [];
+                for(let i=0; i <= array.length; i++) {
+                    if(i <= 64) {
+                        array1.push(array[i]);
+                    } else if(i >= 65 && i < 130) {
+                        array2.push(array[i]);
+                    } else if(i >= 130 && i < 195) {
+                        array3.push(array[i]);
+                    } else 
+                        array4.push(array[i]);
+                }
+
+                // console.log('array1', array1);
+                // console.log('array2', array2);
+                // console.log('array3', array3);
+                // console.log('array4', array4);
                 this.setState({
-                    areaData : response.data.data
+                    areaData : response.data.data,
+                    col1: array1,
+                    col2: array2,
+                    col3: array3,
+                    col4: array4,
                 })
             })
     }
 
     render() {
-        let topTenCountryListToShow = null;
-        topTenCountryListToShow = this.state.areaData.map((a)=>{
-            return (
-                <tr key={a.countryName}>
-                    <td>
-                        <Link to={`/getcountry/${a.countryName}`}>
-                            {a.countryName}
-                        </Link>
-                    </td>
-                </tr>
-            )
-        });
-
+        
         return(
             <div className="CountryList">
                 <Navbar/>
-                <div className="container">
+                {/* <div className="container"> */}
                     <div className="countryblock">
-                        <h1 >
-                            Country List
-                        </h1>
-                        <table style={{fontSize: "20px"}}>
-                            <tbody>
-                                {topTenCountryListToShow}
-                            </tbody>
-                        </table>
+                       
+                        <CountryListTable array={this.state.col1} />
+                        
+                        <CountryListTable array={this.state.col2} />
+
+                        <CountryListTable array={this.state.col3} />
+
+                        <CountryListTable array={this.state.col4} />
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         )
     }

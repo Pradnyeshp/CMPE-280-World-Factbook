@@ -1,9 +1,16 @@
 .countryblock {
-    width: 70%;
+    width: auto;
     height: auto;
-    float: left;
-    /* box-shadow: 5px 5px 5px 5px rgb(220, 218, 235);  */
-    margin-top: 2%;
     margin-bottom: 2%;
+    margin-left: 3%;
+    margin-top: 2%;
+}
+
+.countryTable {
+    float: left;
+    width: auto;
+    height: auto;
     padding: 2%;
+    margin-left: 1%;
+    font-size: 20px;
 }
