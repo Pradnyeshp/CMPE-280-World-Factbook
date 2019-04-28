@@ -11,6 +11,7 @@ import ranking1 from "../Images/ranking1.jpg";
 import growthchart from "../Images/growthchart.png";
 import geograph from "../Images/geograph.png";
 import {Link} from "react-router-dom";
+import CountryHeader from './CountryHeader.js';
 
 
 // class EconomyInsightsDetails extends Component {
@@ -126,10 +127,10 @@ class EconomyInsightsDetails extends Component {
                         </ol>
                     </nav>
                 </div>
-                <div className="heading">
-                        <h1>
-                            Economy Insights
-                        </h1>
+                <div className='row'>
+                    <div id='MoreEnergyInsightsCountryHeader'>
+                        <CountryHeader country={this.state.country}/>
+                    </div>
                 </div>
                 <div className="container">
                     <div id="carousel1">
