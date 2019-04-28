@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const CountrySchema = new Schema({
     countryName: String,
+    fips_country_code: String,
     introduction: String,
     area: [{ areaType: String, area: Number}],
     climate: String,

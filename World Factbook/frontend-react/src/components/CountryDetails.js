@@ -8,6 +8,7 @@ import url from '../url.js';
 import InfantMortalityRateGraph from './InfantMortalityRateGraph.js';
 import UnemploymentRateGraph from './UnemploymentRateGraph.js';
 import GenericSectorPercentageGraph from './GenericSectorPercentageGraph.js';
+import CountryHeader from './CountryHeader.js';
 
 
 class CountryDetails extends Component {
@@ -367,7 +368,7 @@ class CountryDetails extends Component {
 
         let age_structure = null;
         if(this.state.age_structure.length !== 0) {
-            age_structure = <div id="graphAgeStructure">
+            age_structure = <div id="graphAgeStructureCountryDetailsPage">
                                 <h3>
                                     Age Structure
                                 </h3>
@@ -376,18 +377,13 @@ class CountryDetails extends Component {
                                 
                             </div>;
         }
-            
  
         return (
             <div className="CountryDetails"> 
                 <Navbar/>
                 <div className="container">
-
-                    <div className="details">
-                        <h1>
-                            {this.state.country}
-                        </h1>
-                    </div>
+                    
+                    <CountryHeader country={this.state.country}/>
                     
                     {introduction}
 

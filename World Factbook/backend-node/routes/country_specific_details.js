@@ -7,7 +7,7 @@ module.exports.getCountrySpecificDetails = async (req, res, next) => {
         
     const countryDetails = await CountryModel.findOne({countryName: countryName});
 
-    console.log(countryDetails);
+    //console.log(countryDetails);
     if(countryDetails !== null)
         res.json({message: "success", data: countryDetails});
     else
@@ -19,9 +19,20 @@ module.exports.getCountrySpecificDetailsForDashboard = async (req, res, next) =>
         
     const countryDetails = await UNDataCountryModel.findOne({countryName: countryName});
 
-    console.log(countryDetails);
+    //console.log(countryDetails);
     if(countryDetails !== null)
         res.json({message: "success", data: countryDetails});
+    else
+        res.json({message: "error", data: "Could not find the country in the database"});
+}
+
+module.exports.getFipsCode = async (req, res, next) => {
+    const countryName = req.params.country.toLowerCase();
+    const countryDetails = await CountryModel.findOne({countryName: countryName});
+
+    //console.log(countryDetails);
+    if(countryDetails !== null)
+        res.json({message: "success", data: countryDetails.fips_country_code});
     else
         res.json({message: "error", data: "Could not find the country in the database"});
 }

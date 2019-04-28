@@ -1,18 +1,13 @@
 .dropdown {
     float: right;
-    margin-left: 55%;
-    margin-top:2%;
+    margin-left: 50%;
+    margin-top: 39px;
 }
 
-#countryHeader {
-    font-size: 36px;
-    font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    float: left;
-    margin-left: 12%;
+#MoreEnergyInsightsCountryHeader {
+    margin-left: 11%;
 }
+
 
 .moreInfo-ul > li {
     list-style-type: disc;

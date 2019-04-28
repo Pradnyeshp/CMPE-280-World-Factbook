@@ -4,6 +4,7 @@ import url from '../url.js';
 import GenericYearWiseEnergyGraph from './GenericYearWiseEnergyGraph';
 import Navbar from './Navbar';
 import '../css/more-insights-energy.css';
+import CountryHeader from './CountryHeader.js';
 
 class MoreEnergyInsights extends Component {
     constructor(props) {
@@ -87,19 +88,22 @@ class MoreEnergyInsights extends Component {
             <div className="MoreEnergyInsights">
 
                 <Navbar />
-                    <div className='row'>
-                        <h1 id="countryHeader">{this.state.country.toUpperCase()}</h1>
-                        
-                        
-                        <div className="dropdown">
-                            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Select Year
-                            </button>
-                            <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                {finalArrayToShow}        
-                            </div>
+                <div className='row'>
+                    <div id='MoreEnergyInsightsCountryHeader'>
+                        <CountryHeader country={this.state.country}/>
+                    </div>
+                    
+                    
+                    
+                    <div className="dropdown">
+                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select Year
+                        </button>
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            {finalArrayToShow}        
                         </div>
                     </div>
+                </div>
                     
 
                 {graphToShow}

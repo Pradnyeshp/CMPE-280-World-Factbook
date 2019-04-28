@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var app = express();
 const db = require('./dbs/index.js');
-//const getCountryDetails = require('./dbs/extract-and-load/countries.js');
+const getCountryDetails = require('./dbs/extract-and-load/countries.js');
 const loadCountryList = require('./dbs/extract-and-load/areas-of-all-countries.js');
 const postUserDetails = require('./dbs/extract-and-load/areas-of-all-countries.js');
 const energyData = require('./dbs/extract-and-load/energy-data-collection.js');
@@ -46,6 +46,9 @@ db.connection.once('open', ()=>{
   //Please do not uncomment this next line as the database is already populated, it will insert
   //getCountryDetails.getCountryDetails();
   //loadCountryList.loadCountryList();
+
+  //adding fips code to countries collection
+  //getCountryDetails.addFIPSCountryCode();
 
   //postUserDetails.postUserDetails();
 

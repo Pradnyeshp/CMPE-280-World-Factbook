@@ -153,7 +153,7 @@ class EconomyInsightsDetails extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="details">
+                    <div className="details1">
                         <h6>
                         <p><h3> Things to look out for:</h3> </p>
                         <p>So, in the previous "Economic Insights" graph the GDP growth rate vs Unemployment graph clearly indicates that as and when the Unemployment decreases, the growth rate increases for that particular year which clearly indicates that there is an indirect relation between both these factors.
@@ -170,7 +170,7 @@ class EconomyInsightsDetails extends Component {
                         </h3>
                         <EconomyInsightsDetailsGraph country = {this.state.country} />
                     </div>
-                    <div id="population">
+                    <div id="population1">
                         <h3>
                             Country Standing:
                         </h3>
@@ -242,7 +242,7 @@ class EconomyInsightsDetails extends Component {
                         </table>
                     </div>
                     
-                    {/* <div id="climate">
+                    {/* <div id="climate1">
                         <h3>
                             Climate:
                         </h3>

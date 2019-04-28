@@ -14,7 +14,7 @@ p {
     margin-bottom: 2%;
     padding: 1%;
 }
-.details {
+.details1 {
     width: auto;
     height: auto;
     box-shadow: 5px 5px 5px 5px rgb(214, 209, 209); 
@@ -34,7 +34,7 @@ p {
     
 }
 
-#population {
+#population1 {
     width: 100%;
     float: left;
     box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
@@ -44,7 +44,7 @@ p {
     
 }
 
-#climate {
+#climate1 {
     width: 68%;
     float: right;
     box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 

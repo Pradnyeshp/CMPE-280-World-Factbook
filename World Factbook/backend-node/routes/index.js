@@ -19,6 +19,8 @@ router.get('/getcountry/:country', countrydetails.getCountrySpecificDetails);
 
 router.get('/getcountry-for-dashboard/:country', countrydetails.getCountrySpecificDetailsForDashboard);
 
+router.get('/fips-code/getcountry/:country', countrydetails.getFipsCode);
+
 router.post('/postuser', userdetails.postUser);
 
 router.get('/getuser', userdetails.getUser);

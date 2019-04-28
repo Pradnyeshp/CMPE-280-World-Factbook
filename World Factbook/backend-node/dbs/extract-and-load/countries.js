@@ -64,6 +64,26 @@ async function getCountryDetails() {
     
 }
 
+addFIPSCountryCode = async () => {
+    let buffer = await getFileBuffer();
+    let array = buffer.toString().split('\n');
+    let count = 0;
+    array.forEach( async (element) => {
+        let tempArray = element.split('\t');
+        let fipsCode = tempArray[0];
+        let countryName = tempArray[1].toString().toLowerCase();
+        // console.log(fipsCode, countryName);
+        // let foundCountry = await CountryModel.findOne({
+        //     countryName: countryName
+        // });
+        // if(foundCountry !== null) {
+        //     foundCountry.fips_country_code = fipsCode;
+        //     foundCountry.save();
+        // }
+        
+    });
+}
+
 
 
 async function getFileBuffer() {
@@ -542,4 +562,7 @@ function getRequiredFormattedDateFromResponse(response, countryName) {
 }
 
 
-module.exports.getCountryDetails = getCountryDetails;
+module.exports = {
+    getCountryDetails: getCountryDetails,
+    addFIPSCountryCode: addFIPSCountryCode
+}

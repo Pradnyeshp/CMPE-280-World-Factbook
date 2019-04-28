@@ -7,6 +7,7 @@ import EconomyGraph from './EconomyGraph';
 import YouthLiteracyGraph from "./YouthLiteracyGraph";
 import '../css/style.css';
 import {Link} from "react-router-dom";
+import CountryHeader from './CountryHeader.js';
 
 
 class Dashboard extends Component {
@@ -21,8 +22,8 @@ class Dashboard extends Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        console.log("In dashboard componentWillReceiveProps nextprops",nextProps.countryName);
-        console.log("In dashboard componentWillReceiveProps current props",this.state.country);
+        //console.log("In dashboard componentWillReceiveProps nextprops",nextProps.countryName);
+        //console.log("In dashboard componentWillReceiveProps current props",this.state.country);
         if(nextProps.countryName.toLowerCase() !== this.state.country.toLowerCase()) {
             this.setState({
                 country: nextProps.countryName.toLowerCase()
@@ -45,9 +46,12 @@ class Dashboard extends Component {
             <div>
                 <Navbar/>
                 <div className="dashboard" style={ {marginLeft : "50px" , marginRight : "50px"}}>
-                    <div className='row'>
+                    {/* <div className='row'>
                         <h1 className="countryHeader">{this.state.country.toUpperCase()}</h1>
-                    </div>
+                    </div> */}
+                    
+                    <CountryHeader country={this.state.country} />
+
                     
                     <div className='row firstRow'>
                         <div className= 'col-md-6'>

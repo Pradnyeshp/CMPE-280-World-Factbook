@@ -1,0 +1,14 @@
+
+
+.countryFlag {
+    float: left;
+    margin-left: 20px;
+    margin-top: 42px;
+}
+
+.countryFlag img {
+    object-fit: cover;
+    width: 45px;
+    height: 30px;
+
+}

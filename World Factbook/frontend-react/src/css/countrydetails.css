@@ -5,8 +5,8 @@ p {
 .details {
     width: auto;
     height: auto;
-    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
-    margin-top: 2%;
+    box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
+    /* margin-top: 1%; */
     margin-bottom: 2%;
     padding: 2%;
 }
@@ -14,8 +14,8 @@ p {
 #population {
     width: 30%;
     float: left;
-    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
-    margin-top: 2%;
+    box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
+    margin-top: 1%;
     margin-bottom: 2%;
     padding: 2%;
     
@@ -24,8 +24,8 @@ p {
 #climate {
     width: 68%;
     float: right;
-    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
-    margin-top: 2%;
+    box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
+    margin-top: 1%;
     margin-bottom: 2%;
     margin-left: 10px;
     padding: 2%;
@@ -43,12 +43,12 @@ p {
     
 } */
 
-#graphAgeStructure, #employment_details_data, #gdp_by_sector_data {
+#graphAgeStructureCountryDetailsPage, #employment_details_data, #gdp_by_sector_data {
     width: auto;
     height: auto;
     float: left;
-    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
-    margin-top: 2%;
+    box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
+    margin-top: 1%;
     margin-bottom: 2%;
     margin-left: 10px;
     padding: 2%;
@@ -58,8 +58,8 @@ p {
     width: auto;
     height: auto;
     float: right;
-    box-shadow: 5px 5px 5px 5px rgb(220, 218, 235); 
-    margin-top: 2%;
+    box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
+    margin-top: 1%;
     margin-bottom: 2%;
     margin-left: 10px;
     padding: 2%;

@@ -47,10 +47,7 @@ class Home extends Component {
         }
     }
 
-    componentDidMount() {
-        swal("Welcome to World FactBook!", "Search for new country using search box in navbar");
-    }
-
+    
     render() {
         
         return(
