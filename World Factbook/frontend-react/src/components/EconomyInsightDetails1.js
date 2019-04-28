@@ -9,12 +9,9 @@ import url from '../url.js';
 import EconomyInsightsDetailsGraph from './EconomyInsightsDetailsGraph';
 import ranking1 from "../Images/ranking1.jpg";
 import growthchart from "../Images/growthchart.png";
-import gdp_vs_gnp from "../Images/gdp-vs-gnp.jpg";
 import geograph from "../Images/geograph.png";
-import MilitaryEd from "../Images/MilitaryEd.jpg";
 import {Link} from "react-router-dom";
 import CountryHeader from './CountryHeader.js';
-import gdpgnp from "../Images/gdpgnp.jpeg"
 
 
 // class EconomyInsightsDetails extends Component {
@@ -31,7 +28,7 @@ import gdpgnp from "../Images/gdpgnp.jpeg"
 //         }
 //     }
 
-class EconomyInsightsDetails1 extends Component {
+class EconomyInsightsDetails extends Component {
 
     constructor(props) {
         super(props);
@@ -126,7 +123,9 @@ class EconomyInsightsDetails1 extends Component {
                             <li>>></li>
                             <Link to = {{pathname: '/dashboard/'+this.state.country}}><li class="breadcrumb-item">Dashboard</li></Link>
                             <li>>></li>
-                            <li class="breadcrumb-item active" aria-current="page">Economy Insights</li>
+                            <Link to = {{pathname: '/economyinsightdetails/'+this.state.country}}><li class="breadcrumb-item">Economy Insights</li></Link>
+                            <li>>></li>
+                            <li class="breadcrumb-item active" aria-current="page">Military-Educatiion Graph</li>
                         </ol>
                     </nav>
                 </div>
@@ -190,22 +189,10 @@ class EconomyInsightsDetails1 extends Component {
                         </p>
                     </div>
                     <div id="graphAgeStructure">
-                        <div class="card" style={{'width': '30%','height':'5%'}}>
-                            <img class="card-img-top" src={gdpgnp} alt="Card image cap"/>
-                            <div class="card-body">
-                                <h5 class="card-title">GDP-GNI Graph</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <Link to = {{pathname: '/economyinsightdetails2/'+this.state.country}}><a href="#" class="btn btn-primary">Go </a></Link>
-                            </div>
-                        </div>
-                        <div class="card" style={{'width': '30%','height':'5%'}}>
-                            <img class="card-img-top" src={MilitaryEd} alt="Card image cap"/>
-                            <div class="card-body">
-                                <h5 class="card-title">Military-Education Graph</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <Link to = {{pathname: '/economyinsightdetails1/'+this.state.country}}><a href="#" class="btn btn-primary">Go </a></Link>
-                            </div>
-                        </div>
+                        <h3>
+                            Detailed Economy:
+                        </h3>
+                        <EconomyInsightsDetailsGraph country = {this.state.country} />
                     </div>
                     <div id="population1">
                         <h3>
@@ -298,4 +285,4 @@ class EconomyInsightsDetails1 extends Component {
     }
 }
 
-export default EconomyInsightsDetails1;
+export default EconomyInsightsDetails;

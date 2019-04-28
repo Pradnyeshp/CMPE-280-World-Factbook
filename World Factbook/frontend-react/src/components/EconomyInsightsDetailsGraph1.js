@@ -3,7 +3,7 @@ import axios from 'axios';
 import Chart from 'react-google-charts';
 import url from '../url.js';
 
-class EconomyInsightsDetailsGraph extends Component {
+class EconomyInsightsDetailsGraph1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +27,7 @@ class EconomyInsightsDetailsGraph extends Component {
     }
 
     loadEconomyInsightsDetailsGraph(country) {
-        let api = url+ '/economy-insights-data/'+country;
+        let api = url+ '/economy-insights-data1/'+country;
         axios.get(api)
         .then((response) => {
             //console.log(response.data);
@@ -84,14 +84,14 @@ class EconomyInsightsDetailsGraph extends Component {
                         },
                         vAxes: {
                             0: {
-                                title: 'Military rate',
+                                title: 'GDP rate',
                                 gridlines: {
                                     color: 'lightgrey',
                                     count: 4
                                 }
                             },
                             1: {
-                                title: 'educatiion rate', 
+                                title: 'GNP rate', 
                                 gridlines: {
                                     color: 'lightgrey',
                                     count: 1
@@ -127,4 +127,4 @@ class EconomyInsightsDetailsGraph extends Component {
 
   
 
-export default EconomyInsightsDetailsGraph;
+export default EconomyInsightsDetailsGraph1;

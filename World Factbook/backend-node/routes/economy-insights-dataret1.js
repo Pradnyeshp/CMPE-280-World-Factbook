@@ -1,6 +1,6 @@
 const UNCountryModel = require('../dbs/model/UNDataCountryModel1.js');
 
-prepareEconomyInsightsGraph = async (req, res, next) => {
+prepareEconomyInsightsGraph1 = async (req, res, next) => {
 
     const country = req.params.country.toLowerCase();
     console.log("In prepareEconomyInsightsGraph", country);
@@ -8,27 +8,27 @@ prepareEconomyInsightsGraph = async (req, res, next) => {
     let result = await UNCountryModel.findOne({ countryName: country });
 
     //Get the ggrowth rate world data
-    let growthRateWorldData = result.growth_rate_world;
+    // let growthRateWorldData = result.growth_rate_world;
     let gdpppp = result.gdp_ppp;
     let gni = result.gni;
-    let militaryExpenditureData = result.military_expenditure;
-    let educationExpenditureData = result.education_expenditure;
+    // let militaryExpenditureData = result.military_expenditure;
+    // let educationExpenditureData = result.education_expenditure;
 
-    let unemploymentRateWorldData = result.unemployment_rate_world;
+    // let unemploymentRateWorldData = result.unemployment_rate_world;
 
     let map = new Map();
     let finalObject = [];
-    militaryExpenditureData.forEach((element) => {
-        map.set(element.year, {'year': element.year, 'MilitaryExpenditure': element.value});
+    gdpppp.forEach((element) => {
+        map.set(element.year, {'year': element.year, 'GDP': element.value});
     });
 
-    // gni.forEach((element) => {
-    //     if(map.has(element.year)) {
-    //         let object = map.get(element.year);
-    //         object['GNI'] = element.value;
-    //         map.set(element.year, object);
-    //     }
-    // });
+    gni.forEach((element) => {
+        if(map.has(element.year)) {
+            let object = map.get(element.year);
+            object['GNI'] = element.value;
+            map.set(element.year, object);
+        }
+    });
 
     // militaryExpenditureData.forEach((element) => {
     //     if(map.has(element.year)) {
@@ -38,13 +38,13 @@ prepareEconomyInsightsGraph = async (req, res, next) => {
     //     }
     // });
 
-    educationExpenditureData.forEach((element) => {
-        if(map.has(element.year)) {
-            let object = map.get(element.year);
-            object['EducationExpenditure'] = element.value;
-            map.set(element.year, object);
-        }
-    });
+    // educationExpenditureData.forEach((element) => {
+    //     if(map.has(element.year)) {
+    //         let object = map.get(element.year);
+    //         object['EducationExpenditure'] = element.value;
+    //         map.set(element.year, object);
+    //     }
+    // });
 
     let i = 0;
     map.forEach((value, key)=>{
@@ -67,16 +67,16 @@ prepareEconomyInsightsGraph = async (req, res, next) => {
 
    //Google charts data
     let dataSource = [];
-    let header = ['Year','Military Expenditure','Education Expenditure'];
+    let header = ['Year', 'GDP(PPP)','GNI'];
     dataSource.push(header);
     i=0;
     finalObject.forEach((object)=>{
         let row = [];
         row.push(object.year);
-        // row.push(object.GDP);
-        // row.push(object.GNI);
-        row.push(object.MilitaryExpenditure);
-        row.push(object.EducationExpenditure);
+        row.push(object.GDP);
+        row.push(object.GNI);
+        // row.push(object.MilitaryExpenditure);
+        // row.push(object.EducationExpenditure);
         if(i==0)
             start = object.year;
         if(i == finalObject.length-1)
@@ -93,5 +93,5 @@ prepareEconomyInsightsGraph = async (req, res, next) => {
 }
 
 module.exports = {
-    prepareEconomyInsightsGraph: prepareEconomyInsightsGraph
+    prepareEconomyInsightsGraph1: prepareEconomyInsightsGraph1
 }

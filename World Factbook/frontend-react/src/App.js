@@ -6,6 +6,8 @@ import PopulationGrowthGraph from './components/PopulationGrowthGraph';
 import Area from "./components/Area";
 import CountryDetails from './components/CountryDetails';
 import EconomyInsights from './components/EconomyInsightDetails';
+import EconomyInsights1 from './components/EconomyInsightDetails1';
+import EconomyInsights2 from './components/EconomyInsightDetails2';
 import CountryList from './components/CountryList';
 import Form from './components/Form';
 import HomePage from './components/HomePage';
@@ -22,6 +24,8 @@ class App extends Component {
             <Route exact path = '/area' component = {Area}/>
             <Route exact path = '/getcountry/:country' component = {CountryDetails} />
             <Route exact path = '/economyinsightdetails/:country' component = {EconomyInsights} />
+            <Route exact path = '/economyinsightdetails1/:country' component = {EconomyInsights1} />
+            <Route exact path = '/economyinsightdetails2/:country' component = {EconomyInsights2} />
             <Route exact path = '/countrylist' component = {CountryList} />
             <Route exact path = '/dashboard/:country' component = {Home} />
             <Route exact path = '/Form' component = {Form} />
