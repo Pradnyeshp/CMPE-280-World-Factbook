@@ -32,3 +32,7 @@
 .moreInfo {
     margin-top: 3%;
 }
+
+#moreDetailsOnEnergyInsights {
+    list-style-type: none;
+}

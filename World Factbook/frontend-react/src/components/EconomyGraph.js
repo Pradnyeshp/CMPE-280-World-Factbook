@@ -20,9 +20,9 @@ class EconomyGraph extends Component {
         //console.log("In age componentWillReceiveProps nextprops",nextProps.country);
         //console.log("In age componentWillReceiveProps current props",this.state.country);
         if(nextProps.country.toLowerCase() !== this.state.country.toLowerCase()) {
-            this.setState({
-                country: nextProps.country.toLowerCase()
-            });
+            // this.setState({
+            //     country: nextProps.country.toLowerCase()
+            // });
            this.loadEconomyGraph(nextProps.country);
         }
     }
@@ -36,12 +36,13 @@ class EconomyGraph extends Component {
                 this.setState({
                     dataSource: response.data.dataSource,
                     start: response.data.start,
-                    end: response.data.end
+                    end: response.data.end,
+                    country: country
                 });
             }
-            else {
-                alert("Error loading the content");
-            }
+            // else {
+            //     // alert("Error loading the content");
+            // }
 
         })  
     }

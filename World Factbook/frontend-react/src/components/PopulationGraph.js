@@ -40,10 +40,12 @@ class PopulationGraph extends Component {
         axios.get(api)
             .then(response =>{
                     //console.log("Response from server : ", response.data) ;
-                    this.setState({
-                        populationGrowthArray : response.data.data
-                    },()=>{
-                    })
+                    if(response.data.message === 'success') {
+                        this.setState({
+                            populationGrowthArray : response.data.data
+                        });
+                    }
+                    
                 }
             );
 
@@ -51,9 +53,12 @@ class PopulationGraph extends Component {
         axios.get(populationCountURL)
             .then(response => {
                     //console.log("Response from server : ", response.data) ;
-                    this.setState({
-                        populationArray : response.data.data
-                    })
+                    if(response.data.message === 'success') {
+                        this.setState({
+                            populationArray : response.data.data
+                        })
+                    }
+                    
                 }
             );
         
@@ -62,9 +67,12 @@ class PopulationGraph extends Component {
         axios.get(birthCountURL)
             .then(response => {
                     //console.log("Response from server : ", response.data) ;
-                    this.setState({
-                        birthArray : response.data.data
-                    })
+                    if(response.data.message === 'success') {
+                        this.setState({
+                            birthArray : response.data.data
+                        })
+                    }
+                    
                 }
             );
 
@@ -73,9 +81,12 @@ class PopulationGraph extends Component {
         axios.get(deathCountURL)
             .then(response => {
                     //console.log("Response from server : ", response.data) ;
-                    this.setState({
-                        deathArray : response.data.data
-                    })
+                    if(response.data.message === 'success') {
+                        this.setState({
+                            deathArray : response.data.data
+                        })
+                    }
+                    
                 }
             );
         
@@ -84,9 +95,12 @@ class PopulationGraph extends Component {
         axios.get(migrantCountURL)
             .then(response => {
                     //console.log("Response from server : ", response.data) ;
-                    this.setState({
-                        migrationArray : response.data.data
-                    })
+                    if(response.data.message === 'success') {
+                        this.setState({
+                            migrationArray : response.data.data
+                        })
+                    }
+                    
                 }
             );
         //let url = `http://localhost:4040/population/${this.state.country}` ;

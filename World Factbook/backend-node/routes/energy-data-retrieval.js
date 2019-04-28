@@ -6,6 +6,9 @@ prepareEnergyGraph = async (req, res, next) => {
 
     let result = await UNCountryModel.findOne({ countryName: country });
 
+    if(result === null || result === undefined)
+        res.json({message: 'error', data: 'No country found'});
+
     //Get the gross demand data
     let energyGrossDemandData = result.energy_gross_demand;
 

@@ -23,9 +23,12 @@ class PopulationGrowthGraph extends Component {
         axios.get(api)
             .then(response =>{
                 console.log("Response from server : ", response.data) ;
-                this.setState({
-                    populationArray : response.data.data
-                })
+                if(response.data.message === 'success') {
+                    this.setState({
+                        populationArray : response.data.data
+                    })
+                }
+                
             }
         )
 

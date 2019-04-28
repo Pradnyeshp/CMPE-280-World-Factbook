@@ -39,7 +39,7 @@ class EconomyInsightsDetailsGraph extends Component {
                 });
             }
             else {
-                alert("Error loading the content");
+                //alert("Error loading the content");
             }
 
         })  

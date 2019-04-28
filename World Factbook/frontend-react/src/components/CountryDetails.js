@@ -392,6 +392,11 @@ class CountryDetails extends Component {
                             &nbsp;
                             <li> >> </li>
                             &nbsp;
+                            <Link to = {{pathname: `/dashboard/${this.state.country}`}}>
+                            <li className="breadcrumb-item"> Dashboard </li></Link>
+                            &nbsp;
+                            <li> >> </li>
+                            &nbsp;
                             <Link to = {{pathname: '/countrylist'}}>
                             <li className="breadcrumb-item" aria-current="page">
                                 List of Countries
@@ -452,7 +457,7 @@ class CountryDetails extends Component {
                         {energy_imports_latest_not_trend}
 
                     </div>
-                    
+
                     {age_structure} 
 
                     <InfantMortalityRateGraph details={this.state.infant_mortality_rate} />

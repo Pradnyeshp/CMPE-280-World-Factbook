@@ -94,12 +94,16 @@ class MoreEnergyInsights extends Component {
                 <div className="breadcrumbs" >
                     <nav aria-label="breadcrumb" >
                         <ol className="breadcrumb" >
-                            <li>You are here: </li>
+                            {/* <li>You are here: </li> */}
                             <Link to = {{pathname: '/'}}>
-                            <li className="breadcrumb-item">HomePage</li></Link>
+                            <li className="breadcrumb-item">Home</li></Link>
+                            &nbsp;
                             <li>>></li>
+                            &nbsp;
                             <Link to = {{pathname: '/dashboard/'+this.state.country}}><li className="breadcrumb-item">Dashboard</li></Link>
+                            &nbsp;
                             <li>>></li>
+                            &nbsp;
                             <li className="breadcrumb-item active" aria-current="page">Energy Insights</li>
                         </ol>
                     </nav>
@@ -155,7 +159,14 @@ class MoreEnergyInsights extends Component {
                                 Considering about mentioned factors, definitely, the energy factor is one of the important factor to be considered while
                                 studying about the country.
                             </li>
+                            <li id='moreDetailsOnEnergyInsights'>
+                                <Link to={`/getcountry/${this.state.country}`}>
+                                    More Details
+                                </Link>
+                            </li>
                         </ul>
+
+                        
                 </div>
                 
             </div>
