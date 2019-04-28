@@ -76,7 +76,7 @@ prepareEnergyGraph = async (req, res, next) => {
     });  
 
 
-    console.log(start, end);
+    //console.log(start, end);
     console.log('FinalObject generated and sent');
     res.json({'message': 'success', 'dataSource': dataSource, 'start': start, 'end': end});
 }
@@ -110,7 +110,7 @@ getMap = (object, start, end) => {
                 let array = map.get(element.year);
                 array.push(['Manufacturing', element.value]);
             } catch(error) {
-                console.log('Year not found');
+                //console.log('Year not found');
             }
             
         });
@@ -120,7 +120,7 @@ getMap = (object, start, end) => {
                 let array = map.get(element.year);
                 array.push(['Transport', element.value]);
             } catch(error) {
-                console.log('Year not found');
+                //console.log('Year not found');
             }
             
         });
@@ -130,7 +130,7 @@ getMap = (object, start, end) => {
                 let array = map.get(element.year);
                 array.push(['Chemical', element.value]);
             } catch(error) {
-                console.log('Year not found');
+                //console.log('Year not found');
             }
             
         });
@@ -140,7 +140,7 @@ getMap = (object, start, end) => {
                 let array = map.get(element.year);
                 array.push(['Public Services', element.value]);
             } catch(error) {
-                console.log('Year not found');
+                //console.log('Year not found');
             }
             
         });
@@ -150,7 +150,7 @@ getMap = (object, start, end) => {
                 let array = map.get(element.year);
                 array.push(['Construction', element.value]);
             } catch(error) {
-                console.log('Year not found');
+                //console.log('Year not found');
             }
             
         });
@@ -160,7 +160,7 @@ getMap = (object, start, end) => {
                 let array = map.get(element.year);
                 array.push(['Household', element.value]);
             } catch(error) {
-                console.log('Year not found');
+                //console.log('Year not found');
             }
             
         });
@@ -195,7 +195,7 @@ prepareCountrySpecificEnergyConsumptionGraph = async (req, res, next) => {
                 finalObject.agriculture = [];    
             }
         } catch(err) {
-            console.log('No energy_consumption_agriculture object found in searched country');
+            //console.log('No energy_consumption_agriculture object found in searched country');
             finalObject.agriculture = [];
         }
 
@@ -207,7 +207,7 @@ prepareCountrySpecificEnergyConsumptionGraph = async (req, res, next) => {
                 finalObject.manufacturing = [];    
             }
         } catch(err) {
-            console.log('No energy_consumption_manufacturing object found in searched country');
+            //console.log('No energy_consumption_manufacturing object found in searched country');
             finalObject.manufacturing = [];
         }
 
@@ -219,7 +219,7 @@ prepareCountrySpecificEnergyConsumptionGraph = async (req, res, next) => {
                 finalObject.transport = [];    
             }
         } catch(err) {
-            console.log('No energy_consumption_transport object found in searched country');
+            //console.log('No energy_consumption_transport object found in searched country');
             finalObject.transport = [];
         }
 
@@ -231,7 +231,7 @@ prepareCountrySpecificEnergyConsumptionGraph = async (req, res, next) => {
                 finalObject.chemical = [];    
             }
         } catch(err) {
-            console.log('No energy_consumption_chemical_petrochemical object found in searched country');
+            //console.log('No energy_consumption_chemical_petrochemical object found in searched country');
             finalObject.chemical = [];
         }
 
@@ -243,7 +243,7 @@ prepareCountrySpecificEnergyConsumptionGraph = async (req, res, next) => {
                 finalObject.public_services = [];    
             }
         } catch(err) {
-            console.log('No energy_consumption_chemical_petrochemical object found in searched country');
+            //console.log('No energy_consumption_chemical_petrochemical object found in searched country');
             finalObject.public_services = [];
         }
 
@@ -256,7 +256,7 @@ prepareCountrySpecificEnergyConsumptionGraph = async (req, res, next) => {
             }
             
         } catch(err) {
-            console.log('No energy_consumption_construction object found in searched country');
+            //console.log('No energy_consumption_construction object found in searched country');
             finalObject.construction = [];
         }
 
@@ -268,11 +268,11 @@ prepareCountrySpecificEnergyConsumptionGraph = async (req, res, next) => {
                 finalObject.household = [];    
             }
         } catch(err) {
-            console.log('No energy_consumption_household object found in searched country');
+            //console.log('No energy_consumption_household object found in searched country');
             finalObject.household = [];
         }
         let result = await getMap(finalObject, start, end);
-        console.log("After generating the result",result);
+        //console.log("After generating the result",result);
         res.status(200).send({'message': 'success', 'data': result});
 
     } else {

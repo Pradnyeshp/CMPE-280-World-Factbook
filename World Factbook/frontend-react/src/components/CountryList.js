@@ -61,6 +61,21 @@ class CountryList extends Component {
             <div className="CountryList">
                 <Navbar/>
                 {/* <div className="container"> */}
+                <div className="breadcrumbs" >
+                    <nav aria-label="breadcrumb" >
+                        <ol className="breadcrumb" style={{paddingLeft : '3%', marginBottom : '0'}} >
+                            {/*<li>You are here: </li>*/}
+                            <Link to = {{pathname: '/'}}>
+                            <li className="breadcrumb-item"> Home </li></Link>
+                            &nbsp;
+                            <li> >> </li>
+                            &nbsp;
+                            <li className="breadcrumb-item active" aria-current="page">
+                                List of Countries
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
                     <div className="countryblock">
                        
                         <CountryListTable array={this.state.col1} />

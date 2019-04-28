@@ -17,6 +17,7 @@ p {
     box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
     margin-top: 1%;
     margin-bottom: 2%;
+    margin-right: 10px;
     padding: 2%;
     
 }
@@ -27,7 +28,6 @@ p {
     box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
     margin-top: 1%;
     margin-bottom: 2%;
-    margin-left: 10px;
     padding: 2%;
 }
 
@@ -43,7 +43,30 @@ p {
     
 } */
 
-#graphAgeStructureCountryDetailsPage, #employment_details_data, #gdp_by_sector_data {
+#graphAgeStructureCountryDetailsPage, #employment_details_data, #expenditures_data {
+    width: auto;
+    height: auto;
+    float: left;
+    box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
+    margin-top: 1%;
+    margin-bottom: 2%;
+    margin-right: 10px;
+    padding: 2%;
+}
+
+#gdp_by_sector_data, .InfantMortalityRateGraph, .UnemploymentRateGraph {
+    width: auto;
+    height: auto;
+    float: left;
+    box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
+    margin-top: 1%;
+    margin-bottom: 2%;
+    margin-right: 10px;
+    padding: 2%;
+}
+
+
+/* .CountryDetails .indicators {
     width: auto;
     height: auto;
     float: left;
@@ -52,15 +75,45 @@ p {
     margin-bottom: 2%;
     margin-left: 10px;
     padding: 2%;
-}
+} */
 
-#expenditures_data, .InfantMortalityRateGraph, .UnemploymentRateGraph {
-    width: auto;
+
+
+.religions, 
+.border_countries, 
+.language_spoken {
+    width: 100%;
     height: auto;
-    float: right;
+    float: left;
     box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
     margin-top: 1%;
     margin-bottom: 2%;
-    margin-left: 10px;
+    margin-right: 10px;
     padding: 2%;
 }
+
+.population_below_poverty_line, 
+.nationality, 
+.land_boundary_in_km, 
+.natural_resources, 
+.population_growth_rate, 
+.birth_rate, 
+.death_rate, 
+.net_migration_rate,
+.exports,
+.imports, 
+.energy_production_latest_not_trend,
+.energy_consumption_latest_not_trend,
+.energy_imports_latest_not_trend,
+.energy_exports_latest_not_trend {
+    width: 370px;
+    height: auto;
+    float: left;
+    box-shadow: 1px 1px 1px 1px rgb(220, 218, 235); 
+    margin-top: 1%;
+    margin-bottom: 2%;
+    margin-right: 10px;
+    padding: 2%;
+}
+
+

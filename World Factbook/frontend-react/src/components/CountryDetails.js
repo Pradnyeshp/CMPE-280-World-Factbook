@@ -9,6 +9,7 @@ import InfantMortalityRateGraph from './InfantMortalityRateGraph.js';
 import UnemploymentRateGraph from './UnemploymentRateGraph.js';
 import GenericSectorPercentageGraph from './GenericSectorPercentageGraph.js';
 import CountryHeader from './CountryHeader.js';
+import {Link} from 'react-router-dom';
 
 
 class CountryDetails extends Component {
@@ -161,7 +162,7 @@ class CountryDetails extends Component {
         let border_countries = null;
         if(this.state.border_countries !== '') {
             border_countries = 
-                <div id="border_countries">
+                <div className="indicators border_countries">
                     <h3>
                         Border Countries
                     </h3>
@@ -174,7 +175,7 @@ class CountryDetails extends Component {
         
         let land_boundary_in_km = null;
         if(this.state.land_boundary_in_km !== '') {
-            land_boundary_in_km = <div id="land_boundary_in_km">
+            land_boundary_in_km = <div className="indicators land_boundary_in_km">
                     <h3>
                         Land Boundary (km)
                     </h3>
@@ -187,7 +188,7 @@ class CountryDetails extends Component {
 
         let natural_resources = null;
         if(this.state.natural_resources !== '') {
-            natural_resources = <div id="natural_resources">
+            natural_resources = <div className="indicators natural_resources">
                                     <h3>
                                         Natural Resources
                                     </h3>
@@ -200,7 +201,7 @@ class CountryDetails extends Component {
 
         let nationality = null;
         if(this.state.nationality !== '') {
-            nationality = <div id="nationality">
+            nationality = <div className="indicators nationality">
                             <h3>
                                 Nationality
                             </h3>
@@ -212,7 +213,7 @@ class CountryDetails extends Component {
 
         let language_spoken = null;
         if(this.state.language_spoken !== '') {
-            language_spoken = <div id="language_spoken">
+            language_spoken = <div className="indicators language_spoken">
                                 <h3>
                                     Languages Spoken
                                 </h3>
@@ -224,7 +225,7 @@ class CountryDetails extends Component {
 
         let religions = null;
         if(this.state.religions !== '') {
-            religions = <div id="religions">
+            religions = <div className="indicators religions">
                             <h3>
                                 Religions
                             </h3>
@@ -236,7 +237,7 @@ class CountryDetails extends Component {
 
         let population_growth_rate = null;
         if(this.state.population_growth_rate !== '') {
-            population_growth_rate = <div id="population_growth_rate">
+            population_growth_rate = <div className="indicators population_growth_rate">
                                         <h3>
                                             Population Growth Rate
                                         </h3>
@@ -248,7 +249,7 @@ class CountryDetails extends Component {
 
         let birth_rate = null;
         if(this.state.birth_rate !== '') {
-            birth_rate = <div id="birth_rate">
+            birth_rate = <div className="indicators birth_rate">
                             <h3>
                                 Birth Rate
                             </h3>
@@ -260,7 +261,7 @@ class CountryDetails extends Component {
          
         let death_rate = null;
         if(this.state.death_rate !== '') {
-            death_rate = <div id="death_rate">
+            death_rate = <div className="indicators death_rate">
                             <h3>
                             Death Rate
                             </h3>
@@ -272,7 +273,7 @@ class CountryDetails extends Component {
 
         let net_migration_rate = null;
         if(this.state.net_migration_rate !== '') {
-            net_migration_rate = <div id="net_migration_rate">
+            net_migration_rate = <div className="indicators net_migration_rate">
                                     <h3>
                                         Net Migration Rate
                                     </h3>
@@ -284,7 +285,7 @@ class CountryDetails extends Component {
 
         let population_below_poverty_line = null;
         if(this.state.population_below_poverty_line !== '') {
-            population_below_poverty_line =  <div id="population_below_poverty_line">
+            population_below_poverty_line =  <div className="indicators population_below_poverty_line">
                                                 <h3>
                                                 Population below poverty line
                                                 </h3>
@@ -296,7 +297,7 @@ class CountryDetails extends Component {
 
         let _exports = null;
         if(this.state.exports !== '') {
-            _exports = <div id="exports">
+            _exports = <div className="indicators exports">
                         <h3>
                             Exports
                         </h3>
@@ -308,7 +309,7 @@ class CountryDetails extends Component {
 
         let imports = null;
         if(this.state.imports !== '') {
-            imports = <div id="imports">
+            imports = <div className="indicators imports">
                         <h3>
                         Imports
                         </h3>
@@ -320,7 +321,7 @@ class CountryDetails extends Component {
 
         let energy_production_latest_not_trend = null;
         if(this.state.energy_production_latest_not_trend !== '') {
-            energy_production_latest_not_trend = <div id="energy_production_latest_not_trend">
+            energy_production_latest_not_trend = <div className="indicators energy_production_latest_not_trend">
                                                     <h3>
                                                     Energy Production
                                                     </h3>
@@ -332,7 +333,7 @@ class CountryDetails extends Component {
 
         let energy_consumption_latest_not_trend = null;
         if(this.state.energy_consumption_latest_not_trend !== '') {
-            energy_consumption_latest_not_trend = <div id="energy_consumption_latest_not_trend">
+            energy_consumption_latest_not_trend = <div className="indicators energy_consumption_latest_not_trend">
                                                     <h3>
                                                         Energy Consumption
                                                     </h3>
@@ -344,7 +345,7 @@ class CountryDetails extends Component {
 
         let energy_imports_latest_not_trend = null;
         if(this.state.energy_imports_latest_not_trend !== '') {
-            energy_imports_latest_not_trend = <div id="energy_imports_latest_not_trend">
+            energy_imports_latest_not_trend = <div className="indicators energy_imports_latest_not_trend">
                                                 <h3>
                                                     Energy Imports
                                                 </h3>
@@ -356,7 +357,7 @@ class CountryDetails extends Component {
 
         let energy_exports_latest_not_trend = null;
         if(this.state.energy_exports_latest_not_trend !== '') {
-            energy_exports_latest_not_trend = <div id="energy_exports_latest_not_trend">
+            energy_exports_latest_not_trend = <div className="indicators energy_exports_latest_not_trend">
                                                 <h3>
                                                     Energy Exports
                                                 </h3>
@@ -381,63 +382,87 @@ class CountryDetails extends Component {
         return (
             <div className="CountryDetails"> 
                 <Navbar/>
+
+                <div className="breadcrumbs" >
+                    <nav aria-label="breadcrumb" >
+                        <ol className="breadcrumb" style={{paddingLeft : '3%', marginBottom : '0'}} >
+                            {/*<li>You are here: </li>*/}
+                            <Link to = {{pathname: '/'}}>
+                            <li className="breadcrumb-item"> Home </li></Link>
+                            &nbsp;
+                            <li> >> </li>
+                            &nbsp;
+                            <Link to = {{pathname: '/countrylist'}}>
+                            <li className="breadcrumb-item" aria-current="page">
+                                List of Countries
+                            </li></Link>
+                            &nbsp;
+                            <li> >> </li>
+                            &nbsp;
+                            <li className="breadcrumb-item active" aria-current="page">
+                                {this.state.country}
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+
                 <div className="container">
                     
                     <CountryHeader country={this.state.country}/>
+                    <div className='row'>
                     
-                    {introduction}
+                        {introduction}
 
-                    {population}
+                        {population}
 
-                    {climate}
+                        {climate}
 
-                    {nationality}
+                        {language_spoken}
 
-                    {language_spoken}
+                        {religions}
 
-                    {religions}
+                        {border_countries}
 
-                    {land_boundary_in_km}
+                        {land_boundary_in_km}
+
+                        {nationality}
+
+                        {natural_resources}
+
+                        {population_growth_rate}
+
+                        {birth_rate}
+
+                        {death_rate}
+
+                        {net_migration_rate}
+
+                        {population_below_poverty_line}
+
+                        {imports}
+
+                        {_exports}
+
+                        {energy_production_latest_not_trend}
+
+                        {energy_consumption_latest_not_trend}
+
+                        {energy_exports_latest_not_trend}
+
+                        {energy_imports_latest_not_trend}
+
+                    </div>
                     
-                    {border_countries}
-
-                    {natural_resources}
-
-                    {population_growth_rate}
-
-                    {birth_rate}
-
-                    {death_rate}
-
-                    {net_migration_rate}
-
-                    {population_below_poverty_line}
-
-                    {imports}
-
-                    {_exports}
-
-                    {energy_production_latest_not_trend}
-
-                    {energy_consumption_latest_not_trend}
-
-                    {energy_exports_latest_not_trend}
-
-                    {energy_imports_latest_not_trend}
-
-                    <br/>
-                    <br/>
-
-                    {age_structure}
+                    {age_structure} 
 
                     <InfantMortalityRateGraph details={this.state.infant_mortality_rate} />
-
+                
                     <GenericSectorPercentageGraph 
                         details = {this.state.employment_details} 
                         id = "employment_details_data" 
                         heading = "Employment by Sector"
                     />
-
+                
                     <UnemploymentRateGraph details = {this.state.unemployment_rate} />
 
                     <GenericSectorPercentageGraph 
@@ -451,7 +476,7 @@ class CountryDetails extends Component {
                         id = "gdp_by_sector_data" 
                         heading = "GDP Composition by Sector"
                     />
-
+                        
                 </div>
                 
             </div>

@@ -16,7 +16,7 @@ prepareAgeStructureGraph = async (req, res, next) => {
             finalArray.push(array);
         });
     }
-    console.log(finalArray);
+    //console.log(finalArray);
     
     res.json({'message': 'success', 'data': finalArray});
 }

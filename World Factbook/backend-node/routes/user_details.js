@@ -18,7 +18,7 @@ module.exports.getUser = async (req, res, next) => {
     email=req.query.emailId
     let response = await UserModel.find({emailId:email});
     if(response != null && response.length != 0) {
-        console.log("Backend data",response);
+        //console.log("Backend data",response);
         res.json({"message": "success", "data": response})
     } 
     else res.json({"message": "error", "data": "Error reading country database"})
@@ -58,7 +58,7 @@ module.exports.updateUser = async (req, res, next) => {
     
     let response = await UserModel.findOneAndUpdate({emailId:req.body.email},{$set:{firstName:req.body.fname,lastName:req.body.lname,number:req.body.phone}},{new:true});
     if(response != null && response.length != 0) {
-        console.log("Backend data",response);
+        //console.log("Backend data",response);
         res.json({"message": "success", "data": response})
     } 
     else res.json({"message": "error", "data": "Error reading country database"})
@@ -69,7 +69,7 @@ module.exports.deleteUser = async (req, res, next) => {
     let response = await UserModel.deleteOne({emailId:req.body.email});
     console.log(req.query.email);
     if(response != null && response.length != 0) {
-        console.log("Backend data",response);
+        //console.log("Backend data",response);
         res.json({"message": "success", "data": response})
     } 
     else res.json({"message": "error", "data": "Error reading country database"})

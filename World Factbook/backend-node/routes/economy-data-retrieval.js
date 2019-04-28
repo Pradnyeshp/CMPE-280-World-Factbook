@@ -64,7 +64,7 @@ prepareEconomyGraph = async (req, res, next) => {
     });  
 
 
-    console.log(start, end);
+    //console.log(start, end);
     console.log('FinalObject generated and sent');
     res.json({'message': 'success', 'dataSource': dataSource, 'start': start, 'end': end});
 }

@@ -9,9 +9,9 @@ prepareEconomyMultiLineGraph = async (req, res, next) => {
     let allcountrydata = alldata.countryName;
     let populationCountData = allcountrydata.population_count;
     
-    console.log("*************************",allcountrydata);
-    console.log("******************************************",alldata);
-    console.log("************************************",populationCountData);
+    // console.log("*************************",allcountrydata);
+    // console.log("******************************************",alldata);
+    // console.log("************************************",populationCountData);
 
     //Get the gross demand data
 //     let gdpData = result.gdp;
