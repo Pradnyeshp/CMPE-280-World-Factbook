@@ -14,6 +14,7 @@ import HomePage from './components/HomePage';
 import Profile from "./components/Profile";
 import PopulationInsights from "./components/PopulationInsights";
 import MoreEnergyInsights from './components/MoreEnergyInsights';
+import GeoGraphForGDP from "./components/GeoGraphForGDP";
 
 class App extends Component {
   render() {
@@ -32,6 +33,8 @@ class App extends Component {
             <Route exact path = '/userprofile' component = {Profile} />
             <Route exact path = '/PopulationInsights' component = {PopulationInsights} />
             <Route exact path = '/dashboard/country-specific/more-energy-insights' component = {MoreEnergyInsights}/>
+            <Route exact path = '/testinggeograph' component = {GeoGraphForGDP} />
+
         </Switch>
     );
   }

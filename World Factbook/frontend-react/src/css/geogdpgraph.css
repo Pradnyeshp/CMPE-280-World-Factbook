@@ -1,0 +1,29 @@
+
+.headerGeoGDP{
+    font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 0;
+    letter-spacing: 0.1px;
+}
+
+.geoMapGDPSubtitle{
+    font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: grey;
+    margin-bottom: 10px ;
+    letter-spacing: 0.1px;
+}
+
+.geoGraphMainDiv{
+    padding: 1%;
+    margin: 1%;
+}
+
+.geographGDP{
+    border: 1px solid;
+    padding: 15px;
+    box-shadow: 2px 2px #888888;
+}
