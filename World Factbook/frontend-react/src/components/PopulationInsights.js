@@ -11,7 +11,7 @@ class PopulationInsights extends Component {
         super(props);
 
         this.state = {
-            country : "united states of america" ,
+            country : "norway" ,
             populationArray : [],
             allCountryPopulationArray : [],
             birthArray : [],
@@ -27,28 +27,42 @@ class PopulationInsights extends Component {
 
         let countryPopulationURL = url+'/population/countries' ;
         axios.get(countryPopulationURL)
-            .then(response=> {
+            .then(response => {
                 // console.log(response.data) ;
                 this.setState({
                     allCountryPopulationArray : response.data.data
                 },() => {
                     let array = this.state.allCountryPopulationArray ;
+                    let currentCountry = this.state.country ;
+
                     array.sort((a,b) => (b[1] - a[1])) ;
+                    let tempMap = new Map();
 
                     let temp = [] ;
-                    let header = ['Country', 'Population', { role: 'annotation' }] ;
+                    let header = ['Country', 'Population'] ;
                     temp.push(header);
 
-
                     for (let i = 0 ; i < 5 ; i++){
+                        tempMap.set(array[i][0], array[i][1]);
                         temp.push(array[i]);
                     }
 
-                    for (let i = 1 ; i < 6 ; i++){
-                        let x = temp[i][1] ;
-                        temp[i].push(x+'') ;
-                        // temp.push(array[i]);
-                    }
+                    console.log(tempMap) ;
+
+                    array.forEach(function (row) {
+                        // console.log(row);
+                        if(!tempMap.has(row[0])){
+                            if (row[0] === currentCountry.toUpperCase()) {
+                                temp.push(row);
+                            }
+                        }
+                    });
+
+                    // for (let i = 1 ; i < 6 ; i++){
+                    //     let x = temp[i][1] ;
+                    //     temp[i].push(x+'') ;
+                    //     // temp.push(array[i]);
+                    // }
 
                     this.setState({
                         topFiveArray : temp
@@ -137,7 +151,7 @@ class PopulationInsights extends Component {
         });
 
         let rateGraphArray = [] ;
-        let header1 = ['Year', 'birthcount', 'death count', 'migration count'] ;
+        let header1 = ['Year', 'birth count', 'death count', 'migration count'] ;
 
         rateGraphArray.push(header1) ;
 
@@ -222,12 +236,20 @@ class PopulationInsights extends Component {
             temp.push(key);
 
             let values = map.get(key) ;
-            temp.push(values[0]);
-            temp.push(values[1]);
-            temp.push(values[2]);
+            let x = [...values] ;
+
+            x.forEach(function (z) {
+               temp.push(z);
+            });
+
+            // temp.push(values[0]);
+            // temp.push(values[1]);
+            // temp.push(values[2]);
 
             rateGraphArray.push(temp);
         });
+
+        // console.log(temp);
 
         // birthArray.forEach(function (row) {
         //     let temp = [] ;
@@ -267,7 +289,7 @@ class PopulationInsights extends Component {
         return(
             <div>
                 <Navbar/>
-                <div className= "container-fluid">
+                <div className= "container-fluid" style={{ paddingRight: '20px'}}>
 
                     <div className="populationInsightHeader">
                         {this.state.country.toUpperCase()}
@@ -283,46 +305,48 @@ class PopulationInsights extends Component {
                                     Population density comparison of countries (2018 est.)
                                 </div>
                             </div>
-                            <Chart
-                                // width={'1690px'}
-                                // height={'910px'}
-                                width = {'800px'}
-                                height = {'600px'}
-                                chartType="GeoChart"
-                                data={ graphData
-                                    //     [
-                                    //     ['Country', 'Population'],
-                                    //     [this.state.country.toLocaleUpperCase(), currentPopulation],
-                                    //     // ['United States', 300],
-                                    //     // ['Brazil', 400],
-                                    //     // ['Canada', 500],
-                                    //     // ['France', 600],
-                                    //     // ['RU', 700],
-                                    // ]
-                                }
-                                options = {{
-                                    // displayMode : 'text',
-                                    colorAxis: { colors: ['#A7FEFE', '#e31b23'] },
-                                    // backgroundColor: '#81d4fa',
-                                    markerOpacity : 1,
-                                    markerColor : 'blue',
-                                    legend : { numberFormat : '0',
-                                        textStyle: {color: 'black', fontSize: 16}
-                                    },
-                                    tooltip : {
-                                        textStyle: {color: 'black', fontSize: 18},
-                                        trigger : 'focus'
-                                    }
-                                }}
+                            <div className='geoGraphStyle'>
+                                <Chart
+                                    // width={'1690px'}
+                                    // height={'910px'}
+                                    loader={<div>Loading Chart</div>}
+                                    width = {'800px'}
+                                    height = {'600px'}
+                                    chartType="GeoChart"
+                                    data={ graphData }
+                                    options = {{
+                                        // displayMode : 'text',
+                                        colorAxis: { colors: ['#c8fefe', '#c80c00'] },
+                                        // backgroundColor: '#81d4fa',
+                                        markerOpacity : 1,
+                                        markerColor : 'blue',
+                                        legend : { numberFormat : '0',
+                                            textStyle: {color: 'black', fontSize: 16}
+                                        },
+                                        tooltip : {
+                                            textStyle: {color: 'black', fontSize: 18},
+                                            trigger : 'focus'
+                                        }
+                                    }}
 
-                                legend = {{
-                                    textStyle: {color: 'yellow', fontSize: 16},
-                                }}
-                                // Note: you will need to get a mapsApiKey for your project.
-                                // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-                                mapsApiKey="AIzaSyBgT9S1jtBpZ7HNyqTz86ay1uEeHVj0bMY"
-                                //rootProps={{ 'data-testid': '1' }}
-                            />
+                                    legend = {{
+                                        textStyle: {color: 'yellow', fontSize: 16},
+                                    }}
+                                    // Note: you will need to get a mapsApiKey for your project.
+                                    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                                    mapsApiKey="AIzaSyBgT9S1jtBpZ7HNyqTz86ay1uEeHVj0bMY"
+                                    //rootProps={{ 'data-testid': '1' }}
+                                />
+                            </div>
+                            <br/>
+                            <div className="row">
+                                <div className="col-4 populationBox">
+                                    Population : {countryPopulation*1000}
+                                </div>
+                                <div className="col-5 populationBox">
+                                    Population Growth Rate : 1.3 %
+                                </div>
+                            </div>
                         </div>
 
                         <div className="col-5">
@@ -334,34 +358,35 @@ class PopulationInsights extends Component {
                                     Comparisons of factors like birth count, death count and migration count
                                 </div>
                             </div>
+                            <div className="geoGraphStyle">
+                                <Chart
+                                    // width={'1690px'}
+                                    // height={'910px'}
+                                    loader={<div>Loading Chart</div>}
+                                    width = {'640px'}
+                                    height = {'300px'}
+                                    chartType="Bar"
+                                    data={ rateGraphArray }
+                                    options = {{
+                                        // displayMode : 'text',
+                                        colorAxis: { colors: ['#A7FEFE', '#e31b23'] },
+                                        // backgroundColor: '#81d4fa',
+                                        markerOpacity : 1,
+                                        markerColor : 'blue',
+                                        legend : { numberFormat : '0',
+                                            textStyle: {color: 'black', fontSize: 16}
+                                        },
+                                        tooltip : {
+                                            textStyle: {color: 'black', fontSize: 18},
+                                            trigger : 'focus'
+                                        }
+                                    }}
 
-                            <Chart
-                                // width={'1690px'}
-                                // height={'910px'}
-                                width = {'600px'}
-                                height = {'300px'}
-                                chartType="Bar"
-                                data={ rateGraphArray }
-                                options = {{
-                                    // displayMode : 'text',
-                                    colorAxis: { colors: ['#A7FEFE', '#e31b23'] },
-                                    // backgroundColor: '#81d4fa',
-                                    markerOpacity : 1,
-                                    markerColor : 'blue',
-                                    legend : { numberFormat : '0',
-                                        textStyle: {color: 'black', fontSize: 16}
-                                    },
-                                    tooltip : {
-                                        textStyle: {color: 'black', fontSize: 18},
-                                        trigger : 'focus'
-                                    }
-                                }}
-
-                                legend = {{
-                                    textStyle: {color: 'yellow', fontSize: 16},
-                                }}
-                            />
-                            <br/>
+                                    legend = {{
+                                        textStyle: {color: 'yellow', fontSize: 16},
+                                    }}
+                                />
+                            </div>
                             <br/>
                             <div className="topFiveTable">
                                 <div className="pigraphTitle">
@@ -370,39 +395,67 @@ class PopulationInsights extends Component {
                                 <div className="pigraphSubtitle">
                                     Based on most recent and previous census data
                                 </div>
-                                <Chart
-                                    // width={'1690px'}
-                                    // height={'910px'}
-                                    width = {'650px'}
-                                    height = {'250px'}
-                                    chartType="Bar"
-                                    data={ this.state.topFiveArray }
-                                    options = {{
-                                        // displayMode : 'text',
-                                        // chart: {
-                                        //     title: 'Population of top populous countries',
-                                        //     subtitle: 'Based on most recent and previous census data'
-                                        // },
-                                        hAxis: {
-                                            title: 'Total Population',
-                                            minValue: 0,
-                                        },
-                                        vAxis: {
-                                            title: 'City'
-                                        },
-                                        bars: 'horizontal',
-                                    }}
+                                <div className="geoGraphStyle">
+                                    <Chart
+                                        // width={'1690px'}
+                                        // height={'910px'}
+                                        loader={<div>Loading Chart</div>}
+                                        width = {'640px'}
+                                        height = {'250px'}
+                                        chartType="Bar"
+                                        data={ this.state.topFiveArray }
+                                        options = {{
+                                            hAxis: {
+                                                title: 'Total Population',
+                                                minValue: 0,
+                                            },
+                                            vAxis: {
+                                                title: 'City'
+                                            },
+                                            bars: 'horizontal',
+                                        }}
 
-                                    legend = {{
-                                        textStyle: {color: 'yellow', fontSize: 16},
-                                    }}
-                                />
+                                        legend = {{
+                                            textStyle: {color: 'yellow', fontSize: 16},
+                                        }}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="row container-fluid">
-                        <div className="col-7 populationBox">
-                            Population : {countryPopulation*1000}
+                        <div className="col-11 extraInfoText">
+                            <ul className="ulBulletPoints">
+                                <li>
+                                    In this page, we display more insightful graphs about population.
+                                    First is Geo graph of the world, which displays the population density of each country.
+                                    Annotation will be displayed when user moves mouse over a particular country in the map.
+                                    Annotation information includes name of the country and it's population count as per the most recent information.
+                                    Geo graph is also color coded as per the population of country.
+                                    Countries with lower population count are shown in light blue shade, whereas countries with higher pouplations are shown in red shade.
+                                    Below the geograph, population count of current country is also shown.
+                                </li>
+                                <li>
+                                    Second graph displays Factors affecting the population growth. It considers following measures:
+                                    <ol className="olList">
+                                        <li>
+                                            Birth Count
+                                        </li>
+                                        <li>
+                                            Death Count
+                                        </li>
+                                        <li>
+                                            Migrants Count
+                                        </li>
+                                    </ol>
+                                    Graph displays information over the years ( from 1995 - 2020 ) with an interval of 5 years between them.
+                                    It shows, the birth count, death count and migrants count using bar chart.
+                                </li>
+                                <li>
+                                    Third graph displays information about five most populous countries in the world using horizontal bar chart.
+                                    It also displays population of the current country, so as to gain insight about current countries stand against world's top 5.
+                                </li>
+                            </ul>
                         </div>
                         <div className="col-5">
                         </div>

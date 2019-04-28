@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "csv-parser": "^2.2.0",
     "fusioncharts": "^3.13.4",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",

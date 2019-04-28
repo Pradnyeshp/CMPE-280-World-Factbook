@@ -49,7 +49,7 @@ class EconomyGraph extends Component {
     render() {
         return (
             <div className="EconomyGraph">
-
+                <br/>
                 <div className="graphTitle">
                 <Link 
                         to = {{
