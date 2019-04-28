@@ -5,6 +5,7 @@ import { Chart } from "react-google-charts";
 import url from '../url.js';
 import '../css/populationGeograph.css' ;
 import {Link} from "react-router-dom";
+import CountryHeader from "./CountryHeader";
 
 class PopulationInsights extends Component {
 
@@ -330,11 +331,9 @@ class PopulationInsights extends Component {
                         </ol>
                     </nav>
                 </div>
-                <div className= "container-fluid" style={{ paddingRight: '20px'}}>
+                <div className= "container-fluid" style={{ paddingLeft : '2%', paddingRight: '20px'}}>
 
-                    <div className="populationInsightHeader">
-                        {this.state.country.toUpperCase()}
-                    </div>
+                    <CountryHeader country = {this.state.country}/>
 
                     <div className="row populationGeograph">
                         <div className="col-7">
@@ -497,6 +496,7 @@ class PopulationInsights extends Component {
                                     It also displays population of the current country, so as to gain insight about current countries stand against world's top 5.
                                 </li>
                             </ul>
+                            <br/>
                         </div>
                         <br/>
                         <div className="col-5">

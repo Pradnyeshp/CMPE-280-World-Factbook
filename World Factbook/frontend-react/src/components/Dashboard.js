@@ -47,12 +47,16 @@ class Dashboard extends Component {
                 <Navbar/>
                 <div className="breadcrumbs" >
                     <nav aria-label="breadcrumb" >
-                        <ol class="breadcrumb" >
-                            <li>You are here: </li>
+                        <ol className="breadcrumb" style={{paddingLeft : '3%', marginBottom : '0'}} >
+                            {/*<li>You are here: </li>*/}
                             <Link to = {{pathname: '/'}}>
-                            <li class="breadcrumb-item">HomePage</li></Link>
-                            <li>>></li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            <li className="breadcrumb-item"> Home </li></Link>
+                            &nbsp;
+                            <li> >> </li>
+                            &nbsp;
+                            <li className="breadcrumb-item active" aria-current="page">
+                                Dashboard
+                            </li>
                         </ol>
                     </nav>
                 </div>

@@ -53,7 +53,7 @@ class CountryHeader extends Component {
         
         return (
             <div className="headerCountryName">
-                <div className='row' style={{marginLeft:'15px'}}>
+                <div className='row' style={{marginLeft:'0'}}>
                     <div className='countryHeader'>
                         <p>
                             {this.state.country.toUpperCase()}

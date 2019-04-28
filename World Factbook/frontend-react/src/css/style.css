@@ -151,8 +151,8 @@ header{
     font-size: 36px;
     font-family: SansSerif -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 0 ;
     float: left;
 }
 
@@ -174,6 +174,7 @@ header{
 
 .literacyGraph{
     border-left: 1px solid grey ;
+    padding-left: 30px;
 }
 
 .moreDetailsDiv {

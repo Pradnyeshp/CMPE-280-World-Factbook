@@ -1,11 +1,13 @@
-.dropdown {
+.yearDropdown {
     float: right;
-    margin-left: 50%;
-    margin-top: 39px;
+    margin-top: 2%;
+}
+.firstRowEnergy{
+    margin-left: 0;
 }
 
 #MoreEnergyInsightsCountryHeader {
-    margin-left: 11%;
+    margin-left: 10%;
 }
 
 
@@ -13,7 +15,7 @@
     list-style-type: disc;
     margin-left: 12%;
     text-align: justify;
-    font-size: 16px;
+    font-size: 18px;
     width: 70%;
     margin-top: 20px;
 }
@@ -22,11 +24,11 @@
     list-style-type: circle;
     margin-left: 12%;
     text-align: justify;
-    font-size: 14px;
+    font-size: 16px;
     width: 70%;
     margin-top: 20px;
 }
 
 .moreInfo {
-    margin-top: 5%;
+    margin-top: 3%;
 }

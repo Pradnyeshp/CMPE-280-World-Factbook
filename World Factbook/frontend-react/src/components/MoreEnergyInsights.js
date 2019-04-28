@@ -84,32 +84,33 @@ class MoreEnergyInsights extends Component {
             return (
                 <button className="dropdown-item" type="button" value={year} key = {year} onClick={this.handleYearClick}>{year}</button>
             ); 
-        })
+        });
+
         return (
             <div className="MoreEnergyInsights">
 
                 <Navbar />
+
                 <div className="breadcrumbs" >
                     <nav aria-label="breadcrumb" >
-                        <ol class="breadcrumb" >
+                        <ol className="breadcrumb" >
                             <li>You are here: </li>
                             <Link to = {{pathname: '/'}}>
-                            <li class="breadcrumb-item">HomePage</li></Link>
+                            <li className="breadcrumb-item">HomePage</li></Link>
                             <li>>></li>
-                            <Link to = {{pathname: '/dashboard/'+this.state.country}}><li class="breadcrumb-item">Dashboard</li></Link>
+                            <Link to = {{pathname: '/dashboard/'+this.state.country}}><li className="breadcrumb-item">Dashboard</li></Link>
                             <li>>></li>
-                            <li class="breadcrumb-item active" aria-current="page">Energy Insights</li>
+                            <li className="breadcrumb-item active" aria-current="page">Energy Insights</li>
                         </ol>
                     </nav>
                 </div>
-                <div className='row'>
-                    <div id='MoreEnergyInsightsCountryHeader'>
+
+                <div className='row firstRowEnergy'>
+                    <div className="col-8" id='MoreEnergyInsightsCountryHeader'>
                         <CountryHeader country={this.state.country}/>
                     </div>
-                    
-                    
-                    
-                    <div className="dropdown">
+
+                    <div className="col-2 yearDropdown">
                         <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select Year
                         </button>
@@ -118,7 +119,6 @@ class MoreEnergyInsights extends Component {
                         </div>
                     </div>
                 </div>
-                    
 
                 {graphToShow}
 
@@ -141,13 +141,13 @@ class MoreEnergyInsights extends Component {
                                 economy of the country depends on below three factors:
                                     <ol className='moreInfo-ol'>
                                         <li>
-                                            <b>Oil imports from other countries</b>
+                                            <p>Oil imports from other countries</p>
                                         </li>
                                         <li>
-                                            <b>Gold deposits in the world bank</b>
+                                            <p>Gold deposits in the world bank</p>
                                         </li>
                                         <li>
-                                            <b>Cash reserves in the world bank</b>
+                                            <p>Cash reserves in the world bank</p>
                                         </li>
                                     </ol>
                             </li>
