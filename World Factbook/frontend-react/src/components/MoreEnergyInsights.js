@@ -5,6 +5,7 @@ import GenericYearWiseEnergyGraph from './GenericYearWiseEnergyGraph';
 import Navbar from './Navbar';
 import '../css/more-insights-energy.css';
 import CountryHeader from './CountryHeader.js';
+import {Link} from "react-router-dom";
 
 class MoreEnergyInsights extends Component {
     constructor(props) {
@@ -88,6 +89,19 @@ class MoreEnergyInsights extends Component {
             <div className="MoreEnergyInsights">
 
                 <Navbar />
+                <div className="breadcrumbs" >
+                    <nav aria-label="breadcrumb" >
+                        <ol class="breadcrumb" >
+                            <li>You are here: </li>
+                            <Link to = {{pathname: '/'}}>
+                            <li class="breadcrumb-item">HomePage</li></Link>
+                            <li>>></li>
+                            <Link to = {{pathname: '/dashboard/'+this.state.country}}><li class="breadcrumb-item">Dashboard</li></Link>
+                            <li>>></li>
+                            <li class="breadcrumb-item active" aria-current="page">Energy Insights</li>
+                        </ol>
+                    </nav>
+                </div>
                 <div className='row'>
                     <div id='MoreEnergyInsightsCountryHeader'>
                         <CountryHeader country={this.state.country}/>

@@ -10,6 +10,7 @@ import EconomyInsightsDetailsGraph from './EconomyInsightsDetailsGraph';
 import ranking1 from "../Images/ranking1.jpg";
 import growthchart from "../Images/growthchart.png";
 import geograph from "../Images/geograph.png";
+import {Link} from "react-router-dom";
 
 
 // class EconomyInsightsDetails extends Component {
@@ -98,13 +99,33 @@ class EconomyInsightsDetails extends Component {
 
     }
 
+    // createDynamicURL(){
+    //     console.log("custom url")
+    //     return `/dashboard/${this.state.country}`;
+    // }
+
 
 
     render() {
- 
+
+      
+
         return (
             <div className="EconomyInsightsDetails"> 
                 <Navbar/>
+                <div className="breadcrumbs" >
+                    <nav aria-label="breadcrumb" >
+                        <ol class="breadcrumb" >
+                            <li>You are here: </li>
+                            <Link to = {{pathname: '/'}}>
+                            <li class="breadcrumb-item">HomePage</li></Link>
+                            <li>>></li>
+                            <Link to = {{pathname: '/dashboard/'+this.state.country}}><li class="breadcrumb-item">Dashboard</li></Link>
+                            <li>>></li>
+                            <li class="breadcrumb-item active" aria-current="page">Economy Insights</li>
+                        </ol>
+                    </nav>
+                </div>
                 <div className="heading">
                         <h1>
                             Economy Insights
@@ -123,22 +144,22 @@ class EconomyInsightsDetails extends Component {
                                 <div class="carousel-item active">
                                     <img src={ranking1} class="d-block w-100" alt="..." height={ 450 } width={ 600}/>
                                     <div class="carousel-caption d-none d-md-block" >
-                                    <h5>Country Standings</h5>
-                                    <p style={{textAlign:"center"}}>Featuring a table of all the top countries in Economy Sector</p>
+                                    <h4 style={{ color: 'black' }}>Country Standings</h4>
+                                    <h5 style={{ color: 'black' }}><p style={{textAlign:"center"}}>Featuring a table of all the top countries in Economy Sector</p></h5>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <img src={growthchart} class="d-block w-100" alt="..." height={ 450 } width={ 600}/>
                                     <div class="carousel-caption d-none d-md-block">
-                                    <h5>All in one Economy Chart</h5>
-                                    <p style={{textAlign:"center"}}>Featuring a comparison between growth/fall of different categories in Economy</p>
+                                    <h4 style={{ color: 'black' }}>All in one Economy Chart</h4>
+                                    <h5 style={{ color: 'black' }}><p style={{textAlign:"center"}}>Featuring a comparison between growth/fall of different categories in Economy</p></h5>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <img src={geograph} class="d-block w-100" alt="..." height={ 450 } width={ 600}/>
                                     <div class="carousel-caption d-none d-md-block">
-                                    <h5>Insights through GeoGraph</h5>
-                                    <p style={{textAlign:"center"}}>Get Insights of Economy through Geographs</p>
+                                    <h4 style={{ color: 'black' }}>Insights through GeoGraph</h4>
+                                    <h5 style={{ color: 'black' }}><p style={{textAlign:"center"}}>Get Insights of Economy through Geographs</p></h5>
                                     </div>
                                 </div>
                                 </div>
