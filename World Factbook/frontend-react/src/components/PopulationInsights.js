@@ -11,7 +11,8 @@ class PopulationInsights extends Component {
         super(props);
 
         this.state = {
-            country : "norway" ,
+            growthArray : this.props.location.state.growthArray,
+            country: (this.props.location.state.country === '') ? '' : this.props.location.state.country,
             populationArray : [],
             allCountryPopulationArray : [],
             birthArray : [],
@@ -139,6 +140,14 @@ class PopulationInsights extends Component {
                 graphData.push(row) ;
             }) ;
         }
+
+        let growthArray = this.state.growthArray ;
+        let growthRate = 0 ;
+        growthArray.forEach(function (row) {
+            console.log(row);
+            if(row.yearRange === "2015")
+                growthRate = row.value ;
+        });
 
         // console.log(populationMap) ;
 
@@ -344,7 +353,7 @@ class PopulationInsights extends Component {
                                     Population : {countryPopulation*1000}
                                 </div>
                                 <div className="col-5 populationBox">
-                                    Population Growth Rate : 1.3 %
+                                    Population Growth Rate : {growthRate} %
                                 </div>
                             </div>
                         </div>

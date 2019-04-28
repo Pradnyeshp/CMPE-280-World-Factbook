@@ -15,7 +15,8 @@ class PopulationGraph extends Component {
             populationGrowthArray : [],
             birthArray : [],
             deathArray : [],
-            migrationArray : []
+            migrationArray : [],
+            growthRate : 0
         }
     }
 
@@ -41,6 +42,7 @@ class PopulationGraph extends Component {
                     //console.log("Response from server : ", response.data) ;
                     this.setState({
                         populationGrowthArray : response.data.data
+                    },()=>{
                     })
                 }
             );
@@ -205,7 +207,15 @@ class PopulationGraph extends Component {
                 <div className="populationGraph">
 
                     <div className="graphTitle">
-                        <Link to={`/PopulationInsights`}>
+                        <Link
+                            to = {{
+                                pathname: `/PopulationInsights`,
+                                state: {
+                                    growthArray: this.state.populationGrowthArray,
+                                    country: this.state.country
+                                }
+                            }}
+                        >
                             Population Insights
                         </Link>
                     </div>
