@@ -18,7 +18,7 @@ class AgeStructureGraph extends Component {
         if(nextProps.country.toLowerCase() !== this.state.country.toLowerCase()) {
             this.setState({
                 country: nextProps.country.toLowerCase()
-            })
+            });
 
            this.loadAgeStructureGraph(nextProps.country);
         }

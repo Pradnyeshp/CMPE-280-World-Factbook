@@ -24,6 +24,24 @@ class PopulationInsights extends Component {
 
     }
 
+    abbreviateNumber(value) {
+        var newValue = value;
+        if (value >= 1000) {
+            var suffixes = ["", "Thousand", "Million", "Billion","Trillion"];
+            var suffixNum = Math.floor( (""+value).length/3 );
+            var shortValue = '';
+            for (var precision = 2; precision >= 1; precision--) {
+                shortValue = parseFloat( (suffixNum !== 0 ? (value / Math.pow(1000,suffixNum) ) : value).toPrecision(precision));
+                var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g,'');
+                if (dotLessShortValue.length <= 2) { break; }
+            }
+            if (shortValue % 1 !== 0)
+                shortValue = shortValue.toFixed(1);
+            newValue = shortValue + " " + suffixes[suffixNum];
+        }
+        return newValue;
+    }
+
     componentWillMount() {
 
         let countryPopulationURL = url+'/population/countries' ;
@@ -144,7 +162,7 @@ class PopulationInsights extends Component {
         let growthArray = this.state.growthArray ;
         let growthRate = 0 ;
         growthArray.forEach(function (row) {
-            console.log(row);
+            // console.log(row);
             if(row.yearRange === "2015")
                 growthRate = row.value ;
         });
@@ -350,10 +368,10 @@ class PopulationInsights extends Component {
                             <br/>
                             <div className="row">
                                 <div className="col-4 populationBox">
-                                    Population : {countryPopulation*1000}
+                                    Population : {this.abbreviateNumber(countryPopulation*1000)}
                                 </div>
                                 <div className="col-5 populationBox">
-                                    Population Growth Rate : {growthRate} %
+                                    Population Growth Rate : {growthRate.toFixed(2)} %
                                 </div>
                             </div>
                         </div>
@@ -442,7 +460,7 @@ class PopulationInsights extends Component {
                                     Annotation information includes name of the country and it's population count as per the most recent information.
                                     Geo graph is also color coded as per the population of country.
                                     Countries with lower population count are shown in light blue shade, whereas countries with higher pouplations are shown in red shade.
-                                    Below the geograph, population count of current country is also shown.
+                                    Below the geograph, population count and most recent population growth rate of country is shown.
                                 </li>
                                 <li>
                                     Second graph displays Factors affecting the population growth. It considers following measures:
@@ -457,7 +475,7 @@ class PopulationInsights extends Component {
                                             Migrants Count
                                         </li>
                                     </ol>
-                                    Graph displays information over the years ( from 1995 - 2020 ) with an interval of 5 years between them.
+                                    Graph displays information over the years (from 1995-2020) with an interval of 5 years between them.
                                     It shows, the birth count, death count and migrants count using bar chart.
                                 </li>
                                 <li>
@@ -466,6 +484,7 @@ class PopulationInsights extends Component {
                                 </li>
                             </ul>
                         </div>
+                        <br/>
                         <div className="col-5">
                         </div>
                         {/*Small Information boxes : */}
