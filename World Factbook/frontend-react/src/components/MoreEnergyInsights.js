@@ -93,7 +93,7 @@ class MoreEnergyInsights extends Component {
 
                 <div className="breadcrumbs" >
                     <nav aria-label="breadcrumb" >
-                        <ol className="breadcrumb" >
+                        <ol className="breadcrumb" style={{paddingLeft : '3%', marginBottom : '0'}} >
                             {/* <li>You are here: </li> */}
                             <Link to = {{pathname: '/'}}>
                             <li className="breadcrumb-item">Home</li></Link>

@@ -10,7 +10,9 @@ module.exports.getCountryPopulationDetails = async (req, res, next) => {
     console.log('countryName : ', countryName) ;
 
     const countryDetails = await UNDataCountryModel.findOne({countryName: countryName});
+
     if(countryDetails != null) {
+
         let countryPopulationDeatils = countryDetails.population_prospect ;
         // console.log(countryPopulationDeatils) ;
 
@@ -119,13 +121,18 @@ module.exports.getCountryPopulationCount = async (req, res, next) => {
 
     const countryDetails = await UNDataCountryModel.findOne({countryName: countryName});
 
-    let countryPopulationCount = countryDetails.population_count ;
-    console.log(countryPopulationCount) ;
+    if(countryDetails !== null) {
 
-    if(countryPopulationCount !== null)
-        res.json({message : "success", data : countryPopulationCount}) ;
-    else
-        res.json({message: "error", data: "Could not find the country population count"});
+        let countryPopulationCount = countryDetails.population_count ;
+
+        // console.log(countryPopulationCount) ;
+
+        if(countryPopulationCount !== null)
+            res.json({message : "success", data : countryPopulationCount}) ;
+        else
+            res.json({message: "error", data: "Could not find the country population count"});
+    }
+
 
 };
 
@@ -136,13 +143,16 @@ module.exports.getCountryBirthCount = async (req,res,next) => {
 
     const countryDetails = await UNDataCountryModel.findOne({countryName: countryName});
 
-    let countryBirthCount = countryDetails.population_birth_count ;
-    // console.log(countryBirthCount) ;
+    if(countryDetails !== null){
 
-    if(countryBirthCount !== null)
-        res.json({message : "success", data : countryBirthCount}) ;
-    else
-        res.json({message: "error", data: "Could not find the country population count"});
+        let countryBirthCount = countryDetails.population_birth_count ;
+
+        if(countryBirthCount !== null)
+            res.json({message : "success", data : countryBirthCount}) ;
+        else
+            res.json({message: "error", data: "Could not find the country population count"});
+    }
+    // console.log(countryBirthCount) ;
 
 };
 
@@ -153,13 +163,17 @@ module.exports.getCountryDeathCount = async (req,res,next) => {
 
     const countryDetails = await UNDataCountryModel.findOne({countryName: countryName});
 
-    let countryDeathCount = countryDetails.population_death_count ;
-    // console.log(countryDeathCount) ;
+    if(countryDetails !== null){
 
-    if(countryDeathCount !== null)
-        res.json({message : "success", data : countryDeathCount}) ;
-    else
-        res.json({message: "error", data: "Could not find the country population count"});
+        let countryDeathCount = countryDetails.population_death_count ;
+        // console.log(countryDeathCount) ;
+
+        if(countryDeathCount !== null)
+            res.json({message : "success", data : countryDeathCount}) ;
+        else
+            res.json({message: "error", data: "Could not find the country population count"});
+    }
+
 
 };
 
@@ -170,12 +184,16 @@ module.exports.getCountryMigrantCount = async (req,res,next) => {
 
     const countryDetails = await UNDataCountryModel.findOne({countryName: countryName});
 
-    let countryMigrantCount = countryDetails.population_migrant_count ;
-    // console.log(countryMigrantCount) ;
+    if(countryDetails !== null){
 
-    if(countryMigrantCount !== null)
-        res.json({message : "success", data : countryMigrantCount}) ;
-    else
-        res.json({message: "error", data: "Could not find the country population count"});
+        let countryMigrantCount = countryDetails.population_migrant_count ;
+        // console.log(countryMigrantCount) ;
+
+        if(countryMigrantCount !== null)
+            res.json({message : "success", data : countryMigrantCount}) ;
+        else
+            res.json({message: "error", data: "Could not find the country population count"});
+
+    }
 
 };

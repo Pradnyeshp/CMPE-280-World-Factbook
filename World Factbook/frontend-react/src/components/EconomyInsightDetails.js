@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.css';
-import axios from 'axios';
 import '../css/economyInsightDetails.css';
-import swal from 'sweetalert';
-import AgeStructureGraph from './AgeStructureGraph';
-import url from '../url.js';
-import EconomyInsightsDetailsGraph from './EconomyInsightsDetailsGraph';
 import ranking1 from "../Images/ranking1.jpg";
 import growthchart from "../Images/growthchart.png";
-import gdp_vs_gnp from "../Images/gdp-vs-gnp.jpg";
 import geograph from "../Images/geograph.png";
 import MilitaryEd from "../Images/MilitaryEd.jpg";
 import {Link} from "react-router-dom";
@@ -119,14 +113,20 @@ class EconomyInsightsDetails1 extends Component {
                 <Navbar/>
                 <div className="breadcrumbs" >
                     <nav aria-label="breadcrumb" >
-                        <ol class="breadcrumb" >
-                            <li>You are here: </li>
+                        <ol className="breadcrumb" style={{paddingLeft : '3%', marginBottom : '0'}}>
                             <Link to = {{pathname: '/'}}>
-                            <li class="breadcrumb-item">HomePage</li></Link>
+                                <li className="breadcrumb-item">Home</li>
+                            </Link>
+                            &nbsp;
                             <li>>></li>
-                            <Link to = {{pathname: '/dashboard/'+this.state.country}}><li class="breadcrumb-item">Dashboard</li></Link>
+                            &nbsp;
+                            <Link to = {{pathname: '/dashboard/'+this.state.country}}>
+                                <li class="breadcrumb-item">Dashboard</li>
+                            </Link>
+                            &nbsp;
                             <li>>></li>
-                            <li class="breadcrumb-item active" aria-current="page">Economy Insights</li>
+                            &nbsp;
+                            <li className="breadcrumb-item active" aria-current="page">Economy Insights</li>
                         </ol>
                     </nav>
                 </div>

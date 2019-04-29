@@ -271,10 +271,6 @@ class PopulationInsights extends Component {
                temp.push(z);
             });
 
-            // temp.push(values[0]);
-            // temp.push(values[1]);
-            // temp.push(values[2]);
-
             rateGraphArray.push(temp);
         });
 
@@ -320,14 +316,22 @@ class PopulationInsights extends Component {
                 <Navbar/>
                 <div className="breadcrumbs" >
                     <nav aria-label="breadcrumb" >
-                        <ol class="breadcrumb" >
-                            <li>You are here: </li>
+                        <ol className="breadcrumb" style={{paddingLeft : '2%', marginBottom : '0'}}>
                             <Link to = {{pathname: '/'}}>
-                            <li class="breadcrumb-item">HomePage</li></Link>
+                                <li className="breadcrumb-item">
+                                    HomePage
+                                </li>
+                            </Link>
+                            &nbsp;
                             <li>>></li>
-                            <Link to = {{pathname: '/dashboard/'+this.state.country}}><li class="breadcrumb-item">Dashboard</li></Link>
+                            &nbsp;
+                            <Link to = {{pathname: '/dashboard/'+this.state.country}}>
+                                <li className="breadcrumb-item">Dashboard</li>
+                            </Link>
+                            &nbsp;
                             <li>>></li>
-                            <li class="breadcrumb-item active" aria-current="page">Population Insights</li>
+                            &nbsp;
+                            <li className="breadcrumb-item active" aria-current="page">Population Insights</li>
                         </ol>
                     </nav>
                 </div>
@@ -433,7 +437,7 @@ class PopulationInsights extends Component {
                                     Population of top populous countries
                                 </div>
                                 <div className="pigraphSubtitle">
-                                    Based on most recent and previous census data
+                                    Based on most recent census data (population in thousands)
                                 </div>
                                 <div className="geoGraphStyle">
                                     <Chart

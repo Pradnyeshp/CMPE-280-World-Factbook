@@ -20,10 +20,17 @@ class GeoGraphForGDP extends Component{
         let gdpFetchURL = url + '/economy/getGDPofAllCountries' ;
         axios.get(gdpFetchURL)
             .then(response => {
-                console.log(response.data.data);
-                this.setState({
-                    graphData : response.data.data
-                })
+                // console.log(response.data);
+                if(response.data.message === "success"){
+                    this.setState({
+                        graphData : response.data.data
+                    })
+                }
+                else{
+                    this.setState({
+                        graphData : []
+                    })
+                }
             })
 
     }
