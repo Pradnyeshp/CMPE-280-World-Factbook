@@ -117,8 +117,8 @@ class EconomyInsightsDetails2 extends Component {
                 <Navbar/>
                 <div className="breadcrumbs" >
                     <nav aria-label="breadcrumb" >
-                        <ol class="breadcrumb" >
-                            <li>You are here: </li>
+                        <ol class="breadcrumb" style={{paddingLeft : '3%', marginBottom : '0'}}>
+                            {/* <li>You are here: </li> */}
                             <Link to = {{pathname: '/'}}>
                             <li class="breadcrumb-item">HomePage</li></Link>
                             <li>>></li>
