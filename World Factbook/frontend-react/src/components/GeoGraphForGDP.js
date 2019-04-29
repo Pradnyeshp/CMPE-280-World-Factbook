@@ -46,7 +46,7 @@ class GeoGraphForGDP extends Component{
                     GDP comparison of countries (2017 est.)
                 </div>
                 <div className='row' style={{marginLeft : '0'}}>
-                    <div className="col-7 geographGDP">
+                    <div className="col-11 geographGDP">
                         <Chart
                             loader={<div>Loading Chart</div>}
                             width = '850px'

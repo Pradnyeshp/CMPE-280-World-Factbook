@@ -164,6 +164,7 @@ class MoreEnergyInsights extends Component {
                                     More Details
                                 </Link>
                             </li>
+                            <br/>
                         </ul>
 
                         

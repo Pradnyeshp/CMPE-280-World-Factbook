@@ -499,9 +499,17 @@ class PopulationInsights extends Component {
                                     Third graph displays information about five most populous countries in the world using horizontal bar chart.
                                     It also displays population of the current country, so as to gain insight about current countries stand against world's top 5.
                                 </li>
+                                <br/>
+                                <li className="moreDetailsPopulationInsights">
+                                    <div >
+                                        <Link to={`/getcountry/${this.state.country}`}>
+                                            More Details
+                                        </Link>
+                                    </div>
+                                </li>
                             </ul>
-                            <br/>
                         </div>
+
                         <br/>
                         <div className="col-5">
                         </div>

@@ -83,3 +83,7 @@
 .ulBulletPoints li{
     padding: 3px;
 }
+
+.moreDetailsPopulationInsights{
+    list-style-type: none;
+}
