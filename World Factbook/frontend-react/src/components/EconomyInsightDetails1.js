@@ -12,6 +12,8 @@ import growthchart from "../Images/growthchart.png";
 import geograph from "../Images/geograph.png";
 import {Link} from "react-router-dom";
 import CountryHeader from './CountryHeader.js';
+import GeoGraphForGDP from "../components/GeoGraphForGDP.js"
+import economy from "../Images/economy.jpg"
 
 
 // class EconomyInsightsDetails extends Component {
@@ -178,15 +180,25 @@ class EconomyInsightsDetails extends Component {
                         </div>
                     </div>
                     <div className="details1">
-                        <h6>
-                        <p><h3> Things to look out for:</h3> </p>
-                        <p>So, in the previous "Economic Insights" graph the GDP growth rate vs Unemployment graph clearly indicates that as and when the Unemployment decreases, the growth rate increases for that particular year which clearly indicates that there is an indirect relation between both these factors.
-                        This relationship is usually referred to as Okun's law. According to Okun's law, a 1 percent decrease in GDP has been associated with a slightly less than 2-percentage-point increase in the unemployment rate.</p>
-                        </h6>
-                        <p><h6>Lets see some other statistics that contribute to the economy of a country ---->> </h6></p>
-                        <p className="EconomyInsightsDetails">
-                            
-                        </p>
+                        <div className="row container-fluid">
+                            <div className="col-11 extraInfoText">
+                                <ul className="ulBulletPoints">
+                                <h3> Things to look out for:</h3>
+                                    
+                                    <p>So, in the previous "Economic Insights" graph the GDP growth rate vs Unemployment graph clearly indicates that as and when the Unemployment decreases, the growth rate increases for that particular year which clearly indicates that there is an indirect relation between both these factors.</p>
+                                    <p>This relationship is usually referred to as Okun's law. According to Okun's law, a 1 percent decrease in GDP has been associated with a slightly less than 2-percentage-point increase in the unemployment rate.</p>
+                                    <p>Lets see some other statistics that contribute to the economy of a country ---->> </p>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row container-fluid">
+                        <div className="col-11 extraInfoText">
+                            <ul className="ulBulletPoints">
+                            <h3>1. Graphs</h3>
+                            </ul>
+                        </div>
                     </div>
                     <div id="graphAgeStructure">
                         <h3>
@@ -194,6 +206,31 @@ class EconomyInsightsDetails extends Component {
                         </h3>
                         <EconomyInsightsDetailsGraph country = {this.state.country} />
                     </div>
+                    <div className="row container-fluid">
+                        <div className="col-11 extraInfoText">
+                            <ul className="ulBulletPoints">
+                                <h3>2. Table</h3>
+                                <li>
+                                    The table below shows you ranking of countries in the ascending order according to their GDP values.
+                                    This can help you better understand the GDP trends in different countries and also where the selected country stands in comparison to other countries.
+                                    This can also help you analyze the development of a country in relation to other countries.
+                                </li>
+                                <li>
+                                    The table is prepared considering the following measures:
+                                    <ol className="olList">
+                                        <li>
+                                            GDP value of a country
+                                        </li>
+                                        <li>
+                                            Year of that GDP value
+                                        </li>
+                                    </ol>
+                                    Table displays information over the years (from 1995-2018) with an interval of 1 year between them.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    {/* </div> */}
                     <div id="population1">
                         <h3>
                             Country Standing:
@@ -211,31 +248,31 @@ class EconomyInsightsDetails extends Component {
                                 <tr class="bg-info">
                                 <th scope="row">1</th>
                                 <td>USA</td>
-                                <td>9000</td>
+                                <td>9000k</td>
                                 <td>2018</td>
                                 </tr>
                                 <tr class="bg-info">
                                 <th scope="row">2</th>
                                 <td>China</td>
-                                <td>8700</td>
+                                <td>8700k</td>
                                 <td>2018</td>
                                 </tr>
                                 <tr class="bg-info">
                                 <th scope="row">3</th>
                                 <td>Australia</td>
-                                <td>8500</td>
+                                <td>8500k</td>
                                 <td>2018</td>
                                 </tr>
                                 <tr class="bg-info">
                                 <th scope="row">4</th>
                                 <td>Russia</td>
-                                <td>8400</td>
+                                <td>8400k</td>
                                 <td>2018</td>
                                 </tr>
                                 <tr class="bg-info">
                                 <th scope="row">5</th>
                                 <td>Austria</td>
-                                <td>8000</td>
+                                <td>8000k</td>
                                 <td>2018</td>
                                 </tr>
                                 <tr class="table-light">
@@ -259,21 +296,34 @@ class EconomyInsightsDetails extends Component {
                                 <tr class="bg-info">
                                 <th class="bg-success" scope="row">10</th>
                                 <td class="bg-success">India</td>
-                                <td class="bg-success">6900</td>
+                                <td class="bg-success">6900k</td>
                                 <td class="bg-success">2018</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    
-                    {/* <div id="climate1">
+                    <div className="row container-fluid">
+                        <div className="col-11 extraInfoText">
+                            <ul className="ulBulletPoints">
+                                <h3>3. GeoGraph</h3>
+                                <li>
+                                    The graph below is Geo graph of the world, which displays the GDP density of each country.
+                                    Annotation will be displayed when user moves mouse over a particular country in the map.
+                                    Annotation information includes name of the country and it's GDP count as per the most recent information.
+                                    Geo graph is also color coded as per the GDP value of country.
+                                    Countries with lower GDP count are shown in light blue shade, whereas countries with higher GDP are shown in red shade.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="population1">
                         <h3>
-                            Climate:
+                            GeoGraph:
                         </h3>
                         <p className="EconomyInsightsDetails">
-                            {this.state.climate}
+                        <GeoGraphForGDP country = {this.state.country} /> 
                         </p>
-                    </div> */}
+                    </div>
                     <br/>
                     <br/>                    
                 </div>
