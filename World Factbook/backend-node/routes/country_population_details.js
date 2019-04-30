@@ -4,6 +4,34 @@ const UNDataCountryModel = require('../dbs/model/UNDataCountryModel');
 const areaModel = require('../dbs/model/areaModel') ;
 
 
+module.exports.getCountryMapping = async (req, res) => {
+
+    let countryName = req.params.country.toUpperCase() ;
+
+    let allCountriesMap = new Map();
+
+    fs.createReadStream(`./dataset/countries.csv`)
+        .pipe(csv())
+        .on('data', async (row) => {
+            let country = row.country.split(",")[0].toString().toUpperCase();
+            let abbrev = row.country.split(",")[1].toString().toUpperCase();
+            allCountriesMap.set(country, abbrev) ;
+        })
+        .on('end', ()=>{
+
+            console.log(allCountriesMap);
+
+            let abbv = allCountriesMap.get(countryName);
+
+            console.log("Response in all countries population : ",abbv) ;
+
+            res.json({message : "success", data : abbv}) ;
+
+            }
+        );
+
+};
+
 module.exports.getCountryPopulationDetails = async (req, res, next) => {
 
     const countryName = req.params.country.toLowerCase();

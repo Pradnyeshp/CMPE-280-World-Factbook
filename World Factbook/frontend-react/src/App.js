@@ -15,6 +15,7 @@ import Profile from "./components/Profile";
 import PopulationInsights from "./components/PopulationInsights";
 import MoreEnergyInsights from './components/MoreEnergyInsights';
 import GeoGraphForGDP from "./components/GeoGraphForGDP";
+import CountryMap from "./components/CountryMap";
 
 class App extends Component {
   render() {
@@ -34,7 +35,7 @@ class App extends Component {
             <Route exact path = '/PopulationInsights' component = {PopulationInsights} />
             <Route exact path = '/dashboard/country-specific/more-energy-insights' component = {MoreEnergyInsights}/>
             <Route exact path = '/testinggeograph' component = {GeoGraphForGDP} />
-
+            <Route exact path = '/countrymap/:country' component = {CountryMap}/>
         </Switch>
     );
   }

@@ -10,6 +10,7 @@ import UnemploymentRateGraph from './UnemploymentRateGraph.js';
 import GenericSectorPercentageGraph from './GenericSectorPercentageGraph.js';
 import CountryHeader from './CountryHeader.js';
 import {Link} from 'react-router-dom';
+import CountryMap from "./CountryMap";
 
 
 class CountryDetails extends Component {
@@ -380,7 +381,8 @@ class CountryDetails extends Component {
         }
  
         return (
-            <div className="CountryDetails"> 
+            <div className="CountryDetails">
+
                 <Navbar/>
 
                 <div className="breadcrumbs" >
@@ -414,6 +416,11 @@ class CountryDetails extends Component {
                 <div className="container">
                     
                     <CountryHeader country={this.state.country}/>
+
+                    <div style={{marginLeft: "-15px" }}>
+                        <CountryMap country = {this.state.country}/>
+                    </div>
+
                     <div className='row'>
                     
                         {introduction}
@@ -458,7 +465,7 @@ class CountryDetails extends Component {
 
                     </div>
 
-                    {age_structure} 
+                    {age_structure}
 
                     <InfantMortalityRateGraph details={this.state.infant_mortality_rate} />
                 
@@ -481,9 +488,12 @@ class CountryDetails extends Component {
                         id = "gdp_by_sector_data" 
                         heading = "GDP Composition by Sector"
                     />
-                        
+
+
                 </div>
-                
+
+
+
             </div>
         )
     }

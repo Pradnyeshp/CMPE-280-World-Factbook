@@ -34,6 +34,8 @@ router.get('/population/countries', countrypopulationdetails.getAllCountryPopula
 
 router.get('/population/:country', countrypopulationdetails.getCountryPopulationDetails);
 
+router.get('/countrymap/:country', countrypopulationdetails.getCountryMapping);
+
 router.get('/energy-data/:country/', energyData.prepareEnergyGraph);
 
 router.get('/age-structure-data/:country/', oldCountriesData.prepareAgeStructureGraph);
