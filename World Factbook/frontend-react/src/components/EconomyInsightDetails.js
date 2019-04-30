@@ -123,7 +123,7 @@ class EconomyInsightsDetails1 extends Component {
                             <li>>></li>
                             &nbsp;
                             <Link to = {{pathname: '/dashboard/'+this.state.country}}>
-                                <li class="breadcrumb-item">Dashboard</li>
+                                <li className="breadcrumb-item">Dashboard</li>
                             </Link>
                             &nbsp;
                             <li>>></li>
@@ -132,50 +132,50 @@ class EconomyInsightsDetails1 extends Component {
                         </ol>
                     </nav>
                 </div>
-                <div className='row'>
+                <div className='row' style={{marginLeft: "145px"}}>
                     <div id='MoreEnergyInsightsCountryHeader'>
                         <CountryHeader country={this.state.country}/>
                     </div>
                 </div>
                 <div className="container">
                     <div id="carousel1">
-                        <div class="bd-example">
+                        <div className="bd-example">
                             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
+                                <ol className="carousel-indicators">
                                 <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                                 <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                                 </ol>
-                                <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src={ranking1} class="d-block w-100" alt="..." height={ 450 } width={ 600}/>
-                                    <div class="carousel-caption d-none d-md-block" >
+                                <div className="carousel-inner">
+                                <div className="carousel-item active">
+                                    <img src={ranking1} className="d-block w-100" alt="..." height={ 450 } width={ 600}/>
+                                    <div className="carousel-caption d-none d-md-block" >
                                     <h4 style={{ color: 'black' }}>Country Standings</h4>
                                     <h5 style={{ color: 'black' }}><p style={{textAlign:"center"}}>Featuring a table of all the top countries in Economy Sector</p></h5>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <img src={growthchart} class="d-block w-100" alt="..." height={ 450 } width={ 600}/>
-                                    <div class="carousel-caption d-none d-md-block">
+                                <div className="carousel-item">
+                                    <img src={growthchart} className="d-block w-100" alt="..." height={ 450 } width={ 600}/>
+                                    <div className="carousel-caption d-none d-md-block">
                                     <h4 style={{ color: 'black' }}>All in one Economy Chart</h4>
                                     <h5 style={{ color: 'black' }}><p style={{textAlign:"center"}}>Featuring a comparison between growth/fall of different categories in Economy</p></h5>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <img src={geograph} class="d-block w-100" alt="..." height={ 450 } width={ 600}/>
-                                    <div class="carousel-caption d-none d-md-block">
+                                <div className="carousel-item">
+                                    <img src={geograph} className="d-block w-100" alt="..." height={ 450 } width={ 600}/>
+                                    <div className="carousel-caption d-none d-md-block">
                                     <h4 style={{ color: 'black' }}>Insights through GeoGraph</h4>
                                     <h5 style={{ color: 'black' }}><p style={{textAlign:"center"}}>Get Insights of Economy through Geographs</p></h5>
                                     </div>
                                 </div>
                                 </div>
-                                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
+                                <a className="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                                <span className="carousel-control-prev-icon" aria-hidden="true"/>
+                                <span className="sr-only">Previous</span>
                                 </a>
-                                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
+                                <a className="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                                <span className="carousel-control-next-icon" aria-hidden="true"/>
+                                <span className="sr-only">Next</span>
                                 </a>
                             </div>
                         </div>
