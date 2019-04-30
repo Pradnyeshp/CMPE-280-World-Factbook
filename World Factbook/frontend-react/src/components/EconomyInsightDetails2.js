@@ -130,12 +130,12 @@ class EconomyInsightsDetails2 extends Component {
                         </ol>
                     </nav>
                 </div>
-                <div className='row'>
-                    <div id='MoreEnergyInsightsCountryHeader'>
+                <div className="container">
+                <div className='row1'>
+                    <div id='MoreEnergyInsightsCountryHeader1'>
                         <CountryHeader country={this.state.country}/>
                     </div>
                 </div>
-                <div className="container">
                     <div id="carousel1">
                         <div class="bd-example">
                             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">

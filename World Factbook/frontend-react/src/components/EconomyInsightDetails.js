@@ -132,12 +132,13 @@ class EconomyInsightsDetails1 extends Component {
                         </ol>
                     </nav>
                 </div>
-                <div className='row' style={{marginLeft: "145px"}}>
-                    <div id='MoreEnergyInsightsCountryHeader'>
+                
+                <div className="container">
+                <div className='row1'>
+                    <div id='MoreEnergyInsightsCountryHeader1'>
                         <CountryHeader country={this.state.country}/>
                     </div>
                 </div>
-                <div className="container">
                     <div id="carousel1">
                         <div className="bd-example">
                             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -206,7 +207,7 @@ class EconomyInsightsDetails1 extends Component {
                             <img class="card-img-top" src={gdpgnp} alt="Card image cap"/>
                             <div class="card-body">
                                 <h5 class="card-title">GDP-GNI Graph</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text">Get some quick comparison on Gross Domestic Product and Gross National Income.</p>
                                 <Link to = {{pathname: '/economyinsightdetails2/'+this.state.country}}><a href="#" class="btn btn-primary">Go </a></Link>
                             </div>
                         </div>
@@ -214,7 +215,7 @@ class EconomyInsightsDetails1 extends Component {
                             <img class="card-img-top" src={MilitaryEd} alt="Card image cap"/>
                             <div class="card-body">
                                 <h5 class="card-title">Military-Education Graph</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text">Get some quick updates through charts on Military Expenditure and Education Expenditure .</p>
                                 <Link to = {{pathname: '/economyinsightdetails1/'+this.state.country}}><a href="#" class="btn btn-primary">Go </a></Link>
                             </div>
                         </div>
@@ -222,7 +223,7 @@ class EconomyInsightsDetails1 extends Component {
                             <img class="card-img-top" src={economy} alt="Card image cap"/>
                             <div class="card-body">
                                 <h5 class="card-title">More Economy Graphs</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text">You can find more information about other categories in Economy here in this section.</p>
                                 <a href="#" class="btn btn-primary">Go </a>
                             </div>
                         </div>
