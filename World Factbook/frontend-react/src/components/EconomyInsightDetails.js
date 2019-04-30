@@ -347,8 +347,12 @@ class EconomyInsightsDetails1 extends Component {
                         <GeoGraphForGDP country = {this.state.country} /> 
                         </p>
                     </div>
-                    <br/>
-                    <br/>                    
+                    <div >
+                        <Link to={`/getcountry/${this.state.country}`}>
+                            More Details
+                        </Link>
+                    </div>   
+                    <br/>               
                 </div>
                 {/* <div className="footer"> <p>This footer will always be positioned at the bottom of the page, but </p></div> */}
             </div>
