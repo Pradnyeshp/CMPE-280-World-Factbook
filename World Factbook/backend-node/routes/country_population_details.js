@@ -57,18 +57,36 @@ module.exports.getAllCountryPopulationDetails = async (req, res, next) => {
     // const countryName = req.params.country.toLowerCase();
     // console.log('countryName : ', countryName) ;
 
+    function abbreviateNumber(value) {
+        var newValue = value;
+        if (value >= 1000) {
+            var suffixes = ["", "Thousand", "Million", "Billion","Trillion"];
+            var suffixNum = Math.floor( (""+value).length/3 );
+            var shortValue = '';
+            for (var precision = 2; precision >= 1; precision--) {
+                shortValue = parseFloat( (suffixNum !== 0 ? (value / Math.pow(1000,suffixNum) ) : value).toPrecision(precision));
+                var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g,'');
+                if (dotLessShortValue.length <= 2) { break; }
+            }
+            if (shortValue % 1 !== 0)
+                shortValue = shortValue.toFixed(1);
+            newValue = shortValue + " " + suffixes[suffixNum];
+        }
+        return newValue;
+    }
+
     try {
         const countryDetails = await UNDataCountryModel.find() ;
-        const countryAreas = await areaModel.find() ;
+        // const countryAreas = await areaModel.find() ;
         // console.log(countryAreas);
-
-        let map = new Map() ;
-
-        countryAreas.forEach(function (row) {
-           map.set(row.countryName.toLowerCase(), row.area)
-        });
-
-        console.log(map);
+        //
+        // let map = new Map() ;
+        //
+        // // countryAreas.forEach(function (row) {
+        // //    map.set(row.countryName.toLowerCase(), row.area)
+        // // });
+        //
+        // console.log(map);
 
         let response = [] ;
 
@@ -96,37 +114,38 @@ module.exports.getAllCountryPopulationDetails = async (req, res, next) => {
 
                 countryDetails.forEach(function (row) {
                     let countryName = row.countryName.toUpperCase() ;
-                    console.log("Inside countryDetails : ", countryName);
+                    // console.log("Inside countryDetails : ", countryName);
                     // console.log();
 
-                    if(countryName.toLowerCase() !== 'world'){
-                        if(row.population_count !== null){
-                            let populationArray = row.population_count ;
-                            populationArray.sort((a,b) => (a.year - b.year)) ;
+                    if(row.population_count !== null){
+                        let populationArray = row.population_count ;
+                        // populationArray.sort((a,b) => (a.year - b.year)) ;
 
-                            populationArray.forEach(function (row) {
-                                let temp2 = [] ;
+                        populationArray.forEach(function (row) {
 
-                                if(parseInt(row.year) === 2018 && allCountriesMap.has(countryName)){
-                                    temp2.push(countryName) ;
-                                    temp2.push(row.value) ;
-                                    // if(map.has(countryName.toLowerCase()))
-                                    //     temp2.push(map.get(countryName.toLowerCase())) ;
-                                    response.push(temp2) ;
-                                }
-                            })
-                        }
+                            let temp2 = [] ;
+
+                            if(parseInt(row.year) === 2018 && allCountriesMap.has(countryName)){
+                                temp2.push(countryName) ;
+
+                                temp2.push(row.value) ;
+                                // if(map.has(countryName.toLowerCase()))
+                                //     temp2.push(map.get(countryName.toLowerCase())) ;
+                                response.push(temp2) ;
+                            }
+                        })
                     }
+
                 }) ;
 
-                console.log("Response in all countries population : ",response) ;
+                // console.log("Response in all countries population : ",response) ;
 
                 res.json({message : "success", data : response}) ;
 
                 }
             );
 
-        console.log("all Countries map : ", allCountriesMap);
+        // console.log("all Countries map : ", allCountriesMap);
 
         //
         // let allcountryPopulationDeatils = countryDetails.population_count ;

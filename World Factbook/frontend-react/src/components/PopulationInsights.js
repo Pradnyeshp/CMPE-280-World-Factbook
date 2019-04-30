@@ -143,14 +143,14 @@ class PopulationInsights extends Component {
         let header = ['Country', 'Population'] ;
         let graphData = [] ;
         graphData.push(header) ;
-        let populationMap = new Map() ;
+        // let populationMap = new Map() ;
         let currentCountry = this.state.country ;
 
         let allCountryPouplations = this.state.allCountryPopulationArray ;
 
         if(allCountryPouplations !== null){
             allCountryPouplations.forEach(function (row) {
-                populationMap.set(row[0], row[1]) ;
+                // populationMap.set(row[0], row[1]) ;
 
                 // console.log(row[0]);
                 // let currentCountry = row[0] ;
@@ -319,7 +319,7 @@ class PopulationInsights extends Component {
                         <ol className="breadcrumb" style={{paddingLeft : '2%', marginBottom : '0'}}>
                             <Link to = {{pathname: '/'}}>
                                 <li className="breadcrumb-item">
-                                    HomePage
+                                    Home
                                 </li>
                             </Link>
                             &nbsp;
