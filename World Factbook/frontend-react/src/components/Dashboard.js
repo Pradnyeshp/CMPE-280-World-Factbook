@@ -91,7 +91,7 @@ class Dashboard extends Component {
                             <EconomyGraph country = {this.state.country}/>
                         </div>
                         <div className= 'col-md-3 ageGraph'>
-                            <br/>
+                            {/* <br/> */}
                             <p className="graphTitle">Age Insights</p>
                             <p className="graphSubtitle">Population by age groups</p>
                             {/*Write graph component here, and pass countryName as props*/}
@@ -99,7 +99,7 @@ class Dashboard extends Component {
                         </div>
 
                         <div className= 'col-md-3 literacyGraph'>
-                            <br/>
+                            {/* <br/> */}
                             <p className="graphTitle">Literacy Insights</p>
                             <p className="graphSubtitle">Literacy by gender</p>
                             {/*Write graph component here, and pass countryName as props*/}
@@ -112,6 +112,13 @@ class Dashboard extends Component {
                             More Details
                         </Link>
                     </div>
+                </div>
+                <br/>
+                <br/>
+                <div>
+                <footer class="page-footer font-small special-color-dark pt-4">
+                    <div class="footer-copyright text-center py-3" style={{backgroundColor: "rgb(52, 58, 63)"}}><h6 style={{ color: 'white' }}>© 2018 Copyright: The World Factbook by Team Ninja</h6></div>  
+                </footer>
                 </div>
             </div>
         )

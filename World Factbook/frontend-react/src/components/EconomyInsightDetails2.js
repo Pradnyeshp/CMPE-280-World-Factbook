@@ -323,10 +323,16 @@ class EconomyInsightsDetails2 extends Component {
                         <GeoGraphForGDP country = {this.state.country} /> 
                         </p>
                     </div>
-                    <br/>
+                    <div >
+                        <Link to={`/getcountry/${this.state.country}`}>
+                            More Details
+                        </Link>
+                    </div> 
                     <br/>                    
                 </div>
-                {/* <div className="footer"> <p>This footer will always be positioned at the bottom of the page, but </p></div> */}
+                <footer class="page-footer font-small special-color-dark pt-4">
+                    <div class="footer-copyright text-center py-3" style={{backgroundColor: "rgb(52, 58, 63)"}}><h6 style={{ color: 'white' }}>© 2018 Copyright: The World Factbook by Team Ninja</h6></div>  
+                </footer>
             </div>
             
             

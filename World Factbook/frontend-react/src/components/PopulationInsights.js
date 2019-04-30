@@ -510,12 +510,15 @@ class PopulationInsights extends Component {
                             </ul>
                         </div>
 
-                        <br/>
-                        <div className="col-5">
-                        </div>
+                        {/* <br/> */}
+                        {/* <div className="col-5">
+                        </div> */}
                         {/*Small Information boxes : */}
                     </div>
                 </div>
+                <footer class="page-footer font-small special-color-dark pt-4">
+                    <div class="footer-copyright text-center py-3" style={{backgroundColor: "rgb(52, 58, 63)"}}><h6 style={{ color: 'white' }}>© 2018 Copyright: The World Factbook by Team Ninja</h6></div>  
+                </footer>
             </div>
         )
     }

@@ -70,10 +70,10 @@ class Home extends Component {
         return(
             <div>
                 <Dashboard countryName={this.state.country}/>
+                {/* <br/>
                 <br/>
                 <br/>
-                <br/>
-                <br/>
+                <br/> */}
             </div>
         )
     }
