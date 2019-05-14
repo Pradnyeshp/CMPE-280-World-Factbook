@@ -56,7 +56,7 @@ class AgeStructureGraph extends Component {
                 options={{
                     chartArea: {
                         top: '20',
-                        left: '30'
+                        left: '0'
                     },
                     legend: {position: 'bottom'},
                     fontSize: 14

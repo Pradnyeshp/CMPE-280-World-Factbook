@@ -91,7 +91,7 @@ class Dashboard extends Component {
                             <EconomyGraph country = {this.state.country}/>
                         </div>
                         <div className= 'col-md-3 ageGraph'>
-                            {/* <br/> */}
+                            <br/>
                             <p className="graphTitle">Age Insights</p>
                             <p className="graphSubtitle">Population by age groups</p>
                             {/*Write graph component here, and pass countryName as props*/}
@@ -99,7 +99,7 @@ class Dashboard extends Component {
                         </div>
 
                         <div className= 'col-md-3 literacyGraph'>
-                            {/* <br/> */}
+                            <br/>
                             <p className="graphTitle">Literacy Insights</p>
                             <p className="graphSubtitle">Literacy by gender</p>
                             {/*Write graph component here, and pass countryName as props*/}

@@ -354,8 +354,8 @@ class PopulationInsights extends Component {
                                     // width={'1690px'}
                                     // height={'910px'}
                                     loader={<div>Loading Chart</div>}
-                                    width = {'800px'}
-                                    height = {'600px'}
+                                    width = {'700px'}
+                                    height = {'500px'}
                                     chartType="GeoChart"
                                     data={ graphData }
                                     options = {{
@@ -407,7 +407,7 @@ class PopulationInsights extends Component {
                                     // width={'1690px'}
                                     // height={'910px'}
                                     loader={<div>Loading Chart</div>}
-                                    width = {'640px'}
+                                    width = {'500px'}
                                     height = {'300px'}
                                     chartType="Bar"
                                     data={ rateGraphArray }
@@ -444,7 +444,7 @@ class PopulationInsights extends Component {
                                         // width={'1690px'}
                                         // height={'910px'}
                                         loader={<div>Loading Chart</div>}
-                                        width = {'640px'}
+                                        width = {'500px'}
                                         height = {'250px'}
                                         chartType="Bar"
                                         data={ this.state.topFiveArray }

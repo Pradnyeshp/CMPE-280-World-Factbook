@@ -75,7 +75,7 @@ class EconomyGraph extends Component {
                     loader={<div>Loading Chart</div>}
                     data={this.state.dataSource}
                     options={{
-                        width: 680,
+                        width: 650,
                         height: 290,
                         series: {
                             0: {targetAxisIndex: 0},

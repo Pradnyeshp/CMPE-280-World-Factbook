@@ -72,7 +72,7 @@ class EnergyGraph extends Component {
                     data= {this.state.dataSource}
                     options={
                         {
-                            width: 770,
+                            width: 700,
                             height: 290,
                             hAxis: {
                                 title: 'Year'

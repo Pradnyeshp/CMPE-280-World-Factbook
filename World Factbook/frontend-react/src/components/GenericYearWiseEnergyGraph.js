@@ -44,8 +44,8 @@ function GenericYearWiseEnergyGraph(props) {
                                             loader={<div>Loading Chart</div>}
                                             data={filteredYearConsumptionData}
                                             options={{
-                                                width: 600,
-                                                height: 400,
+                                                width: 500,
+                                                height: 300,
                                                 // title: `Consumption by sector for year ${year}`,
                                                 hAxis: {
                                                     title: 'killo-watt-hour/million units',
@@ -105,8 +105,8 @@ function GenericYearWiseEnergyGraph(props) {
                             data= {finalArray}
                             options={
                                 {
-                                    width: 600,
-                                    height: 400,
+                                    width: 500,
+                                    height: 300,
                                     chartArea: {
                                         width: '80%'
                                     },
